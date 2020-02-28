@@ -1,34 +1,6 @@
 const mongoose = require('mongoose')
 
 const articlesSchema = new mongoose.Schema({
-    author: {
-        type:String,
-    },
-    content: {
-        type:String,
-    },
-    description: {
-        type:String,
-    },
-    publishedAt:{
-        type:Date,
-    },
-    source_id: {
-        type:String,
-    },
-    summarization:{
-        type:String,
-    },
-    title:{
-        type:String,
-    },
-    url:{
-        type:String,
-    },
-    urlToImage: {
-        type:String,
-    },
+    author: String, content: String, description: String, publishedAt: Date, source_id: String, summarization: String, title: String, url: String, urlToImage: String}, { collection: 'Articles'});
 
-});
-
-module.exports = mongoose.model('article', articlesSchema, 'Articles')
+module.exports = mongoose.model('article', articlesSchema)
