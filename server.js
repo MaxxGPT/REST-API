@@ -12,6 +12,6 @@ db.once('open', () => console.log('Connected to Database'))
 app.use(express.json())
 
 const articlesRouter = require('./routes/articles')
-app.use('/Articles', articlesRouter)
+app.use('/', articlesRouter)
 
 app.listen(3000, () => console.log('Server Started'))
