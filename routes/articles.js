@@ -13,8 +13,24 @@ router.get('/', async (req, res) => {
 })
 
 //Getting One Article
-router.get('/:id', (req, res) => {
+router.get('/:id', getArticle, (req, res) => {
+  res.json(res.article)
     
 })
+
+async function getArticle(req, res, next) {
+  let article
+  try{
+    article = await Article.findById(req.params.id)
+    if (article == null) {
+      return res.status(404).json({ message: 'Cannot find article'})
+    }
+  } catch(err) {
+    return res.status(500).json({ message: err.message })
+  }
+
+  res.article = article
+  next() 
+}
 
 module.exports = router
