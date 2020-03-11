@@ -5,7 +5,7 @@ const Article = require('../models/articles')
 //Getting All Articles
 router.get('/', async (req, res) => {
   try {
-      const articles = await Article.find()
+      const articles = await Article.find({}, null, {limit: req.query.limit})
       res.json(articles)
   } catch (err){
     res.status(400).json({message: err.message})
