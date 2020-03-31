@@ -3,20 +3,27 @@ const router = express.Router()
 const Users = require('../models/users')
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
+var expressValidator = require('express-validator')
 
+router.use(expressValidator())
+
+
+//Register Page - GET
 router.get('/register', (req, res) => {
     res.render('register.hbs', {
         pageTitle: 'register'
     });
 });
 
+//Login Page - GET
 router.get('/login', (req, res) => {
     res.render('login.hbs', {
         pageTitle: 'login'
     });
 });
 
-router.post('/register', (req, res) => {
+//Register - POST
+router.post('/', (req, res) => {
     var firstName = req.body.firstName;
     var lastName = req.body.lastName;
     var email = req.body.email;
@@ -25,7 +32,7 @@ router.post('/register', (req, res) => {
     //validations
     req.checkBody('firstName', 'Your First Name is Required').notEmpty();
     req.checkBody('lastName', 'Your Last Name is Required').notEmpty();
-    req.checkBody('email', 'A valide email is required').notEmpty();
+    req.checkBody('email', 'A valid email is required').isEmail();
     req.checkBody('password', 'An Account Passowrd Is Required').notEmpty();
 
     var errors = req.validationErrors();
@@ -41,7 +48,7 @@ router.post('/register', (req, res) => {
             password: password,
         });
 
-        newUser.createUser(newUser, function(err, user) {
+        User.createUser(newUser, function(err, user) {
             if(err) throw(err);
             console.log(user);
         });
