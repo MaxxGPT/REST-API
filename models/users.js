@@ -7,32 +7,26 @@ var userSchema = new mongoose.Schema({
     email: String, 
     password: String, 
     permissionLevel: Number, 
-    created: Date}, 
-    { collection: 'Users'});
+    created: Date, 
+    apiKey: String
+});
 
-    module.exports = mongoose.model('Users', userSchema);
+userSchema.methods.generateHash = function(cb) {
+  this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10), cb);
+  return cb();
+};
 
-module.exports.createUser = function(newUser, callback){
-    bcrypt.genSalt(10, function(err, salt) {
-        bcrypt.hash(newUser.password, salt, function(err, hash) {
-            newUser.password = hash;
-            newUser.save(callback);
-        });
-    });
-}
+userSchema.methods.validPassword = function(password, hash) {
+  return bcrypt.compareSync(password, hash);
+};
 
-module.exports.getUserByEmail = function(email, callback){
-    var query = {email: email};
-    User.findOne(query, callback);
-}
+userSchema.post("save", function(_doc, next) {
+  _doc.password = undefined;
+  return next();
+});
 
-module.exports.getUserById = function(id, callback){
-    user.findById(id, callback);
-}
+userSchema.pre("save", function(next) {
+  this.generateHash(next);
+});
 
-module.exports.comparePassword = function(candidatePassword, hash, callback) {
-    bcrypt.compare(candidatePassword, hash, function(err, isMatch){
-        if(err) throw err;
-        callback(null, isMatch)
-    });
-}
+module.exports = mongoose.model('User', userSchema);

@@ -1,26 +1,14 @@
-const express = require('express')
-const router = express.Router()
-const Users = require('../models/users')
-const passport = require('passport')
-const LocalStrategy = require('passport-local').Strategy
-var expressValidator = require('express-validator')
+const express = require('express');
+const router = express.Router();
+const Users = require('../models/users');
+const UsersConstroller = require('../controllers/users.controller');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const uuidv4 = require('uuid/v4');
+var expressValidator = require('express-validator');
+const flash = require('req-flash');
 
-router.use(expressValidator())
-
-
-//Register Page - GET
-router.get('/register', (req, res) => {
-    res.render('register.hbs', {
-        pageTitle: 'register'
-    });
-});
-
-//Login Page - GET
-router.get('/login', (req, res) => {
-    res.render('login.hbs', {
-        pageTitle: 'login'
-    });
-});
+router.use(expressValidator());
 
 //Register - POST
 router.post('/', (req, res) => {
@@ -37,20 +25,21 @@ router.post('/', (req, res) => {
 
     var errors = req.validationErrors();
     if (errors) {
-        res.render('register', {
+        res.render('register.ejs', {
             errors:errors 
         });
     } else {
-        var newUser = new newUser({
+        const randomKey = uuidv4();
+        var newUser = new Users({
             firstName: firstName,
             lastName: lastName,
             email: email,
             password: password,
+            apiKey: randomKey.replace(/-/g,'')
         });
-
-        User.createUser(newUser, function(err, user) {
+        newUser.save(function(err, user) {
             if(err) throw(err);
-            console.log(user);
+            //console.log(user);
         });
 
         req.flash('success_message', "You are now registered!");
@@ -59,23 +48,21 @@ router.post('/', (req, res) => {
 });
 
 passport.use(new LocalStrategy({
-    email: 'email'
+    usernameField: 'email',
+    passwordField: 'password'
 },
 function(email, password, done){
-    Users.getUserByEmail(email, function(err, Users){
+    UsersConstroller.getUserByEmail(email, function(err, _user){
         if(err) throw err;
-        if(!Users){
+        if(!_user){
             return done(null, false, {message: 'Unknown Email Address'});
         }
-
-        Users.comparePassword(password, user.password, function(err, ismatch){
-            if(err) throw err;
-            if(ismatch){
-                return done (null, user); 
-            } else {
-                return done(null, false, {message: 'Invalid Passowrd'});
-            }
-        });
+        const ismatch = _user.validPassword(password, _user.password);
+        if(ismatch){
+            return done (null, _user); 
+        } else {
+            return done(null, false, {message: 'Invalid Passowrd'});
+        }
     });
 }));
 
@@ -84,19 +71,33 @@ passport.serializeUser(function(user, done){
 });
 
 passport.deserializeUser(function(id, done) {
-    Users.getUserByID(id, function(err, user) {
+    UsersConstroller.getUserById(id, function(err, user) {
         done(err, user) 
     });
 }); 
 
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/dashboard',
-    failureRedirect: '/login',
-    successFlash: 'Welcome',
-    failureFlash: 'Invalid Email or Passowrd!'
-}), function(req, res) {
+        successRedirect: '/dashboard',
+        failureRedirect: '/login',
+        session:true,
+        successFlash: 'Welcome',
+        failureFlash: 'Invalid Email or Passowrd!'
+    }), function(req, res) {
     res.redirect('/');
 });
+
+/*router.post('/login', function(req, res) {
+    passport.authenticate('local', function(err, user, info) {
+        if (err) { 
+            return next(err); 
+        }else if (!user) { 
+            return res.redirect('/login'); 
+        }else{
+            res.cookie('api_key', user.apiKey);
+            return res.redirect('/dashboard');
+        }
+    });
+});*/
 
 router.get('/logout', function(req, res) {
     req.logout();
