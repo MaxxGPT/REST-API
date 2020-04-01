@@ -25,6 +25,7 @@ router.post('/', (req, res) => {
 
     var errors = req.validationErrors();
     if (errors) {
+        console.log(errors);
         res.render('register.ejs', {
             errors:errors 
         });

@@ -22,4 +22,8 @@
     <button type="submit">Register</button>
 </form>
 <a href="/login">Login</a>
+<br>
+<% if(locals.errors){ %>
+    <b>Errors: <%= JSON.stringify(errors) %></b><br>
+<% } %>
 
