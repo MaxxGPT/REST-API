@@ -39,12 +39,18 @@ router.post('/', (req, res) => {
             apiKey: randomKey.replace(/-/g,'')
         });
         newUser.save(function(err, user) {
-            if(err) throw(err);
+            if(err){
+                //throw(err);
+                console.log(err);
+                res.render('register.ejs', {
+                    errors:err
+                });
+            }else{
+                req.flash('success_message', "You are now registered!");
+                res.redirect('/login');
+            }
             //console.log(user);
         });
-
-        req.flash('success_message', "You are now registered!");
-        res.redirect('/login');
     }
 });
 

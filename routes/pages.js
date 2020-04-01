@@ -12,4 +12,4 @@ router.get("/test", apiKeyMiddleware.validate, (req, res) => {
 	res.status(200).json({msg:"Valid API KEY"});
 });
 
-module.exports = router 
+module.exports = router;
