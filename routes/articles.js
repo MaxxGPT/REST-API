@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const Article = require('../models/articles')
+const apiKeyMiddleware = require('../middlewares/api_key.middleware');
 
 //Getting All Articles
-router.get('/', async (req, res) => {
+router.get('/',apiKeyMiddleware.validate, async (req, res) => {
   try {
       const articles = await Article.find({}, null, {limit: parseInt(req.query.limit, 10)})
       res.json(articles)

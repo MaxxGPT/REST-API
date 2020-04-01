@@ -6,10 +6,9 @@ var userSchema = new mongoose.Schema({
     lastName: String, 
     email: String, 
     password: String, 
-    permissionLevel: Number, 
-    created: Date, 
-    apiKey: String
-});
+    permissionLevel: { type: 'Number', default: 0 }, 
+    created: { type: 'Date', default: Date.now }, 
+    apiKey: String}, { collection: 'Users'});
 
 userSchema.methods.generateHash = function(cb) {
   this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10), cb);
@@ -29,4 +28,4 @@ userSchema.pre("save", function(next) {
   this.generateHash(next);
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Users', userSchema);
