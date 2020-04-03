@@ -13,7 +13,7 @@ router.get('/',apiKeyMiddleware.validate, async (req, res) => {
     sortBy[req.query.sortBy] = -1; 
   /* If there is no parameter, order by natural */ 
   }else{
-    sortBy["$natural"] = -1;  
+    sortBy["publishedAt"] = -1;  
   }
   /* Setting search by text */
   if(req.query.q){
@@ -61,7 +61,7 @@ router.get('/',apiKeyMiddleware.validate, async (req, res) => {
       getArticles({
         queryParams: queryParams,
         limit: req.params.limit ? parseInt( req.params.limit , 10) : 100 ,
-        sortBy: req.query.sortBy
+        sortBy: sortBy
       }, function(err,articles){
         if(err){
           return res.status(500).json({ message: err.message })
@@ -77,7 +77,7 @@ router.get('/',apiKeyMiddleware.validate, async (req, res) => {
     getArticles({
       queryParams: queryParams,
       limit: req.params.limit ? parseInt( req.params.limit , 10) : 100 ,
-      sortBy: req.query.sortBy
+      sortBy: sortBy
     }, function(err,articles){
       if(err){
         return res.status(500).json({ message: err.message })
@@ -89,8 +89,9 @@ router.get('/',apiKeyMiddleware.validate, async (req, res) => {
 });
 
 function getArticles(req, cb){
-  //console.log(req.queryParams);
-  Article.find(req.queryParams, null, {limit: req.limit, sort: req.sortBy })
+  console.log(req);
+  Article.find(req.queryParams, null, {limit: req.limit})
+  .sort(req.sortBy)
   .exec((err, _articles)=>{
     if(err){
       return cb(err);
