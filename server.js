@@ -24,8 +24,14 @@ app.use(flash());
 const articlesRouter = require('./routes/articles')
 app.use('/articles', articlesRouter)
 
+const sourcesRouter = require('./routes/sources')
+app.use('/sources', sourcesRouter)
+
 const userRouter = require('./routes/users')
-app.use('/register', userRouter)
+app.use('/users', userRouter)
+
+const authRouter = require('./routes/auth')
+app.use('/register', authRouter)
 
 app.use(express.urlencoded({ extended: false }))
 
@@ -43,5 +49,8 @@ app.use('/dashboard', pagesRouter);
 app.get('/register', (req, res) => {
     res.render('register.ejs')
 })
+
+/*To call dependencies from frontend*/
+app.use('/node_modules',express.static("./node_modules"));
 
 app.listen(3000, () => console.log('Server Started'))

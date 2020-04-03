@@ -7,6 +7,7 @@ var userSchema = new mongoose.Schema({
     email: String, 
     password: String, 
     permissionLevel: { type: 'Number', default: 0 }, 
+    isAdmin: {type:'Boolean', default:false},
     created: { type: 'Date', default: Date.now }, 
     apiKey: String}, { collection: 'Users'});
 

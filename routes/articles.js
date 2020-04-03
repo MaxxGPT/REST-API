@@ -33,10 +33,13 @@ router.get('/',apiKeyMiddleware.validate, async (req, res) => {
           "$lte": req.query.to
         }
       }
-    queryParams["publishedAt"] = {
-      "$lte": req.query.to,
-      "$gte": req.query.from
-    }
+      /* Setting both params if they exist */
+      if(req.query.to && req.query.from){
+        queryParams["publishedAt"] = {
+          "$lte": req.query.to,
+          "$gte": req.query.from
+        }
+      }
   /* If there is no date param, retrieve from last 6 months*/ 
   }else{
     let currentDate = new Date();
@@ -44,7 +47,7 @@ router.get('/',apiKeyMiddleware.validate, async (req, res) => {
     //console.log(sixMonthRange, new Date(sixMonthRange).toISOString());
     queryParams["publishedAt"] = {
       "$gte": new Date(sixMonthRange).toISOString()
-    }
+    };
   }
   //console.log(req.query);
   /* Search domains first, then searching by params with source_id */
@@ -57,7 +60,7 @@ router.get('/',apiKeyMiddleware.validate, async (req, res) => {
       queryParams["source_id"] = { $in: sources };
       getArticles({
         queryParams: queryParams,
-        limit: req.params.limit ? parseInt( req.params.limit , 10) : 60 ,
+        limit: req.params.limit ? parseInt( req.params.limit , 10) : 100 ,
         sortBy: req.query.sortBy
       }, function(err,articles){
         if(err){
@@ -73,7 +76,7 @@ router.get('/',apiKeyMiddleware.validate, async (req, res) => {
   }else{
     getArticles({
       queryParams: queryParams,
-      limit: req.params.limit ? parseInt( req.params.limit , 10) : 60 ,
+      limit: req.params.limit ? parseInt( req.params.limit , 10) : 100 ,
       sortBy: req.query.sortBy
     }, function(err,articles){
       if(err){
@@ -86,7 +89,7 @@ router.get('/',apiKeyMiddleware.validate, async (req, res) => {
 });
 
 function getArticles(req, cb){
-  console.log(req.queryParams);
+  //console.log(req.queryParams);
   Article.find(req.queryParams, null, {limit: req.limit, sort: req.sortBy })
   .exec((err, _articles)=>{
     if(err){

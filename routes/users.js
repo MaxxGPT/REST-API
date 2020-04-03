@@ -2,15 +2,13 @@ const express = require('express');
 const router = express.Router();
 const Users = require('../models/users');
 const UsersConstroller = require('../controllers/users.controller');
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
 const uuidv4 = require('uuid/v4');
 var expressValidator = require('express-validator');
 const flash = require('req-flash');
 
 router.use(expressValidator());
 
-//Register - POST
+//New User (Internal) - POST
 router.post('/', (req, res) => {
     var firstName = req.body.firstName;
     var lastName = req.body.lastName;
@@ -18,17 +16,15 @@ router.post('/', (req, res) => {
     var password = req.body.password;
 
     //validations
-    req.checkBody('firstName', 'Your First Name is Required').notEmpty();
-    req.checkBody('lastName', 'Your Last Name is Required').notEmpty();
+    req.checkBody('firstName', 'First Name is Required').notEmpty();
+    req.checkBody('lastName', 'Last Name is Required').notEmpty();
     req.checkBody('email', 'A valid email is required').isEmail();
-    req.checkBody('password', 'An Account Passowrd Is Required').notEmpty();
+    req.checkBody('password', 'Password is Required').notEmpty();
 
     var errors = req.validationErrors();
     if (errors) {
         console.log(errors);
-        res.render('register.ejs', {
-            errors:errors 
-        });
+        res.redirect('/dashboard/users/new');
     } else {
         const randomKey = uuidv4();
         var newUser = new Users({
@@ -42,74 +38,43 @@ router.post('/', (req, res) => {
             if(err){
                 //throw(err);
                 console.log(err);
-                res.render('register.ejs', {
-                    errors:err
-                });
+                res.redirect('/dashboard/users/new');
             }else{
-                req.flash('success_message', "You are now registered!");
-                res.redirect('/login');
+                req.flash('success_message', "User registered!");
+                res.redirect('/dashboard/users/list');
             }
             //console.log(user);
         });    
     }
 });
 
-passport.use(new LocalStrategy({
-    usernameField: 'email',
-    passwordField: 'password'
-},
-function(email, password, done){
-    UsersConstroller.getUserByEmail(email, function(err, _user){
-        if(err) throw err;
-        if(!_user){
-            return done(null, false, {message: 'Unknown Email Address'});
-        }
-        const ismatch = _user.validPassword(password, _user.password);
-        if(ismatch){
-            return done (null, _user); 
-        } else {
-            return done(null, false, {message: 'Invalid Passowrd'});
-        }
+/*Delete Users*/
+router.delete('/:id', async (req, res) => {
+    Users.remove({_id:req.params.id},(err)=>{
+      if(err){
+        return res.status(500).json({message:err.message});
+      }else{
+        return res.status(200).json({message:'User removed correctly.'});
+      }
     });
-}));
-
-passport.serializeUser(function(user, done){
-    done(null, user.id);
 });
 
-passport.deserializeUser(function(id, done) {
-    UsersConstroller.getUserById(id, function(err, user) {
-        done(err, user) 
+/*PATCH Users*/
+router.patch('/:id', async (req, res) => {
+    if(req.body.password && (req.body.password == '' || req.body.password.length == 0)){
+        delete req.body.password;
+    }
+    req.checkBody('firstName', 'First Name is Required').notEmpty();
+    req.checkBody('lastName', 'Last Name is Required').notEmpty();
+    req.checkBody('email', 'A valid Email is required').isEmail();
+
+    Users.updateById(req.params.id, {$set:req.body}, (err)=>{
+      if(err){
+        return res.status(500).json({message:err.message});
+      }else{
+        return res.status(200).json({message:'User removed correctly.'});
+      }
     });
-}); 
-
-router.post('/login', passport.authenticate('local', {
-        successRedirect: '/dashboard',
-        failureRedirect: '/login',
-        session:true,
-        successFlash: 'Welcome',
-        failureFlash: 'Invalid Email or Passowrd!'
-    }), function(req, res) {
-    res.redirect('/');
-});
-
-/*router.post('/login', function(req, res) {
-    passport.authenticate('local', function(err, user, info) {
-        if (err) { 
-            return next(err); 
-        }else if (!user) { 
-            return res.redirect('/login'); 
-        }else{
-            res.cookie('api_key', user.apiKey);
-            return res.redirect('/dashboard');
-        }
-    });
-});*/
-
-router.get('/logout', function(req, res) {
-    req.logout();
-    req.flash('Success_message', 'You are now logged out!')
-    res.redirect('/');
 });
 
 module.exports = router 
