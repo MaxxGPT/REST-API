@@ -6,6 +6,7 @@ services:
     command: --wiredTigerCacheSizeGB 1.5
     volumes:
       - mongodata:/data/db
+      - ./mongobackup:/data/backup
     ports:
       - "27017:27017"
 
