@@ -6,6 +6,8 @@ services:
     command: --wiredTigerCacheSizeGB 1.5
     volumes:
       - mongodata:/data/db
+    ports:
+      - "27017:27017"
 
   proxy.asatera.com:
     restart: on-failure
@@ -34,8 +36,6 @@ services:
       - DATABASE_URL=mongodb://mongo.asatera.com:27017/NewsAPI
     env_file:
       - ./api/.env
-    ports:
-      - "5000:5000"
 
   app.asatera.com:
     restart: on-failure
