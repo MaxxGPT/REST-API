@@ -1,0 +1,34 @@
+version: "2"
+services:
+  api.asatera.com:
+    image: node:lts-alpine
+    volumes:
+      - apimodules:/usr/src/app/node_modules
+      - ./api:/usr/src/app
+    working_dir: /usr/src/app
+
+  app.asatera.com:
+    image: node:lts-alpine
+    volumes:
+      - appmodules:/usr/src/app/node_modules
+      - ./app:/usr/src/app
+    working_dir: /usr/src/app
+
+  install_api:
+    extends:
+      service: api.asatera.com
+    command: yarn install --silent
+
+  install_app:
+    extends:
+      service: app.asatera.com
+    command: yarn install --silent
+
+volumes:
+  apimodules: {}
+  appmodules: {}
+
+networks:
+  default:
+    external:
+      name: net.asatera.com

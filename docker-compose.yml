@@ -1,0 +1,64 @@
+version: "3.7"
+services:
+  mongo.asatera.com:
+    image: mongo:latest
+    restart: always
+    command: --wiredTigerCacheSizeGB 1.5
+    volumes:
+      - mongodata:/data/db
+
+  proxy.asatera.com:
+    restart: on-failure
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    depends_on:
+      - api.asatera.com
+      - app.asatera.com
+    ports:
+      - "80:80"
+
+  api.asatera.com:
+    restart: on-failure
+    image: node:lts-alpine
+    depends_on:
+      - mongo.asatera.com
+    volumes:
+      - apimodules:/usr/src/app/node_modules
+      - ./api:/usr/src/app
+    working_dir: /usr/src/app
+    command: yarn start
+    environment:
+      - NODE_ENV=development
+      - PORT=5000
+      - DATABASE_URL=mongodb://mongo.asatera.com:27017/NewsAPI
+    env_file:
+      - ./api/.env
+    ports:
+      - "5000:5000"
+
+  app.asatera.com:
+    restart: on-failure
+    image: node:lts-alpine
+    volumes:
+      - appmodules:/usr/src/app/node_modules
+      - ./app:/usr/src/app
+    working_dir: /usr/src/app
+    command: yarn start
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - CHOKIDAR_USEPOLLING=true
+    env_file:
+      - ./app/.env
+    stdin_open: true
+
+volumes:
+  mongodata: {}
+  apimodules: {}
+  appmodules: {}
+
+networks:
+  default:
+    external:
+      name: net.asatera.com
