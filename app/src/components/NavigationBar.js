@@ -22,8 +22,7 @@ export const NavigationBar = () => (
             <Navbar.Brand href="/"> AsaTera </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ml-auto">
-                    
+                <Nav className="ml-auto">         
                     <Nav.Item><Nav.Link href="/Developers">Developers</Nav.Link></Nav.Item>
                     <Nav.Item><Nav.Link href="/Pricing">Pricing</Nav.Link></Nav.Item>
                     <Nav.Item><Nav.Link href="/Login">Login</Nav.Link></Nav.Item>       
