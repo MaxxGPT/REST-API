@@ -5,20 +5,28 @@ import { Developers } from './Developers';
 import { Pricing } from './Pricing';
 import { Login } from './Login';
 import { NoMatch } from './NoMatch';
+import {Privacy} from './Privacy';
+import {Layout} from './components/Layout';
+import {NavigationBar } from './components/NavigationBar';
+
 
 class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Router>
-          <Switch>
-            <Route exact path = "/" component={Home} />
-            <Route path="/developers" component = {Developers} />
-            <Route path="/pricing" component = {Pricing} />
-            <Route path="/login" component = {Login} />
-            <Route component={NoMatch} /> 
-          </Switch>
-        </Router>
+        <NavigationBar />
+        <Layout>
+          <Router>
+            <Switch>
+              <Route exact path = "/" component={Home} />
+              <Route path="/developers" component = {Developers} />
+              <Route path="/pricing" component = {Pricing} />
+              <Route path="/login" component = {Login} />
+              <Route path="/privacy" component = {Privacy} />
+              <Route component={NoMatch} /> 
+            </Switch>
+          </Router>
+        </Layout>
       </React.Fragment>
     );
   }
