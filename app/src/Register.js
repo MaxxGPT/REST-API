@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 export const Register = () => (
     <form>
@@ -19,7 +20,7 @@ export const Register = () => (
     <input type="text"/>
 
     <button> Register</button>
-    
+    <li><Link to="/privacy">Privacy & Terms</Link></li> 
 
 </form>
 

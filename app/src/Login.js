@@ -17,6 +17,7 @@ export const Login = () => (
     <button> Login</button>
 
     <li><Link to="/register">Register</Link></li>
+    <li><Link to="/privacy">Privacy & Terms</Link></li>
 </form>
 
 );
