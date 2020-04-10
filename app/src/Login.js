@@ -14,7 +14,7 @@ export const Login = () => (
     <input
         type="text"/>
 
-    <input type='Submit'/>
+    <button> Login</button>
 
     <li><Link to="/register">Register</Link></li>
 </form>

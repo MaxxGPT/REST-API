@@ -18,7 +18,8 @@ export const Register = () => (
     <p> Confirm Password:</p>
     <input type="text"/>
 
-    <input type='Submit'/>
+    <button> Register</button>
+    
 
 </form>
 
