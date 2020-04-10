@@ -6,14 +6,14 @@ export const Developers = () => (
 
         <h3>API Reference</h3>
 
-        <p>The AsaTera API is organized around REST. Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes.
+        <p>The AsaTera API is organized around <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a>. Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns <a href="https://www.json.org/json-en.html">JSON-encoded</a> responses, and uses standard HTTP response codes.
         By default, the Stripe API Docs demonstrate using curl to interact with the API over HTTP. Select one of our official client libraries to see examples in code.</p>
 
         <p>Was this section helpful? Yes No</p>
 
         <h3>Authentication</h3>
 
-        <p>The AsaTera API uses API keys to authenticate requests. You can view and manage your API keys in the User Dashboard.</p>
+        <p>The AsaTera API uses API keys to authenticate requests. You can view and manage your API keys in the <a href="http://localhost/Dashboard">User Dashboard</a>.</p>
 
         <p>Your API key carries many privileges, so be sure to keep them secure! Do not share your key in publicly accessible areas such as GitHub, client-side code, and so forth.</p>
 
