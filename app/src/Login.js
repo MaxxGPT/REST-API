@@ -14,6 +14,8 @@ export const Login = () => (
     <input
         type="text"/>
 
+    <input type='Submit'/>
+
     <li><Link to="/register">Register</Link></li>
 </form>
 
