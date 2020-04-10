@@ -9,6 +9,7 @@ import { Privacy } from './Privacy';
 import { Layout } from './components/Layout';
 import { NavigationBar } from './components/NavigationBar';
 import { Register } from './Register';
+import { Dashboard } from './Dashboard';
 
 
 
@@ -26,6 +27,7 @@ class App extends Component {
               <Route path="/login" component = {Login} />
               <Route path="/privacy" component = {Privacy} />
               <Route path="/register" component = {Register} />
+              <Route path="/dashboard" component = {Dashboard} />
               <Route component={NoMatch} /> 
             </Switch>
           </Router>
