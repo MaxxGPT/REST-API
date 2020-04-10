@@ -1,11 +1,20 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+
 
 export const Login = () => (
-    <div>
-        <h2> Login </h2>
 
-    
-    
-    </div>
+<form>
+    <h1> Login</h1>
+    <p> Email:</p>
+    <input
+        type="text"
+    />
+    <p> Password:</p>
+    <input
+        type="text"/>
 
-)
+    <li><Link to="/register">Register</Link></li>
+</form>
+
+);

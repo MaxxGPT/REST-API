@@ -5,9 +5,11 @@ import { Developers } from './Developers';
 import { Pricing } from './Pricing';
 import { Login } from './Login';
 import { NoMatch } from './NoMatch';
-import {Privacy} from './Privacy';
-import {Layout} from './components/Layout';
-import {NavigationBar } from './components/NavigationBar';
+import { Privacy } from './Privacy';
+import { Layout } from './components/Layout';
+import { NavigationBar } from './components/NavigationBar';
+import { Register } from './Register';
+
 
 
 class App extends Component {
@@ -23,6 +25,7 @@ class App extends Component {
               <Route path="/pricing" component = {Pricing} />
               <Route path="/login" component = {Login} />
               <Route path="/privacy" component = {Privacy} />
+              <Route path="/register" component = {Register} />
               <Route component={NoMatch} /> 
             </Switch>
           </Router>
