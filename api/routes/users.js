@@ -5,6 +5,7 @@ const UsersConstroller = require('../controllers/users.controller');
 const uuidv4 = require('uuid/v4');
 var expressValidator = require('express-validator');
 const flash = require('req-flash');
+const authMiddleware = require('../middlewares/auth.middleware');
 
 router.use(expressValidator());
 
@@ -48,9 +49,33 @@ router.post('/', (req, res) => {
     }
 });
 
+/*Get user information*/
+router.get('/me', authMiddleware.validate, (req, res)=>{
+    return res.status(200).json(req.user);
+});
+/* See default user */
+router.get('/seed', (req, res)=>{
+    const randomKey = uuidv4();
+    let newUser = new Users({
+        firstName: "Admin",
+        lastName: "Default",
+        password: "Test.123",
+        email: "admin@default.com",
+        isAdmin: true,
+        apiKey: randomKey.replace(/-/g,'')
+    });
+    newUser.save((err, _user)=>{
+        if(err){
+            return res.status(400).json(err);
+        }else{
+            return res.status(200).json({msg:"Default user seeded"});
+        }
+    });
+});
+
 /*Delete Users*/
-router.delete('/:id', async (req, res) => {
-    Users.remove({_id:req.params.id},(err)=>{
+router.delete('/remove', authMiddleware.validate, async (req, res) => {
+    Users.remove({_id:req.user.id},(err)=>{
       if(err){
         return res.status(500).json({message:err.message});
       }else{
@@ -60,19 +85,29 @@ router.delete('/:id', async (req, res) => {
 });
 
 /*PATCH Users*/
-router.patch('/:id', async (req, res) => {
+router.patch('/', authMiddleware.validate, async (req, res) => {
     if(req.body.password && (req.body.password == '' || req.body.password.length == 0)){
         delete req.body.password;
     }
-    req.checkBody('firstName', 'First Name is Required').notEmpty();
-    req.checkBody('lastName', 'Last Name is Required').notEmpty();
-    req.checkBody('email', 'A valid Email is required').isEmail();
-
-    Users.updateById(req.params.id, {$set:req.body}, (err)=>{
+    Users.findByIdAndUpdate(req.user.id, {$set:req.body}, (err)=>{
       if(err){
         return res.status(500).json({message:err.message});
       }else{
-        return res.status(200).json({message:'User removed correctly.'});
+        return res.status(200).json({message:'User updated correctly.'});
+      }
+    });
+});
+
+/*Updare User API Key*/
+router.get('/generateApi', authMiddleware.validate, async (req, res) => {
+    const randomKey = uuidv4();
+    Users.findByIdAndUpdate(req.user.id, {$set:{
+        apiKey: randomKey.replace(/-/g,'')
+    }}, (err)=>{
+      if(err){
+        return res.status(500).json({message:err.message});
+      }else{
+        return res.status(200).json({message:'API key generated correctly.'});
       }
     });
 });

@@ -1,27 +1,61 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import { request } from './services/Request';
 
-export const Register = () => (
-    <form>
-    <h1> Register</h1>
-    <p> First Name:</p>
-    <input type="text"/>
+export const Register = () => {
 
-    <p> Last Name:</p>
-    <input type="text"/>
+    const [userData, setUserData] = useState({});
+    
+    const onChangeHandlerFn = (event) => {
+          // update the state;
+          let currentData = userData;
+          currentData[event.target.name] = event.target.value;
+          setUserData( currentData );
+    }
 
-    <p> Email Address:</p>
-    <input type="text"/>
+    const handleSubmit = (event) => {
+          event.preventDefault();
+          if(userData.password !== userData.password2){
+              alert('Password does not coincide');
+          }else{              
+              const data = JSON.stringify( userData );
+              const result = request("/api/register", {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: data
+              });
+              result.then( (result) =>{
+                  console.log(result);
+                  if(result.error){
+                      alert('There was an error while processing your data. Please try again');
+                  }else{
+                      window.location.href="/login"
+                  }
+              });
+          }
+    }
 
-    <p> Password:</p>
-    <input type="text"/>
+    return (
+        <form onSubmit={handleSubmit}>
+            <h1> Register</h1>
+            <p> First Name:</p>
+            <input type="text" onChange={onChangeHandlerFn} name="firstName" required/>
 
-    <p> Confirm Password:</p>
-    <input type="text"/>
+            <p> Last Name:</p>
+            <input type="text" onChange={onChangeHandlerFn} name="lastName" required/>
 
-    <button> Register</button>
-    <li><Link to="/privacy">Privacy & Terms</Link></li> 
+            <p> Email Address:</p>
+            <input type="email" onChange={onChangeHandlerFn} name="email" required/>
 
-</form>
+            <p> Password:</p>
+            <input type="password" onChange={onChangeHandlerFn} name="password" required/>
 
-);
+            <p> Confirm Password:</p>
+            <input type="password" onChange={onChangeHandlerFn} name="password2" required/>
+
+            <button type="submit"> Register</button>
+            <li><Link to="/privacy">Privacy & Terms</Link></li> 
+        </form>
+    );
+
+};

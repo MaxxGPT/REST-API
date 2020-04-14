@@ -38,7 +38,7 @@ app.use("/register", authRouter);
 
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {
+/*app.get("/", (req, res) => {
   //res.render('index.ejs')
   res.redirect("/login");
 });
@@ -51,6 +51,6 @@ app.use("/dashboard", pagesRouter);
 
 app.get("/register", (req, res) => {
   res.render("register.ejs");
-});
+});*/
 
 app.listen(5000, () => console.log("Server Started"));

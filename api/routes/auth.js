@@ -26,9 +26,7 @@ router.post('/', (req, res) => {
     var errors = req.validationErrors();
     if (errors) {
         console.log(errors);
-        res.render('register.ejs', {
-            errors:errors 
-        });
+        res.status(400).json(errors);
     } else {
         const randomKey = uuidv4();
         var newUser = new Users({
@@ -42,12 +40,10 @@ router.post('/', (req, res) => {
             if(err){
                 //throw(err);
                 console.log(err);
-                res.render('register.ejs', {
-                    errors:err
-                });
+                res.status(400).json(err);
             }else{
                 req.flash('success_message', "You are now registered!");
-                res.redirect('/login');
+                res.status(200).json({msg:'User created'});
             }
             //console.log(user);
         });    
@@ -84,13 +80,9 @@ passport.deserializeUser(function(id, done) {
 }); 
 
 router.post('/login', passport.authenticate('local', {
-        successRedirect: '/dashboard',
-        failureRedirect: '/login',
         session:true,
-        successFlash: 'Welcome',
-        failureFlash: 'Invalid Email or Passowrd!'
     }), function(req, res) {
-    res.redirect('/');
+    res.status(200).json({msg:'Login correctly'});
 });
 
 router.get('/logout', function(req, res) {
