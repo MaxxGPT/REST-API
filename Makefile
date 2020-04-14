@@ -7,3 +7,6 @@ dev:
 
 down:
 	docker-compose -f docker-compose.yml down
+
+rebuild_docker:
+	docker build --no-cache -t asateracom_proxy.asatera.com nginx
