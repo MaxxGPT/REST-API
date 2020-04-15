@@ -11,13 +11,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/articles?api_key=f1ff941b3d0740949a420fc91cbc7539",
+					"raw": "http://localhost/api/articles?api_key=f1ff941b3d0740949a420fc91cbc7539",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
 					"path": [
+						"api",
 						"articles"
 					],
 					"query": [
@@ -36,13 +36,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/articles?q=vaping&from=2019-02-02&to=2019-03-03&sortBy=publishedAt&api_key=f1ff941b3d0740949a420fc91cbc7539",
+					"raw": "http://localhost/api/articles?q=vaping&from=2019-02-02&to=2019-03-03&sortBy=publishedAt&api_key=f1ff941b3d0740949a420fc91cbc7539",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
 					"path": [
+						"api",
 						"articles"
 					],
 					"query": [
@@ -77,13 +77,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/articles?q=cannabis&from=2019-02-02&SortBy=publishedAt&api_key=f1ff941b3d0740949a420fc91cbc7539",
+					"raw": "http://localhost/api/articles?q=cannabis&from=2019-02-02&SortBy=publishedAt&api_key=f1ff941b3d0740949a420fc91cbc7539",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
 					"path": [
+						"api",
 						"articles"
 					],
 					"query": [
@@ -114,13 +114,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/articles?domains=420magazine.com&api_key=f1ff941b3d0740949a420fc91cbc7539",
+					"raw": "http://localhost/api/articles?domains=420magazine.com&api_key=f1ff941b3d0740949a420fc91cbc7539",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
 					"path": [
+						"api",
 						"articles"
 					],
 					"query": [
@@ -143,13 +143,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/sources?api_key=f1ff941b3d0740949a420fc91cbc7539",
+					"raw": "http://localhost/api/sources?api_key=f1ff941b3d0740949a420fc91cbc7539",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
 					"path": [
+						"api",
 						"sources"
 					],
 					"query": [
@@ -168,13 +168,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/sources?language=en&api_key=f1ff941b3d0740949a420fc91cbc7539",
+					"raw": "http://localhost/api/sources?language=en&api_key=f1ff941b3d0740949a420fc91cbc7539",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
 					"path": [
+						"api",
 						"sources"
 					],
 					"query": [
@@ -197,13 +197,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/sources?language=en&country=us&api_key=f1ff941b3d0740949a420fc91cbc7539",
+					"raw": "http://localhost/api/sources?language=en&country=us&api_key=f1ff941b3d0740949a420fc91cbc7539",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
 					"path": [
+						"api",
 						"sources"
 					],
 					"query": [
@@ -230,13 +230,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/sources?state=fl&city=miami&api_key=f1ff941b3d0740949a420fc91cbc7539",
+					"raw": "http://localhost/api/sources?state=fl&city=miami&api_key=f1ff941b3d0740949a420fc91cbc7539",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
 					"path": [
+						"api",
 						"sources"
 					],
 					"query": [
@@ -252,6 +252,90 @@
 							"key": "api_key",
 							"value": "f1ff941b3d0740949a420fc91cbc7539"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Seed Default User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/users/seed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"users",
+						"seed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sources - POST New Source",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "_id",
+							"value": "example",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Example",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Description example",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "http://example.com",
+							"type": "text"
+						},
+						{
+							"key": "language",
+							"value": "en",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "us",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "florida",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "los angeles",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/sources",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"sources"
 					]
 				}
 			},

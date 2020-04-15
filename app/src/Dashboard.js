@@ -17,26 +17,32 @@ export const Dashboard = () => {
 	}, []);
 
 	const deleteAccount = () => {
-		request('/api/users/remove', {
-			method: 'DELETE'
-		}).then( (result) => {
-			if(result.error){
-				alert('There was an error removing the selected user. Please try again.');
-			}else{
-				window.location.href = '/login';
-			}
-		});	
+		const response = window.confirm("Are you sure to delete your account?");
+		if (response === true) {
+			request('/api/users/remove', {
+				method: 'DELETE'
+			}).then( (result) => {
+				if(result.error){
+					alert('There was an error removing the selected user. Please try again.');
+				}else{
+					window.location.href = '/login';
+				}
+			});	
+		}
 	};
 
 	const regenerateAPI = () => {
-		request('/api/users/generateApi', {
-		}).then( (result) => {
-			if(result.error){
-				alert('There was an error regenerating the api key. Please try again.');
-			}else{
-				window.location.reload();
-			}
-		});	
+		const response = window.confirm("Are you sure to generate a new API key?");
+		if (response === true) {
+			request('/api/users/generateApi', {
+			}).then( (result) => {
+				if(result.error){
+					alert('There was an error regenerating the api key. Please try again.');
+				}else{
+					window.location.reload();
+				}
+			});	
+		}
 	};
 
 	return (
@@ -61,6 +67,11 @@ export const Dashboard = () => {
 		        </Row>
 		        <br/>	
 		        <Row>
+		        	{ userData.isAdmin &&
+		        		<Col>
+		        			<a href="/sources/new" className="btn btn-info">New Source</a>	
+		        		</Col>
+		        	}
 		        	<Col>
 		        		<a href="/profile/user" className="btn btn-info">Update information</a>
 		        	</Col>

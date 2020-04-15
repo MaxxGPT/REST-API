@@ -32,7 +32,7 @@ router.get('/',apiKeyMiddleware.validate, async (req, res) => {
       if(err){
         return res.status(500).json({ message: err.message })
       }else{
-        res.json(sources);
+        res.status(200).json(sources);
       }
     });
 });
@@ -71,14 +71,14 @@ router.post('/', async (req, res) => {
     req.checkBody('city', 'City Is Required').notEmpty();
     var errors = req.validationErrors();
     if(errors){
-      return res.redirect('/dashboard/sources/new');
+      return res.status(400).json(errors);
     }else{
       const newSource = new Source(req.body);
       newSource.save((err, _source)=>{
         if(err){
-          return res.redirect('/dashboard/sources/new');
+          return res.status(400).json(err);
         }else{
-          return res.redirect('/dashboard/sources/list');
+          return res.status(200).json(_source);
         }
       });
     }

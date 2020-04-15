@@ -10,7 +10,9 @@ import { Layout } from './components/Layout';
 import { NavigationBar } from './components/NavigationBar';
 import { Register } from './Register';
 import { Dashboard } from './Dashboard';
-
+import { ChangePassword } from './ChangePassword';
+import { ProfileUser } from './ProfileUser';
+import { NewSource } from './NewSource';
 
 
 class App extends Component {
@@ -28,6 +30,9 @@ class App extends Component {
               <Route path="/privacy" component = {Privacy} />
               <Route path="/register" component = {Register} />
               <Route path="/dashboard" component = {Dashboard} />
+              <Route path="/profile/password" component = {ChangePassword} />
+              <Route path="/profile/user" component = {ProfileUser} />
+              <Route path="/sources/new" component = {NewSource} />
               <Route component={NoMatch} /> 
             </Switch>
           </Router>

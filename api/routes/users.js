@@ -6,6 +6,7 @@ const uuidv4 = require('uuid/v4');
 var expressValidator = require('express-validator');
 const flash = require('req-flash');
 const authMiddleware = require('../middlewares/auth.middleware');
+const bcrypt = require('bcrypt')
 
 router.use(expressValidator());
 
@@ -86,8 +87,12 @@ router.delete('/remove', authMiddleware.validate, async (req, res) => {
 
 /*PATCH Users*/
 router.patch('/', authMiddleware.validate, async (req, res) => {
+    console.log("PATCH", req.body);
     if(req.body.password && (req.body.password == '' || req.body.password.length == 0)){
         delete req.body.password;
+    }
+    if(req.body.password){
+        req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
     }
     Users.findByIdAndUpdate(req.user.id, {$set:req.body}, (err)=>{
       if(err){
