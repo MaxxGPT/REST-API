@@ -28,7 +28,7 @@ export const NavigationBar = () => {
                 console.log(isLogin);
             }
         });
-    }, []);
+    }, );
 
     const logout = () => {
         request('/api/register/logout', {}).then((result)=>{
