@@ -69,7 +69,7 @@ export const Dashboard = () => {
 		        <Row>
 		        	{ userData.isAdmin &&
 		        		<Col>
-		        			<a href="/sources/new" className="btn btn-info">New Source</a>	
+		        			<a href="/sources" className="btn btn-info">Source List</a>	
 		        		</Col>
 		        	}
 		        	<Col>

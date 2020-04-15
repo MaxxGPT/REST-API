@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import { request } from './services/Request';
+import { request } from '../services/Request';
 
 export const NewSource = () => {
 
@@ -26,7 +26,7 @@ export const NewSource = () => {
               if(result.error){
                   alert('There was an error while processing your data. Please try again');
               }else{
-                  window.location.href="/dashboard"
+                  window.location.href="/sources"
               }
           });
     }

@@ -12,7 +12,9 @@ import { Register } from './Register';
 import { Dashboard } from './Dashboard';
 import { ChangePassword } from './ChangePassword';
 import { ProfileUser } from './ProfileUser';
-import { NewSource } from './NewSource';
+import { NewSource } from './sources/NewSource';
+import { UpdateSource } from './sources/UpdateSource';
+import { SourceList } from './sources/SourceList';
 
 
 class App extends Component {
@@ -32,7 +34,9 @@ class App extends Component {
               <Route path="/dashboard" component = {Dashboard} />
               <Route path="/profile/password" component = {ChangePassword} />
               <Route path="/profile/user" component = {ProfileUser} />
+              <Route exact path="/sources" component = {SourceList} />
               <Route path="/sources/new" component = {NewSource} />
+              <Route path="/sources/update/:id" component = {UpdateSource} />
               <Route component={NoMatch} /> 
             </Switch>
           </Router>

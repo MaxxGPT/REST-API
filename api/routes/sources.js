@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Source = require('../models/sources');
 const apiKeyMiddleware = require('../middlewares/api_key.middleware');
+const authMiddleware = require('../middlewares/auth.middleware');
 const expressValidator = require('express-validator');
 
 router.use(expressValidator());
@@ -84,8 +85,67 @@ router.post('/', async (req, res) => {
     }
 });
 
+//Update Sources
+router.put('/:id', async (req, res) => {
+    if(req.body._id){
+      delete req.body._id;
+    }
+    req.checkBody('name', 'Name is Required').notEmpty();
+    req.checkBody('description', 'Description Is Required').notEmpty();
+    req.checkBody('url', 'URL Is Required').notEmpty();
+    req.checkBody('language', 'Language Is Required').notEmpty();
+    req.checkBody('country', 'Country Is Required').notEmpty();
+    req.checkBody('state', 'State Is Required').notEmpty();
+    req.checkBody('city', 'City Is Required').notEmpty();
+    var errors = req.validationErrors();
+    if(errors){
+      return res.status(400).json(errors);
+    }else{
+      Source.findByIdAndUpdate(req.params.id,{$set: req.body})
+        .exec((err, _source)=>{
+        if(err){
+          return res.status(400).json(err);
+        }else{
+          return res.status(200).json(_source);
+        }
+      });
+    }
+});
+
+//Get All For Admin
+router.get('/all', authMiddleware.validate, (req, res)=>{
+  if(req.user.isAdmin){
+    Source.find().exec((err,_sources)=>{
+      if(err){
+        return res.status(400).json(err);
+      }else{
+        return res.status(200).json(_sources);
+      }
+    });
+  }else{
+    return res.status(400).json({msg:"Forbidden"});
+  }
+});
+
+
+//Show Source For Admin
+router.get('/:id', authMiddleware.validate, (req, res)=>{
+  if(req.user.isAdmin){
+    Source.findById(req.params.id).exec((err,_sources)=>{
+      if(err){
+        return res.status(400).json(err);
+      }else{
+        return res.status(200).json(_sources);
+      }
+    });
+  }else{
+    return res.status(400).json({msg:"Forbidden"});
+  }
+});
+
 //Delete Sources
 router.delete('/:id', async (req, res) => {
+  console.log("REMOVE", req.params.id);
     Source.remove({_id:req.params.id},(err)=>{
       if(err){
         return res.status(500).json({message:err.message});
