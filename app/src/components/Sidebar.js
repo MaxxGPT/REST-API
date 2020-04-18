@@ -1,11 +1,17 @@
-import React from "react";
+import React, { Component } from "react";
+import '../Styles/sidebar.css'
 
-export const Sidebar = ({ width, height children}) => {
 
-
-    return(
-        <div className="sidebar" style={{width: width, minHeight: height}}>
-            <React.Fragment>{children}</React.Fragment>
-        </div>
-    )
+export default class Sidebar extends Component {
+    render() {
+        return(
+            <div className="sidebar">
+                <div className="sidebar">
+                    <a className="sidebar-link" href="/home">Link</a>
+                    <a className="sidebar-link" href="/home">Link</a>
+                    <a className="sidebar-link" href="/home">Link</a>
+            </div>
+      </div>
+    );
+  }
 }
