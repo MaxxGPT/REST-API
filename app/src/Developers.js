@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+//import React, { Component } from "react";
 import Sidebar from "./components/Sidebar";
 import { Row, Col, Container } from "react-bootstrap";
 
@@ -9,6 +10,7 @@ const Developers = () => (
         <Sidebar />
       </Col>
       <Col>
+      <section class="method first-of-group" id="intro">
         <div>
           <h1> API Documentation </h1>
 
@@ -32,7 +34,11 @@ const Developers = () => (
           </p>
 
           <p>Was this section helpful? Yes No</p>
-
+          </div>
+        </section>
+        
+        <section class="method firt of group" id="authentication">
+        <div>
           <h3>Authentication</h3>
 
           <p>
@@ -59,7 +65,11 @@ const Developers = () => (
           </p>
 
           <p>Was this section helpful? Yes No</p>
+        </div>
+        </section>
 
+        <section class="method first-of-group" id="errors">
+        <div>
           <h3>Errors</h3>
 
           <p>
@@ -81,7 +91,11 @@ const Developers = () => (
             unavailability. We recommend writing code that gracefully handles
             all possible API exceptions.
           </p>
+          </div>
+          </section>
 
+          <section class="method first-of-group" id="endpoints">
+          <div>      
           <h3>Endpoints</h3>
 
           <p>AsaTera API has 2 main endpoints:</p>
@@ -103,7 +117,11 @@ const Developers = () => (
             piped directly through to your users when showing them what options
             are available.
           </p>
+          </div>
+          </section>
 
+          <section class="method first-of-group" id="libraries">
+          <div>      
           <h3>Client Libraries</h3>
 
           <p>
@@ -124,6 +142,7 @@ const Developers = () => (
             <li>C#</li>
           </ul>
         </div>
+        </section>
       </Col>
     </Row>
   </Container>
