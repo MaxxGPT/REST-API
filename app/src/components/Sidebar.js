@@ -24,7 +24,7 @@ export default class Sidebar extends Component {
                 <a class="sidebar-nav-item hoverable selected" href="/Developers#libraries">Libraries</a>
               </li>
                      
-              </ul>
+            </ul>
           </div>
       </nav>
     );
