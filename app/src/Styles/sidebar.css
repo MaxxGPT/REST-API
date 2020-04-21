@@ -1,3 +1,8 @@
+nav ul {
+  list-style-type: none !important;
+}
+
+
 
 .sidebar-container{
   display: flex;
