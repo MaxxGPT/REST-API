@@ -12,11 +12,10 @@ const Developers = () => (
       <Col>
       <section class="method first-of-group" id="intro">
         <div>
-          <h1> API Documentation </h1>
-
-          <h3>API Reference</h3>
-
-          <p>
+          <div class="MethodCopyTtitle">
+            <h3 class="MethodCopyTitle-anchor">API Reference</h3>
+          </div>
+          <p class="IntroSection-firstPara">
             The AsaTera API is organized around{" "}
             <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">
               REST
@@ -33,13 +32,19 @@ const Developers = () => (
             to see examples in code.
           </p>
 
-          <p>Was this section helpful? Yes No</p>
+          <p class="csat-widget">
+            <span class="csat-widget text">Was this section helpful?</span>
+            <span class="csat-button csat-button-yes common-Button">Yes</span>
+            <span class="csat-button csat-button-no common-Button">No</span>
+          </p>
           </div>
         </section>
         
         <section class="method firt of group" id="authentication">
         <div>
-          <h3>Authentication</h3>
+          <div class="methodCopyTitle">
+            <h3 class="MethodCopyTitle-anchor">Authentication</h3>
+          </div>
 
           <p>
             The AsaTera API uses API keys to authenticate requests. You can view
@@ -64,13 +69,19 @@ const Developers = () => (
             fail. API request without authentication will also fail.
           </p>
 
-          <p>Was this section helpful? Yes No</p>
+          <p class="csat-widget">
+            <span class="csat-widget text">Was this section helpful?</span>
+            <span class="csat-button csat-button-yes common-Button">Yes</span>
+            <span class="csat-button csat-button-no common-Button">No</span>
+          </p>
         </div>
         </section>
 
         <section class="method first-of-group" id="errors">
         <div>
-          <h3>Errors</h3>
+        <div class="MethodCopyTitle">
+          <h3 class="MethodCopyTitle-anchor">Errors</h3>
+        </div>
 
           <p>
             AsaTera uses conventional HTTP response codes to indicate the
@@ -81,9 +92,7 @@ const Developers = () => (
             error with AsaTera’s servers (there are rare).
           </p>
 
-          <p>Was this section helpful? Yes No</p>
-
-          <p>Handling Errors</p>
+          <h4>Handling Errors</h4>
 
           <p>
             Our Client libraries raise exceptions for many reasons, such as
@@ -91,12 +100,20 @@ const Developers = () => (
             unavailability. We recommend writing code that gracefully handles
             all possible API exceptions.
           </p>
+
+          <p class="csat-widget">
+            <span class="csat-widget text">Was this section helpful?</span>
+            <span class="csat-button csat-button-yes common-Button">Yes</span>
+            <span class="csat-button csat-button-no common-Button">No</span>
+          </p>
           </div>
           </section>
 
           <section class="method first-of-group" id="endpoints">
           <div>      
-          <h3>Endpoints</h3>
+          <div class="MethodCopyTitle">
+            <h3 class="MethodCopyTitle-anchor">Endpoints</h3>
+          </div>
 
           <p>AsaTera API has 2 main endpoints:</p>
 
@@ -117,12 +134,20 @@ const Developers = () => (
             piped directly through to your users when showing them what options
             are available.
           </p>
+
+          <p class="csat-widget">
+            <span class="csat-widget text">Was this section helpful?</span>
+            <span class="csat-button csat-button-yes common-Button">Yes</span>
+            <span class="csat-button csat-button-no common-Button">No</span>
+          </p>
           </div>
           </section>
 
           <section class="method first-of-group" id="libraries">
-          <div>      
-          <h3>Client Libraries</h3>
+          <div>
+          <div class="MethodCopyTitle">    
+            <h3 class="MethodCopyTitle-anchor">Client Libraries</h3>
+          </div>  
 
           <p>
             AsaTera has official libraries for different programming languages.
@@ -141,6 +166,11 @@ const Developers = () => (
             <li>Java</li>
             <li>C#</li>
           </ul>
+          <p class="csat-widget">
+            <span class="csat-widget text">Was this section helpful?</span>
+            <span class="csat-button csat-button-yes common-Button">Yes</span>
+            <span class="csat-button csat-button-no common-Button">No</span>
+          </p>
         </div>
         </section>
       </Col>
