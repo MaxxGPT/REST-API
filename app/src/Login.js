@@ -54,7 +54,7 @@ export const Login = () => {
                             onChange={ onChangeHandlerFn }
                         />
                         </FormGroup>
-                        <Button variant="primary" type="submit"> Login</Button>
+                        <Button variant="primary" type="submit" block> Login</Button>
                         <ul>
                             <li><Link to="/register">Register</Link></li>
                             <li><Link to="/privacy">Privacy & Terms</Link></li>

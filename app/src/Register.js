@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { request } from './services/Request';
-import { Button, FormGroup, FormControl, FormLabel, Col, FormRow } from 'react-bootstrap';
+import { Button, FormGroup, FormControl, FormLabel, FormCheck } from 'react-bootstrap';
 //import { FormRow } from 'react-bootstrap/Form';
 import "./Styles/register.css"
 
@@ -43,25 +43,25 @@ export const Register = () => {
         <h1> Register </h1>
             <div className="Register">
                 <form onSubmit={handleSubmit}>
-                    <FormRow>
-                        <FormGroup as={Col} controlId="FirstName">
-                            <FormLabel>First Name</FormLabel>
-                            <FormControl 
-                                autofocus
-                                type="text"
-                                onChange={onChangeHandlerFn}
-                            />
-                        </FormGroup>
+                    
+                    <FormGroup controlId="FirstName">
+                        <FormLabel>First Name</FormLabel>
+                        <FormControl 
+                            autofocus
+                            type="text"
+                            onChange={onChangeHandlerFn}
+                        />
+                    </FormGroup>
 
-                        <FormGroup as={Col} controlId="LastName">
-                            <FormLabel>Last Name</FormLabel>
-                            <FormControl
-                                autofocus
-                                type="text"
-                                onChange={onChangeHandlerFn}
-                            />
-                        </FormGroup>
-                    </FormRow>
+                    <FormGroup controlId="LastName">
+                        <FormLabel>Last Name</FormLabel>
+                        <FormControl
+                            autofocus
+                            type="text"
+                            onChange={onChangeHandlerFn}
+                        />
+                    </FormGroup>
+                   
 
                     <FormGroup controlId="email" bsSize="large">
                     <FormLabel>Email</FormLabel>
@@ -90,7 +90,47 @@ export const Register = () => {
                     />
                     </FormGroup>
 
-                    <Button variant="primary" type="submit">Register</Button>
+                    {['checkbox'].map((type) => (
+                        <div key={`default-${type}`} className="mb-3">
+                          <FormCheck 
+                            type={type}
+                            id={`default-${type}`}
+                            label={`I am an individual`}
+                          />
+                        </div>
+                    ))}
+
+                    {['checkbox'].map((type) => (
+                        <div key={`default-${type}`} className="mb-3">
+                          <FormCheck 
+                            type={type}
+                            id={`default-${type}`}
+                            label={`I am a business, or am working on behalf of a business`}
+                          />
+                        </div>
+                    ))}
+
+                    {['checkbox'].map((type) => (
+                        <div key={`default-${type}`} className="mb-3">
+                          <FormCheck 
+                            type={type}
+                            id={`default-${type}`}
+                            label={`Agree to Terms and Service`}
+                          />
+                        </div>
+                    ))}
+
+                    {['checkbox'].map((type) => (
+                        <div key={`default-${type}`} className="mb-3">
+                          <FormCheck 
+                            type={type}
+                            id={`default-${type}`}
+                            label={`I promise to add an attribution link on my website or app to AsaTera API`}
+                          />
+                        </div>
+                    ))}
+
+                    <Button variant="primary" type="submit" block>Register</Button>
 
                     <ul>
                         <li><Link to="/login">Login</Link></li>
