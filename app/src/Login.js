@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
+import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import { request } from './services/Request';
+import "./Styles/login.css"
+
 
 export const Login = () => {
 
@@ -31,24 +34,33 @@ export const Login = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h1> Login</h1>
-            <p> Email:</p>
-            <input
-                type="email"
-                name="email"
-                onChange={ onChangeHandlerFn }
-            />
-            <p> Password:</p>
-            <input
-                type="password"
-                name="password"
-                onChange={ onChangeHandlerFn }
-            />
-            <button type="submit"> Login</button>
-
-            <li><Link to="/register">Register</Link></li>
-            <li><Link to="/privacy">Privacy & Terms</Link></li>
-        </form>
+        <div style={{display: "flex", justifyContent: "center"}}>       
+            <div className="Login">
+                <form onSubmit={handleSubmit}>
+                    <FormGroup controlId="email" bsSize="large">
+                        <FormLabel>Email</FormLabel>
+                        <FormControl
+                            autoFocus
+                            type="email"
+                            //value={email}
+                            onChange={ onChangeHandlerFn }
+                    />
+                    </FormGroup>
+                    <FormGroup controlId="password" bsSize="large">
+                        <FormLabel>Password</FormLabel>
+                        <FormControl 
+                            type="password"
+                            //value={password}
+                            onChange={ onChangeHandlerFn }
+                        />
+                        </FormGroup>
+                        <Button variant="primary" type="submit"> Login</Button>
+                        <ul>
+                            <li><Link to="/register">Register</Link></li>
+                            <li><Link to="/privacy">Privacy & Terms</Link></li>
+                        </ul>
+                </form>
+            </div>
+        </div>    
     );
 };
