@@ -16,33 +16,39 @@ import { ProfileUser } from './ProfileUser';
 import { NewSource } from './sources/NewSource';
 import { UpdateSource } from './sources/UpdateSource';
 import { SourceList } from './sources/SourceList';
+import Footer from './components/Footer'
 
 
 class App extends Component {
   render() {
     return (
-      <React.Fragment>
-        <NavigationBar />
-        <Layout>
-          <Router>
-            <Switch>
-              <Route exact path = "/" component={Home} />
-              <Route path="/developers" component = {Developers} />
-              <Route path="/pricing" component = {Pricing} />
-              <Route path="/login" component = {Login} />
-              <Route path="/privacy" component = {Privacy} />
-              <Route path="/register" component = {Register} />
-              <Route path="/dashboard" component = {Dashboard} />
-              <Route path="/profile/password" component = {ChangePassword} />
-              <Route path="/profile/user" component = {ProfileUser} />
-              <Route exact path="/sources" component = {SourceList} />
-              <Route path="/sources/new" component = {NewSource} />
-              <Route path="/sources/update/:id" component = {UpdateSource} />
-              <Route component={NoMatch} /> 
-            </Switch>
-          </Router>
-        </Layout>
+      <div className="page-container">
+      <div className="content-wrap">
+        <React.Fragment>
+          <NavigationBar />
+          <Layout>
+            <Router>
+              <Switch>
+                <Route exact path = "/" component={Home} />
+                <Route path="/developers" component = {Developers} />
+                <Route path="/pricing" component = {Pricing} />
+                <Route path="/login" component = {Login} />
+                <Route path="/privacy" component = {Privacy} />
+                <Route path="/register" component = {Register} />
+                <Route path="/dashboard" component = {Dashboard} />
+                <Route path="/profile/password" component = {ChangePassword} />
+                <Route path="/profile/user" component = {ProfileUser} />
+                <Route exact path="/sources" component = {SourceList} />
+                <Route path="/sources/new" component = {NewSource} />
+                <Route path="/sources/update/:id" component = {UpdateSource} />
+                <Route component={NoMatch} /> 
+              </Switch>
+            </Router>
+          </Layout>
+          <Footer />
       </React.Fragment>
+    </div>
+    </div>
     );
   }
 }

@@ -45,6 +45,7 @@ const Developers = () => (
           </div>
         </section>
         <br></br>
+        <hr />
         <br></br>
         <section class="method firt of group" id="authentication">
         <div>
@@ -87,6 +88,7 @@ const Developers = () => (
         </div>
         </section>
         <br></br>
+        <hr />
         <br></br>
         <section class="method first-of-group" id="errors">
         <div>
@@ -122,6 +124,7 @@ const Developers = () => (
           </div>
           </section>
           <br></br>
+          <hr />
           <br></br>
 
           <section class="method first-of-group" id="endpoints">
@@ -160,7 +163,8 @@ const Developers = () => (
           </div>
           </section>
           <br></br>
-          <br></br>    
+          <hr />
+          <br></br>   
           <section class="method first-of-group" id="libraries">
           <div>
           <div class="MethodCopyTitle">    
@@ -192,6 +196,8 @@ const Developers = () => (
           </p>
         </div>
         </section>
+        <br></br>
+        <br></br>
       </Col>
     </Row>
   </Container>
