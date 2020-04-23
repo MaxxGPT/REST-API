@@ -47,6 +47,7 @@ export const Register = () => {
                     <FormGroup controlId="FirstName">
                         <FormLabel>First Name</FormLabel>
                         <FormControl 
+                            required
                             autofocus
                             type="text"
                             onChange={onChangeHandlerFn}
@@ -56,6 +57,7 @@ export const Register = () => {
                     <FormGroup controlId="LastName">
                         <FormLabel>Last Name</FormLabel>
                         <FormControl
+                            required
                             autofocus
                             type="text"
                             onChange={onChangeHandlerFn}
@@ -66,6 +68,7 @@ export const Register = () => {
                     <FormGroup controlId="email" bsSize="large">
                     <FormLabel>Email</FormLabel>
                     <FormControl
+                        required
                         autoFocus
                         type="email"
                         //value={email}
@@ -75,6 +78,8 @@ export const Register = () => {
                     <FormGroup controlId="password" bsSize="large">
                     <FormLabel>Password</FormLabel>
                     <FormControl 
+                        required
+                        autoFocus
                         type="password"
                         //value={password}
                         onChange={ onChangeHandlerFn }
@@ -84,6 +89,8 @@ export const Register = () => {
                     <FormGroup controlId="password" bsSize="large">
                     <FormLabel>Confirm Password</FormLabel>
                     <FormControl 
+                        autoFocus
+                        required
                         type="password"
                         //value={password}
                         onChange={ onChangeHandlerFn }
@@ -132,8 +139,11 @@ export const Register = () => {
 
                     <Button variant="primary" type="submit" block>Register</Button>
 
+                    <span>
+                        Have an account? 
+                        <a href="/login"> Sign in</a>
+                    </span>
                     <ul>
-                        <li><Link to="/login">Login</Link></li>
                         <li><Link to="/privacy">Privacy & Terms</Link></li>
                     </ul>
                 </form>
