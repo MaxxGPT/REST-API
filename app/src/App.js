@@ -7,6 +7,7 @@ import { Pricing } from './Pricing';
 import { Login } from './Login';
 import { NoMatch } from './NoMatch';
 import { Privacy } from './Privacy';
+import { Terms } from './Terms';
 import { Layout } from './components/Layout';
 import { NavigationBar } from './components/NavigationBar';
 import { Register } from './Register';
@@ -34,6 +35,7 @@ class App extends Component {
                 <Route path="/pricing" component = {Pricing} />
                 <Route path="/login" component = {Login} />
                 <Route path="/privacy" component = {Privacy} />
+                <Route path="/terms" component = {Terms} />
                 <Route path="/register" component = {Register} />
                 <Route path="/dashboard" component = {Dashboard} />
                 <Route path="/profile/password" component = {ChangePassword} />

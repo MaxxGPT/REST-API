@@ -2,7 +2,7 @@ import React from 'react'
 import Sidebar from "./components/Terms-Sidebar";
 import { Row, Col, Container } from "react-bootstrap";
 
-export const Privacy = () => (
+export const Terms = () => (
     <Container>
     <Row>
       <Col md={3}>
@@ -21,7 +21,7 @@ export const Privacy = () => (
                     <a class="anchor" href="#agreement-to-terms">Agreement To Terms</a>
                 </h3>
                 <br />
-                <p>TThese Terms of Use constitute a legally binding agreement made between you, whether personally or on behalf of an entity (“you”) and AsaTera Media ("Company", “we”, “us”, or “our”), concerning your access to and use of the https://www.asatera.com website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the “Site”). You agree that by accessing the Site, you have read, understood, and agree to be bound by all of these Terms of Use. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND YOU MUST DISCONTINUE USE IMMEDIATELY.</p>
+                <p>These Terms of Use constitute a legally binding agreement made between you, whether personally or on behalf of an entity (“you”) and AsaTera Media ("Company", “we”, “us”, or “our”), concerning your access to and use of the https://www.asatera.com website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the “Site”). You agree that by accessing the Site, you have read, understood, and agree to be bound by all of these Terms of Use. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND YOU MUST DISCONTINUE USE IMMEDIATELY.</p>
                 <br />
                 <p>Supplemental terms and conditions or documents that may be posted on the Site from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Terms of Use at any time and for any reason. We will alert you about any changes by updating the “Last updated” date of these Terms of Use, and you waive any right to receive specific notice of each such change. It is your responsibility to periodically review these Terms of Use to stay informed of updates. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Terms of Use by your continued use of the Site after the date such revised Terms of Use are posted.  </p>
                 <br />
@@ -67,6 +67,7 @@ export const Privacy = () => (
                 <br />
                 <p>As a user of the Site, you agree not to:</p>
                 <br />
+
                 <ul>
                     <li>1.	systematically retrieve data or other content from the Site to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.</li>
                     <br />
@@ -105,7 +106,7 @@ export const Privacy = () => (
                     <br />
                     <li>19.	copy or adapt the Site’s software, including but not limited to Flash, PHP, HTML, JavaScript, or other code.</li>
                     <br />
-                    <li>20.	upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming (continuous posting of repetitive text), that interferes with any party’s uninterrupted use and enjoyment of the Site or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Site<li>
+                    <li>20.	upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming (continuous posting of repetitive text), that interferes with any party’s uninterrupted use and enjoyment of the Site or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Site</li>
                     <br />
                     <li>21.	upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats (“gifs”), 1×1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as “spyware” or “passive collection mechanisms” or “pcms”).</li>
                     <br />
@@ -113,9 +114,10 @@ export const Privacy = () => (
                     <br />
                     <li>23.	disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site.</li>
                     <br />
-                    <li>24.	use the Site in a manner inconsistent with any applicable laws or regulation<li>
+                    <li>24.	use the Site in a manner inconsistent with any applicable laws or regulation</li>
                     <br />
                 </ul>
+
                 <br />
                 <h3 id="user-generated-contributions"><a class="anchor" href="#user-generated-contribution">User Generated Contributions</a></h3>
                 <br />
@@ -152,7 +154,7 @@ export const Privacy = () => (
                     <li>14.  Your Contributions do not otherwise violate, or link to material that violates, any provision of these Terms of Use, or any applicable law or regulation.</li>
                     <br />
                 </ul>
-                <p>Any use of the Site in violation of the foregoing violates these Terms of Use and may result in, among other things, termination or suspension of your rights to use the Site.<p>
+                <p>Any use of the Site in violation of the foregoing violates these Terms of Use and may result in, among other things, termination or suspension of your rights to use the Site.</p>
                 <br />
                 <h3 id="contribution-license"><a class="anchor" href="#contribution-license">Contribution License</a></h3>
                 <p>You and the Site agree that we may access, store, process, and use any information and personal data that you provide following the terms of the Privacy Policy and your choices (including settings).</p>
@@ -221,7 +223,7 @@ export const Privacy = () => (
                 
                 <h3 id="privacy-policy"><a class="anchor" href="#privacy-policy">Privacy Policy</a></h3>
                 <br />
-                <p>We care about data privacy and security. Please review our Privacy Policy here <a href="/privacy"></a>. By using the Site, you agree to be bound by our Privacy Policy, which is incorporated into these Terms of Service. Please be advised the Site is hosted in the United States.</p>
+                <p>We care about data privacy and security. Please review our Privacy Policy <a href="/privacy">here</a>. By using the Site, you agree to be bound by our Privacy Policy, which is incorporated into these Terms of Service. Please be advised the Site is hosted in the United States.</p>
                 <br />
                 <p>If you access the Site from the European Union, Asia, or any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in the United States, then through your continued use of the Site, you are transferring your data to the United States, and you expressly consent to have your data transferred to and processed in the United States.</p>
                 <br />

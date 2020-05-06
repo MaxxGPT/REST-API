@@ -10,16 +10,16 @@ const Footer = () => {
                     <div className="col">
                         <h4> AsaTera API </h4>
                         <ul className="list-unstyled">
-                            <li>Developers</li>
-                            <li>Prices</li>
-                            <li>Libraries</li>
+                            <li><a href="/developers">Developers</a></li>
+                            <li><a href="/prices">Prices</a></li>
+                            <li><a href="/Developers/#libraries">Libraries</a></li>
                         </ul>
                     </div>
                     <div className="col">
                         <h4> About </h4>
                         <ul className="list-unstyled">
-                            <li>Privacy</li>
-                            <li>Terms and Services</li>
+                            <li><a href="/privacy">Privacy</a></li>
+                            <li><a href="/terms">Terms and Services</a></li>
                         </ul>
                     </div>
                     <div className="col">
