@@ -113,7 +113,7 @@ export const Privacy = () => (
                     <br />
                     <li>23.	disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site.</li>
                     <br />
-                    <li>24.	use the Site in a manner inconsistent with any applicable laws or regulations.</li>
+                    <li>24.	use the Site in a manner inconsistent with any applicable laws or regulation<li>
                     <br />
                 </ul>
                 <br />
