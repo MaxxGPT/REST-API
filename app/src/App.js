@@ -17,7 +17,7 @@ import { ProfileUser } from './ProfileUser';
 import { NewSource } from './sources/NewSource';
 import { UpdateSource } from './sources/UpdateSource';
 import { SourceList } from './sources/SourceList';
-import Footer from './components/Footer'
+//import Footer from './components/Footer'
 
 
 class App extends Component {
@@ -47,7 +47,7 @@ class App extends Component {
               </Switch>
             </Router>
           </Layout>
-          <Footer />
+        
       </React.Fragment>
     </div>
     </div>

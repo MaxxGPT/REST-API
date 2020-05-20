@@ -1,13 +1,34 @@
-@media all and (min-width: 480px) {
-    .Login {
-      padding: 60px 0;
-    }
+.Login {
+  position: absolute;
+  width: 1495px;
+  height: 1083px;
+  left: -55px;
+  top: -14px;
+  background-image: url(../assets/background.svg);
+}
+
   
-    .Login form {
+  .Login form {
+      position: absolute;
+      background-color: #fff;
+      border-radius: 32px;
       margin: 0 auto;
-      max-width: 320px;
+      width: 1110px;
+      height: 824px;
+      left: calc(50% - 1110px/2);
+      top: calc(50% - 824px/2);
     }
-  }
+
+   .Login button {
+    position: absolute;
+    height: 58px;
+    left: 0%;
+    right: 0%;
+    top: calc(50% - 58px/2 + 195px);
+    background: #FDDE69;
+    border-radius: 12px;
+   } 
+
 
  ul {
     list-style-type: none !important;

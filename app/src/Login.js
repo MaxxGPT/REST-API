@@ -34,7 +34,8 @@ export const Login = () => {
     }
 
     return (
-        <div style={{display: "flex", justifyContent: "center"}}>       
+        <body>
+            
             <div className="Login">
                 <form onSubmit={handleSubmit}>
                     <FormGroup controlId="email" bsSize="large">
@@ -82,6 +83,7 @@ export const Login = () => {
                         </ul>
                 </form>
             </div>
-        </div>    
+        
+        </body> 
     );
 };
