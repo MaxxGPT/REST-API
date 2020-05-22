@@ -66,3 +66,16 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+### Instructions to get containers running locally (may work or may not)
+
+Create a docker network for this project
+    docker network create net.asatera.com
+
+Create fiels app/ .env and api/ .env
+    touch app/.env and touch api/.env
+
+Once all this is done
+    make install dev
+
