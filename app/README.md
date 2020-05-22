@@ -70,10 +70,16 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ### Instructions to get containers running locally (may work or may not)
 
+Create new directory and cd into it.
+
+clone repo in the newly created directory
+
+Install docker daemon (if not already) and run it
+
 Create a docker network for this project
     docker network create net.asatera.com
 
-Create fiels app/ .env and api/ .env
+Create files app/ .env and api/ .env
     touch app/.env and touch api/.env
 
 Once all this is done
