@@ -5,6 +5,7 @@ import { request } from './services/Request';
 import "./Styles/login.css"
 
 
+//  import'./bootstrap/dist/css/bootstrap.min.css';
 export const Login = () => {
 
     const [loginData,setLoginData] = useState({});
@@ -34,9 +35,7 @@ export const Login = () => {
     }
 
     return (
-        <body>
-            
-            <div className="Login">
+        <div className="Login">
                 <form onSubmit={handleSubmit}>
                     <FormGroup controlId="email" bsSize="large">
                         <FormLabel>Email</FormLabel>
@@ -83,7 +82,7 @@ export const Login = () => {
                         </ul>
                 </form>
             </div>
-        
-        </body> 
-    );
-};
+         
+        );
+
+                        };
