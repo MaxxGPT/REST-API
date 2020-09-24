@@ -22,7 +22,7 @@ services:
   install_app:
     extends:
       service: app.asatera.com
-    command: yarn install --silent
+    command: yarn install --silent --network-timeout 1000000
 
 volumes:
   apimodules: {}

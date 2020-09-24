@@ -34,7 +34,7 @@ const userRouter = require("./routes/users");
 app.use("/users", userRouter);
 
 const authRouter = require("./routes/auth");
-app.use("/register", authRouter);
+app.use("/auth", authRouter);
 
 app.use(express.urlencoded({ extended: false }));
 
