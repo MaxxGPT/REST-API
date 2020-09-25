@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+//import authSvg from '../assets/login logo.svg'
 import { Link } from 'react-router-dom';
 import { request } from './services/Request';
 import { Button, FormGroup, FormControl, FormLabel, FormCheck } from 'react-bootstrap';
