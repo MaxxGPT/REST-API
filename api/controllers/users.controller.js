@@ -3,15 +3,8 @@ require("dotenv").config();
 const Users = require("../models/users");
 const jwt = require("jsonwebtoken");
 const { errorHandler } = require("../helpers/dbErrorHandling");
-const AWS = require("aws-sdk");
 const uuidv4 = require("uuid/v4");
-
-const SESConfig = {
-  apiVersion: "2010-12-01",
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  region: process.env.AWS_SES_REGION,
-};
+const emailService = require("../services/email.service");
 
 module.exports = {
   register: (req, res) => {
@@ -53,51 +46,29 @@ module.exports = {
             }
           );
 
-          //Email data sending
-          //https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SES.html#sendEmail-property
-
-          const params = {
-            Destination: {
-              ToAddresses: [email],
-            },
-            Message: {
-              Body: {
-                Html: {
-                  Charset: "UTF-8",
-                  Data: `
-			   <h1>Please Click link to activate your account</h1>
-			   <p>${process.env.CLIENT_URL}/users/activate/${token}</p>
-			   <hr/>
-			   <p>This email contain sensitive info</p>
-			   <p>${process.env.CLIENT_URL}</p>
-		   `,
-                },
-                Text: {
-                  Charset: "UTF-8",
-                  Data: `
-			   Please Click link to activate your account\n
-			   ${process.env.CLIENT_URL}/users/activate/${token}\n\n
-			   This email contain sensitive info 
-			   ${process.env.CLIENT_URL}
-		   `,
-                },
-              },
-              Subject: {
-                Charset: "UTF-8",
-                Data: "Account Activation Link",
-              },
-            },
-            Source: process.env.EMAIL_FROM,
+          let mailOptions = {
+            from: "'Asatera' <" + process.env.EMAIL_FROM + ">",
+            to: email,
+            subject: "Account Activation Link",
+            html: `
+            <h1>Please Click link to activate your account</h1>
+            <p><a href="${process.env.CLIENT_URL}/users/activate/${token}">ACTIVATE</a></p>
+            <hr/>
+            <p>This email contain sensitive info</p>
+            <p>${process.env.CLIENT_URL}</p>
+          `,
           };
 
-          new AWS.SES(SESConfig).sendEmail(params, (err, data) => {
+          emailService.sendEmail({ mailOptions: mailOptions }, function (
+            err,
+            msg
+          ) {
             if (err) {
-              console.log(err);
-              res.status(400).json({
-                error: "Something went wrong",
-              });
+              return res.status(400).json(err);
             } else {
-              res.status(200).json({ msg: "User created" });
+              return res
+                .status(200)
+                .json({ msg: "Check your email for activation link." });
             }
           });
         }
