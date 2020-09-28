@@ -50,15 +50,22 @@ export const Register = () => {
   };
 
   return (
-    <Container>
+    <div className='min-h-screen bg-gray-100 text-gray-900 flex justify-center'>
       {isAuth() ? <Redirect to="/" /> : null}
       <ToastContainer />
-      <Row>
-        <Col>
-          <h1 className="text-2xl xl:text-3xl font-extrabold">Register</h1>
-        </Col>
-      </Row>
-      <Form onSubmit={handleSubmit}>
+      <div className='max-w-screen-xl m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1'>
+        <div className='lg:w-1/2 xl:w-5/12 p-6 sm:p-12'>
+          <div className='mt-12 flex flex-col items-center'>
+            <h1 className='text-2xl xl:text-3xl font-extrabold'>
+            Register
+            </h1>
+      
+      
+      <Form 
+       className='w-full flex-1 mt-8 text-indigo-500'
+       onSubmit={handleSubmit}>
+
+       <div className='mx-auto max-w-xs relative '>
         <Form.Group controlId="formBasicName">
           <Form.Label>Name</Form.Label>
           <Form.Control
@@ -96,6 +103,7 @@ export const Register = () => {
         <Button variant="primary" type="submit">
           Submit
         </Button>
+        </div>  
       </Form>
       <Row>
         <Col>
@@ -109,7 +117,10 @@ export const Register = () => {
           <img src="/assets/login_logo.svg" alt="logo" />
         </Col>
       </Row>
-    </Container>
+      </div>
+      </div>
+      </div>
+      </div>
   );
 };
 
