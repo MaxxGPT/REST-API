@@ -83,4 +83,33 @@ module.exports = {
   getUserById: function (id, callback) {
     Users.findById(id, callback);
   },
+  activate: (req, res) => {
+    jwt.verify(req.params.token, process.env.JWT_ACCOUNT_ACTIVATION, function (
+      err,
+      decode
+    ) {
+      if (err) {
+        res.status(400).json(err);
+      } else {
+        Users.findOneAndUpdate(
+          {
+            email: decode.email,
+          },
+          {
+            $set: {
+              status: true,
+            },
+          }
+        ).exec((err, _user) => {
+          if (err) {
+            return res.status(400).json(err);
+          } else if (!_user) {
+            return res.status(400).json({ msg: "Error" });
+          } else {
+            res.status(200).json(decode);
+          }
+        });
+      }
+    });
+  },
 };

@@ -42,6 +42,7 @@ var userSchema = new mongoose.Schema(
       default: Date.now,
     },
     apiKey: String,
+    status: { type: "Boolean", default: true },
   },
   { collection: "Users" }
 );

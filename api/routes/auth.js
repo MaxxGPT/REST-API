@@ -9,6 +9,7 @@ router.use(expressValidator());
 
 //Register - POST
 router.post("/", UsersConstroller.register);
+router.get("/activate/:token", UsersConstroller.activate);
 
 passport.use(
   new LocalStrategy(
