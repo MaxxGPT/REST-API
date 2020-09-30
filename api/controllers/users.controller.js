@@ -32,8 +32,12 @@ module.exports = {
       newUser.save(function (err, user) {
         if (err) {
           //throw(err);
-          console.log(err);
-          res.status(400).json(err);
+          if (err.errmsg.includes("duplicate")) {
+            res.status(405).json({ msg: "Duplicated" });
+          } else {
+            console.log(err);
+            res.status(400).json(err);
+          }
         } else {
           //Generate Token
           const token = jwt.sign(
@@ -58,6 +62,8 @@ module.exports = {
             <p>${process.env.CLIENT_URL}</p>
           `,
           };
+
+          console.log(mailOptions);
 
           emailService.sendEmail({ mailOptions: mailOptions }, function (
             err,

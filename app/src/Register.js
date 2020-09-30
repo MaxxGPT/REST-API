@@ -38,10 +38,15 @@ export const Register = () => {
               password2: "",
             });
 
-            toast.success(res.data.messages);
+            toast.success(res.data.msg);
           })
           .catch((err) => {
-            toast.error(err.response.data.error);
+            console.log("err", err.request);
+            if (err.request.status === 400) {
+              toast.error("Something went wrong");
+            } else if (err.request.status === 405) {
+              toast.warning("Email is already registered");
+            }
           });
       } else {
         toast.error("Password does not match");
