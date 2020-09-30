@@ -1,11 +1,17 @@
-.Login {
-  position: absolute !important;
-  width: 1495px !important;
-  height: 1083px !important;
-  left: -55px !important;
-  top: -14px !important;
-  background-image: url(/assets/background.svg) !important;
-}
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+  }
+
+  .Login {
+    position: absolute !important;
+    width: 1495px !important;
+    height: 1083px !important;
+    left: -55px !important;
+    top: -14px !important;
+    background-image: url(/assets/background.svg) !important;
+  }
+}  
 
 .Login form {
   position: absolute !important;
