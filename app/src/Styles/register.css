@@ -27,7 +27,7 @@
 }
 
 h1 {
-  font-family: Circular Std;
+  font-family: "Varela Round";
   font-size: 22px;
   font-style: normal;
   font-weight: 700;
@@ -37,7 +37,7 @@ h1 {
 }
 
 .form-label {
-  font-family: Circular Std;
+  font-family: "Varela Round";
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
@@ -76,7 +76,7 @@ input {
 }
 
 .label {
-  font-family: Circular Std;
+  font-family: "Varela Round";
   font-style: normal;
   font-weight: 900;
   font-size: 14px;

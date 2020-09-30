@@ -57,7 +57,7 @@ export const Register = () => {
       <ToastContainer />
       <Container className="rounded-big shadow mt-5">
         <Row>
-          <Col className="pt-5 m-5">
+          <Col className="pt-3 pt-sm-5 m-sm-5">
             <AsateraLogo />
             <h1 className="mt-5">Create Account</h1>
             <Form onSubmit={handleSubmit} className="mb-5">
@@ -101,14 +101,14 @@ export const Register = () => {
             </Form>
             <Row>
               <Col>
-                <p className="label">
-                  Or sign wth email <Link to="/Login">Sign In</Link>
+                <p className="label text-center">
+                  Already have an account? <Link to="/Login">Login</Link>
                 </p>
               </Col>
             </Row>
           </Col>
-          <Col className="d-flex align-items-stretch bg-blue rounded-big-r">
-            <img src="/assets/login_logo.svg" alt="logo" />
+          <Col className="d-none d-sm-flex align-items-stretch bg-blue rounded-big-r">
+            <img src="/assets/register.svg" alt="logo" />
           </Col>
         </Row>
       </Container>
