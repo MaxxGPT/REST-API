@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Styles/register.css";
 import AsateraLogo from "./components/AsateraLogo";
 
-export const Register = () => {
+export const RegisterComplete = () => {
   const [userData, setUserData] = useState({
     name: "",
     email: "",
@@ -30,7 +30,15 @@ export const Register = () => {
         axios
           .post(`/api/auth`, userData)
           .then((res) => {
-            this.props.history.push(`/register-complete`)
+            setUserData({
+              ...userData,
+              name: "",
+              email: "",
+              password: "",
+              password2: "",
+            });
+
+            toast.success(res.data.msg);
           })
           .catch((err) => {
             console.log("err", err.request);
@@ -56,56 +64,18 @@ export const Register = () => {
         <Row>
           <Col className="pt-3 pt-sm-5 m-sm-5">
             <AsateraLogo />
-            <h1 className="mt-5">Create Account</h1>
-            <Form onSubmit={handleSubmit} className="mb-5">
-              <Form.Group controlId="formBasicName">
-                <Form.Label>Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="name"
-                  placeholder="name"
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label>Email Address</Form.Label>
-                <Form.Control
-                  type="email"
-                  name="email"
-                  placeholder="email"
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  name="password"
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              <Form.Group controlId="formBasicPassword2">
-                <Form.Label>Password Confirm</Form.Label>
-                <Form.Control
-                  type="password"
-                  name="password2"
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              <Button variant="primary" type="submit" size="lg" block>
-                Create an account
-              </Button>
-            </Form>
             <Row>
-              <Col>
+              <Col className="d-flex align-items-stretch mt-5">
                 <p className="label text-center">
-                  Already have an account? <Link to="/Login">Login</Link>
+                    Registeration Completed. Please confirm
+                    your email id by clicking on the link sent
+                    to your email.
                 </p>
               </Col>
             </Row>
           </Col>
           <Col className="d-none d-sm-flex align-items-stretch bg-blue rounded-big-r">
-            <img src="/assets/register.svg" alt="logo" />
+            <img src="/assets/registration-completed.svg" className="my-5" alt="logo" />
           </Col>
         </Row>
       </Container>
@@ -113,4 +83,4 @@ export const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterComplete;

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import styled from "styled-components";
 import { request } from "../services/Request";
-import { withRouter } from "react-router-dom";
 
 const Styles = styled.div`
   .navbar {
@@ -37,7 +36,7 @@ export const NavigationBar = () => {
     });
   };
 
-  if (window.location.pathname.match(/register/)) {
+  if (window.location.pathname.match(/register*/)) {
     return null;
   }
 

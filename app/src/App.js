@@ -8,7 +8,6 @@ import { Login } from "./Login";
 import { NoMatch } from "./NoMatch";
 import { Privacy } from "./Privacy";
 import { Terms } from "./Terms";
-import { Layout } from "./components/Layout";
 import { NavigationBar } from "./components/NavigationBar";
 import { Register } from "./Register";
 import { Dashboard } from "./Dashboard";
@@ -17,6 +16,7 @@ import { ProfileUser } from "./ProfileUser";
 import { NewSource } from "./sources/NewSource";
 import { UpdateSource } from "./sources/UpdateSource";
 import { SourceList } from "./sources/SourceList";
+import { RegisterComplete } from "./RegisterComplete"
 //import Footer from './components/Footer'
 
 class App extends Component {
@@ -34,6 +34,7 @@ class App extends Component {
               <Route path="/privacy" component={Privacy} />
               <Route path="/terms" component={Terms} />
               <Route path="/register" component={Register} />
+              <Route path="/register-complete" component={RegisterComplete} />
               <Route path="/dashboard" component={Dashboard} />
               <Route path="/profile/password" component={ChangePassword} />
               <Route path="/profile/user" component={ProfileUser} />
