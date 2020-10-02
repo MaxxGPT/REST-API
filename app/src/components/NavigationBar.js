@@ -36,7 +36,7 @@ export const NavigationBar = () => {
     });
   };
 
-  if (window.location.pathname.match(/register*/) || window.location.pathname.match(/login/)) {
+  if (window.location.pathname.match(/register*/) || window.location.pathname.match(/login/) || window.location.pathname.match(/forgot/)) {
     return null;
   }
 
@@ -55,7 +55,7 @@ export const NavigationBar = () => {
             </Nav.Item>
             {!isLogin && (
               <Nav.Item>
-                <Nav.Link href="/Login">Login</Nav.Link>
+                <Nav.Link href="/login">Login</Nav.Link>
               </Nav.Item>
             )}
             {isLogin && (

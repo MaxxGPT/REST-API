@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { isAuth } from "./helpers/auth";
+import { isAuth } from "../../helpers/auth";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import "react-toastify/dist/ReactToastify.css";
-import "./Styles/register.css";
-import AsateraLogo from "./components/AsateraLogo";
+import "../../Styles/register.css";
+import AsateraLogo from "../../components/AsateraLogo";
 
 export const Register = () => {
   const [userData, setUserData] = useState({
@@ -19,7 +19,7 @@ export const Register = () => {
 
   //handle change from inputs
   const handleChange = (event) => {
-    const value = ["terms","business"].includes(event.target.name) ? event.target.checked : event.target.value
+    const value = ["terms"].includes(event.target.name) ? event.target.checked : event.target.value
     setUserData({ ...userData, [event.target.name]: value });
   };
 
@@ -33,7 +33,7 @@ export const Register = () => {
           axios
             .post(`/api/auth`, userData)
             .then((res) => {
-              window.location.href = "/register-complete";
+                window.location.href = "/register-complete";
             })
             .catch((err) => {
               console.log("err", err);
@@ -97,10 +97,6 @@ export const Register = () => {
                   name="password2"
                   onChange={handleChange}
                 />
-              </Form.Group>
-              <Form.Group controlId="formBasicBusiness">
-                <Form.Check type="checkbox"  name="business" label="This is a Business Account"
-                  onChange={handleChange} />
               </Form.Group>
               <Form.Group controlId="formBasicTerms">
                 <Form.Check type="checkbox" name="terms" label="I agree with terms and conditions"

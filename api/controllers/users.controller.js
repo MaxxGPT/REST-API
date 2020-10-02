@@ -74,7 +74,7 @@ module.exports = {
             } else {
               return res
                 .status(200)
-                .json({ msg: "Check your email for activation link." });
+                .json({ token });
             }
           });
         }

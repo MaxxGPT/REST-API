@@ -1,9 +1,9 @@
 import React from "react";
-import { isAuth } from "./helpers/auth";
+import { isAuth } from "../../helpers/auth";
 import { Redirect } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-import "./Styles/register.css";
-import AsateraLogo from "./components/AsateraLogo";
+import "../../Styles/register.css";
+import AsateraLogo from "../../components/AsateraLogo";
 
 export const RegisterComplete = () => {
 
