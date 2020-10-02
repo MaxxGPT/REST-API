@@ -69,7 +69,6 @@ export const Register = () => {
                 <Form.Control
                   type="text"
                   name="name"
-                  placeholder="name"
                   onChange={handleChange}
                 />
               </Form.Group>
@@ -78,7 +77,6 @@ export const Register = () => {
                 <Form.Control
                   type="email"
                   name="email"
-                  placeholder="email"
                   onChange={handleChange}
                 />
               </Form.Group>
@@ -97,10 +95,6 @@ export const Register = () => {
                   name="password2"
                   onChange={handleChange}
                 />
-              </Form.Group>
-              <Form.Group controlId="formBasicBusiness">
-                <Form.Check type="checkbox"  name="business" label="This is a Business Account"
-                  onChange={handleChange} />
               </Form.Group>
               <Form.Group controlId="formBasicTerms">
                 <Form.Check type="checkbox" name="terms" label="I agree with terms and conditions"
