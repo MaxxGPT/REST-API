@@ -17,7 +17,7 @@ services:
   install_api:
     extends:
       service: api.asatera.com
-    command: yarn install --silent
+    command: yarn install --silent --network-timeout 1000000
 
   install_app:
     extends:

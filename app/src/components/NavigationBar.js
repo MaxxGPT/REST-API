@@ -36,7 +36,7 @@ export const NavigationBar = () => {
     });
   };
 
-  if (window.location.pathname.match(/register*/)) {
+  if (window.location.pathname.match(/register*/) || window.location.pathname.match(/login/)) {
     return null;
   }
 

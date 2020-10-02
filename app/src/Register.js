@@ -30,10 +30,10 @@ export const Register = () => {
         axios
           .post(`/api/auth`, userData)
           .then((res) => {
-            this.props.history.push(`/register-complete`)
+            window.location.href = "/register-complete";
           })
           .catch((err) => {
-            console.log("err", err.request);
+            console.log("err", err);
             if (err.request.status === 400) {
               toast.error("Something went wrong");
             } else if (err.request.status === 405) {

@@ -56,7 +56,7 @@ module.exports = {
             subject: "Account Activation Link",
             html: `
             <h1>Please Click link to activate your account</h1>
-            <p><a href="${process.env.CLIENT_URL}/users/activate/${token}">ACTIVATE</a></p>
+            <p><a href="${process.env.CLIENT_URL}/api/auth/activate/${token}">ACTIVATE</a></p>
             <hr/>
             <p>This email contain sensitive info</p>
             <p>${process.env.CLIENT_URL}</p>
@@ -82,8 +82,8 @@ module.exports = {
       });
     }
   },
-  getUserByEmail: function (email, callback) {
-    var query = { email: email };
+  getUserByActiveEmail: function (email, callback) {
+    var query = { email, status:true };
     Users.findOne(query, callback);
   },
   getUserById: function (id, callback) {
@@ -112,7 +112,7 @@ module.exports = {
           } else if (!_user) {
             return res.status(400).json({ msg: "Error" });
           } else {
-            res.status(200).json(decode);
+            res.status(200).redirect(307, '/login')
           }
         });
       }

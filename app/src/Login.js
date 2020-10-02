@@ -1,16 +1,16 @@
 import React, {useState} from 'react'
-import { Button, FormGroup, FormControl, FormLabel, FormCheck } from "react-bootstrap";
+import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import { request } from './services/Request';
-import "./Styles/login.css"
+import "./Styles/login.scss"
+import AsateraLogo from "./components/AsateraLogo";
+import { ToastContainer, toast } from "react-toastify";
 
-
-//  import'./bootstrap/dist/css/bootstrap.min.css';
 export const Login = () => {
 
     const [loginData,setLoginData] = useState({});
 
-    const onChangeHandlerFn = (event) => {
+    const handleChange = (event) => {
           // update the state;
           let currentLoginData = loginData;
           currentLoginData[event.target.name] = event.target.value;
@@ -20,14 +20,14 @@ export const Login = () => {
     const handleSubmit = (event) => {
           event.preventDefault();
           const data = JSON.stringify( loginData );
-          const result = request("/api/register/login", {
+          const result = request("/api/auth/login", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: data
           });
           result.then( (result) =>{
               if(result.error){
-                  alert('There was an error while processing your data. Please try again');
+                toast.error("Email or password incorrect");
               }else{
                   window.location.href="/dashboard";
               }
@@ -35,54 +35,46 @@ export const Login = () => {
     }
 
     return (
-        <div className="Login">
-                <form onSubmit={handleSubmit}>
-                    <FormGroup controlId="email" bsSize="large">
-                        <FormLabel>Email</FormLabel>
-                        <FormControl
+        <Container className="rounded-big shadow mt-5 login">
+            <ToastContainer />
+            <Row>
+                <Col className="pt-3 pt-sm-5 m-sm-5">
+                    <AsateraLogo />
+                    <h1 className="mt-5">Welcome Back!</h1>
+                    <h3>Sign in to continue</h3>
+                    <Form onSubmit={handleSubmit} className="mb-5">
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control
+                            type="text"
+                            name="email"
+                            onChange={handleChange}
                             required
-                            autoFocus
-                            type="email"
-                            //value={email}
-                            onChange={ onChangeHandlerFn }
-                    />
-                    </FormGroup>
-                    <FormGroup controlId="password" bsSize="large">
-                        <FormLabel>Password</FormLabel>
-                        <FormControl
-                            required
-                            autoFocus 
+                            />
+                        </Form.Group>
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control
                             type="password"
-                            //value={password}
-                            onChange={ onChangeHandlerFn }
-                        />
-                        </FormGroup>
-
-                        {['checkbox'].map((type) => (
-                            <div key={`default-${type}`} className="mb-3">
-                              <FormCheck 
-                                type={type}
-                                id={`default-${type}`}
-                                label={`Stay signed in`}
-                              />
-                            </div>
-                        ))}
-
-                        
-                        <Button variant="primary" type="submit" block> Login</Button>
-                        
-                        <span>
-                            <span>
-                                <span>Don't have an account?</span>
-                            </span>
-                            <a href="/register" name="sign-up" class="UnsytledLink InlineLink Text-color--blue"> Sign up</a>
-                        </span>
-                        <ul>
-                            <li><Link to="/privacy">Privacy & Terms</Link></li>
-                        </ul>
-                </form>
-            </div>
-         
+                            name="password"
+                            onChange={handleChange}
+                            required
+                            />
+                        </Form.Group>
+                        <div className="forgot text-right my-3">
+                            <Link to="/forgot">forgot password?</Link>
+                        </div>
+                        <Button variant="primary" type="submit" size="lg" block>
+                            Login
+                        </Button>
+                        <Button href="/register" variant="outline-secondary" size="lg" block className="mt-3">Create an account</Button>
+                    </Form>
+                </Col>
+                <Col className="d-none d-sm-flex align-items-stretch bg-blue rounded-big-r">
+                    <img src="/assets/login_logo.svg" alt="logo" />
+                </Col>
+            </Row>
+         </Container>
         );
 
-                        };
+ };

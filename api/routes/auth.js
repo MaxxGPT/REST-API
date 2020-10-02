@@ -18,7 +18,7 @@ passport.use(
       passwordField: "password",
     },
     function (email, password, done) {
-      UsersConstroller.getUserByEmail(email, function (err, _user) {
+      UsersConstroller.getUserByActiveEmail(email, function (err, _user) {
         if (err) throw err;
         if (!_user) {
           return done(null, false, { message: "Unknown Email Address" });
