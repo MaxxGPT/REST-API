@@ -19,29 +19,35 @@ export const Register = () => {
 
   //handle change from inputs
   const handleChange = (event) => {
-    setUserData({ ...userData, [event.target.name]: event.target.value });
+    const value = ["terms","business"].includes(event.target.name) ? event.target.checked : event.target.value
+    setUserData({ ...userData, [event.target.name]: value });
   };
 
   //submit data to the backend
   const handleSubmit = (event) => {
     event.preventDefault();
+
     if (userData.name && userData.email && userData.password) {
-      if (userData.password === userData.password2) {
-        axios
-          .post(`/api/auth`, userData)
-          .then((res) => {
-            window.location.href = "/register-complete";
-          })
-          .catch((err) => {
-            console.log("err", err);
-            if (err.request.status === 400) {
-              toast.error("Something went wrong");
-            } else if (err.request.status === 405) {
-              toast.warning("Email is already registered");
-            }
-          });
+      if(userData.terms){
+        if (userData.password === userData.password2) {
+          axios
+            .post(`/api/auth`, userData)
+            .then((res) => {
+              window.location.href = "/register-complete";
+            })
+            .catch((err) => {
+              console.log("err", err);
+              if (err.request.status === 400) {
+                toast.error("Something went wrong");
+              } else if (err.request.status === 405) {
+                toast.warning("Email is already registered");
+              }
+            });
+        } else {
+          toast.error("Password does not match");
+        }
       } else {
-        toast.error("Password does not match");
+        toast.error("You must agree to the terms and conditions");
       }
     } else {
       toast.error("Fill in all the data");
@@ -54,9 +60,9 @@ export const Register = () => {
       <ToastContainer />
       <Container className="rounded-big shadow mt-5">
         <Row>
-          <Col className="pt-3 pt-sm-5 m-sm-5">
+          <Col className="pt-3 pt-sm-3 m-sm-3">
             <AsateraLogo />
-            <h1 className="mt-5">Create Account</h1>
+            <h1 className="mt-3">Create an Account</h1>
             <Form onSubmit={handleSubmit} className="mb-5">
               <Form.Group controlId="formBasicName">
                 <Form.Label>Name</Form.Label>
@@ -91,6 +97,14 @@ export const Register = () => {
                   name="password2"
                   onChange={handleChange}
                 />
+              </Form.Group>
+              <Form.Group controlId="formBasicBusiness">
+                <Form.Check type="checkbox"  name="business" label="This is a Business Account"
+                  onChange={handleChange} />
+              </Form.Group>
+              <Form.Group controlId="formBasicTerms">
+                <Form.Check type="checkbox" name="terms" label="I agree with terms and conditions"
+                  onChange={handleChange} />
               </Form.Group>
               <Button variant="primary" type="submit" size="lg" block>
                 Create an account

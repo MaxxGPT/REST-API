@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home } from "./Home";
 import Developers from "./Developers";
-//import { Developers } from './Developers';
 import { Pricing } from "./Pricing";
 import { Login } from "./Login";
+import { Forgot } from "./Forgot";
 import { NoMatch } from "./NoMatch";
 import { Privacy } from "./Privacy";
 import { Terms } from "./Terms";
@@ -17,8 +17,7 @@ import { NewSource } from "./sources/NewSource";
 import { UpdateSource } from "./sources/UpdateSource";
 import { SourceList } from "./sources/SourceList";
 import { RegisterComplete } from "./RegisterComplete"
-//import Footer from './components/Footer'
-
+import "./Styles/custom.scss";
 class App extends Component {
   render() {
     return (
@@ -31,6 +30,7 @@ class App extends Component {
               <Route path="/developers" component={Developers} />
               <Route path="/pricing" component={Pricing} />
               <Route path="/login" component={Login} />
+              <Route path="/forgot" component={Forgot} />
               <Route path="/privacy" component={Privacy} />
               <Route path="/terms" component={Terms} />
               <Route path="/register" component={Register} />
