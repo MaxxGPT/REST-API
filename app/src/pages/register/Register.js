@@ -69,7 +69,6 @@ export const Register = () => {
                 <Form.Control
                   type="text"
                   name="name"
-                  placeholder="name"
                   onChange={handleChange}
                 />
               </Form.Group>
@@ -78,7 +77,6 @@ export const Register = () => {
                 <Form.Control
                   type="email"
                   name="email"
-                  placeholder="email"
                   onChange={handleChange}
                 />
               </Form.Group>
