@@ -10,12 +10,12 @@ export const RegisterComplete = () => {
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
       {isAuth() ? <Redirect to="/" /> : null}
-      <Container className="rounded-big shadow mt-5">
-        <Row>
-          <Col className="pt-3 pt-sm-5 m-sm-5">
+      <Container className="mt-5">
+        <Row className="justify-content-md-center">
+          <Col className="py-5 pt-sm-5 m-sm-5 rounded-big shadow col-xs-12 col-md-8">
             <AsateraLogo />
             <Row>
-              <Col className="d-flex align-items-stretch mt-5">
+              <Col className="d-flex align-items-stretch my-5">
                 <p className="label text-center">
                     Registeration Completed. Please confirm
                     your email id by clicking on the link sent
@@ -23,9 +23,6 @@ export const RegisterComplete = () => {
                 </p>
               </Col>
             </Row>
-          </Col>
-          <Col className="d-none d-sm-flex align-items-stretch bg-blue rounded-big-r">
-            <img src="/assets/registration-completed.svg" className="my-5" alt="logo" />
           </Col>
         </Row>
       </Container>

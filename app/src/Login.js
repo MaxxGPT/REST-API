@@ -35,10 +35,10 @@ export const Login = () => {
     }
 
     return (
-        <Container className="rounded-big shadow mt-5 login">
+        <Container className="mt-5 login">
             <ToastContainer />
-            <Row>
-                <Col className="pt-3 pt-sm-5 m-sm-5">
+            <Row className="justify-content-md-center">
+                <Col className="pt-3 pt-sm-5 m-sm-5 col-xs-12 col-md-8 rounded-big shadow">
                     <AsateraLogo />
                     <h1 className="mt-5">Welcome Back!</h1>
                     <h3>Sign in to continue</h3>
@@ -69,9 +69,6 @@ export const Login = () => {
                         </Button>
                         <Button href="/register" variant="outline-secondary" size="lg" block className="mt-3">Create an account</Button>
                     </Form>
-                </Col>
-                <Col className="d-none d-sm-flex align-items-stretch bg-blue rounded-big-r">
-                    <img src="/assets/login_logo.svg" alt="logo" />
                 </Col>
             </Row>
          </Container>

@@ -58,9 +58,9 @@ export const Register = () => {
     <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
       {isAuth() ? <Redirect to="/" /> : null}
       <ToastContainer />
-      <Container className="rounded-big shadow mt-5">
-        <Row>
-          <Col className="pt-3 pt-sm-3 m-sm-3">
+      <Container className="mt-5">
+        <Row className="justify-content-md-center">
+          <Col className="pt-3 pt-sm-3 m-sm-3 rounded-big shadow col-xs-12 col-md-8 ">
             <AsateraLogo />
             <h1 className="mt-3">Create an Account</h1>
             <Form onSubmit={handleSubmit} className="mb-5">
@@ -99,8 +99,10 @@ export const Register = () => {
                 />
               </Form.Group>
               <Form.Group controlId="formBasicTerms">
-                <Form.Check type="checkbox" name="terms" label="I agree with terms and conditions"
-                  onChange={handleChange} />
+                <label>
+                  <input type="checkbox" className="mr-2" name="terms" onChange={handleChange} />
+                  I agree with <Link to="/terms">terms and conditions</Link>
+                </label>
               </Form.Group>
               <Button variant="primary" type="submit" size="lg" block>
                 Create an account
@@ -113,9 +115,6 @@ export const Register = () => {
                 </p>
               </Col>
             </Row>
-          </Col>
-          <Col className="d-none d-sm-flex align-items-stretch bg-blue rounded-big-r">
-            <img src="/assets/register.svg" alt="logo" />
           </Col>
         </Row>
       </Container>

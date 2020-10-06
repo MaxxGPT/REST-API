@@ -29,9 +29,9 @@ export const Forgot = () => {
     }
 
     return (
-        <Container className="rounded-big shadow mt-5 login">
-            <Row>
-                <Col className="pt-3 pt-sm-5 m-sm-5">
+        <Container className="mt-5 forgot">
+            <Row className="justify-content-md-center">
+                <Col className="pt-3 pt-sm-5 m-sm-5 rounded-big shadow col-xs-12 col-md-8">
                     <AsateraLogo />
                     <h1 className="mt-5">Reset Password</h1>
                     <h3>Enter email to reset your password</h3>
@@ -55,9 +55,6 @@ export const Forgot = () => {
                     { emailSent && (
                         <Alert variant="success">You will get an email with instructions to reset your password</Alert>
                     )}
-                </Col>
-                <Col className="d-none d-sm-flex align-items-stretch bg-blue rounded-big-r">
-                    <img src="/assets/forgot.svg" alt="logo" />
                 </Col>
             </Row>
          </Container>
