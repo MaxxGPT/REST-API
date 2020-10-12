@@ -41,6 +41,10 @@ var userSchema = new mongoose.Schema(
       type: "Date",
       default: Date.now,
     },
+    subscription: {
+      type: String,
+      default: "free"
+    },
     apiKey: String,
     status: { type: "Boolean", default: false },
   },

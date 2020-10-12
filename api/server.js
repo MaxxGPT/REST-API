@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const flash = require("req-flash");
 const session = require("express-session");
 const passport = require("passport");
+const seeder = require("./helpers/seeder");
 
 mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
@@ -14,7 +15,13 @@ mongoose.connect(process.env.DATABASE_URL, {
 });
 const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
-db.once("open", () => console.log("Connected to Database"));
+db.once("open", () => {
+  console.log("Connected to Database")
+  if (process.env.AUTO_SEED){
+    console.log("=== Seed ===");
+    seeder.seed();
+  }
+});
 
 app.use(express.json());
 app.set("view-engine", "ejs");
