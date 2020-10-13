@@ -24,7 +24,7 @@
 }
 
 .login .login-h1 {
-    font-family: Circular Std;
+    font-family: Roboto;
     font-size: 22px;
     font-style: normal;
     font-weight: 450;
@@ -37,7 +37,7 @@
     margin-bottom: 8px;
 }
 .input-form-group.check-form.form-group label {
-    font-family: Circular Std;
+    font-family: Roboto;
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -47,7 +47,7 @@
     font-weight: 600;
 }
 .check-form label {
-    font-family: Circular Std;
+    font-family: Roboto;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -57,7 +57,7 @@
     position: relative;
 }
 .check-form label a {
-    font-family: Circular Std;
+    font-family: Roboto;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -92,7 +92,7 @@
     transform: rotate(-40deg);
 }
 .login .i-label {
-    font-family: Circular Std;
+    font-family: Roboto;
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
@@ -126,7 +126,7 @@
 }
 
 .login .forgot a {
-    font-family: Circular Std;
+    font-family: Roboto;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -279,7 +279,7 @@
 }
 
 .form-label {
-    font-family: "Varela Round";
+    font-family: Roboto;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
@@ -296,7 +296,7 @@ input {
 }
 
 .label {
-    font-family: "Varela Round";
+    font-family: Roboto;
     font-style: normal;
     font-weight: 900;
     font-size: 14px;
