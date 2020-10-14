@@ -1,4 +1,7 @@
 .login {
+
+    width: 70%;
+
   .forgot > a {
     color: #7F85A2;
   }
@@ -15,17 +18,18 @@
   }
 
   .login-h1 {
-    font-family: Circular Std;
+    font-family: Roboto;
     font-size: 22px;
     font-style: normal;
     font-weight: 450;
     line-height: 30px;
     letter-spacing: 0px;
     text-align: left;
+    margin-top: 30px !important;
   }
 
   .i-label {
-    font-family: Circular Std;
+    font-family: Roboto;
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
@@ -60,7 +64,7 @@
   }
 
   .forgot a {
-    font-family: Circular Std;
+    font-family: Roboto;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -106,6 +110,7 @@
     padding: 7px 12px;
     margin: 5px;
     color: #8181A5;
+    font-size: 14px;
     text-decoration: none;
   }
   .login-sm-bg{
@@ -126,9 +131,13 @@
   .info-div form {
     margin-bottom: 0 !important;
   }
+  .login {
+    width: 80% !important;
+  }
 
 }
 @media screen and (max-width:768px){
+
   .login  .login-bg {
     display: none !important;
   }

@@ -48,12 +48,12 @@ export const Login = () => {
 
                 </Col>
 
-                <Col className="col-sm-12 col-12 col-md-6 p-5 info-div">
+                <Col className="col-sm-12 col-12 col-md-6 px-5 py-4 info-div">
                     <div className="border-sm-div"></div>
                     <AsateraLogo />
-                    <h1 className="mt-5 login-h1">Welcome Back!</h1>
+                    <h1 className="mt-3 login-h1">Welcome Back!</h1>
                     <h3>Sign in to continue</h3>
-                    <Form onSubmit={handleSubmit} className="mb-5" autocomplete="false">
+                    <Form onSubmit={handleSubmit} className="" autocomplete="false">
                         <Form.Group controlId="formBasicEmail" className="input-form-group">
                             <Form.Label className="i-label">Email</Form.Label>
                             <Form.Control

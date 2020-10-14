@@ -24,20 +24,20 @@
 }
 
 .login .login-h1 {
-    font-family: Circular Std;
+    font-family: Roboto;
     font-size: 22px;
     font-style: normal;
     font-weight: 450;
     line-height: 30px;
     letter-spacing: 0px;
     text-align: left;
-    margin-top: 50px !IMPORTANT;
+    margin-top: 30px !IMPORTANT;
 }
 .check-form {
     margin-bottom: 8px;
 }
 .input-form-group.check-form.form-group label {
-    font-family: Circular Std;
+    font-family: Roboto;
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -47,7 +47,7 @@
     font-weight: 600;
 }
 .check-form label {
-    font-family: Circular Std;
+    font-family: Roboto;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -57,7 +57,7 @@
     position: relative;
 }
 .check-form label a {
-    font-family: Circular Std;
+    font-family: Roboto;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -92,7 +92,7 @@
     transform: rotate(-40deg);
 }
 .login .i-label {
-    font-family: Circular Std;
+    font-family: Roboto;
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
@@ -126,7 +126,7 @@
 }
 
 .login .forgot a {
-    font-family: Circular Std;
+    font-family: Roboto;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
