@@ -279,7 +279,7 @@
 }
 
 .form-label {
-    font-family: "Varela Round";
+    font-family: Roboto;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
@@ -296,7 +296,7 @@ input {
 }
 
 .label {
-    font-family: "Varela Round";
+    font-family: Roboto;
     font-style: normal;
     font-weight: 900;
     font-size: 14px;
