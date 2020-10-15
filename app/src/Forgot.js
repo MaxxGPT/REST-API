@@ -30,7 +30,7 @@ export const Forgot = () => {
 
     return (
         <Container className="mt-5 forgot">
-            <Row className="justify-content-md-center">
+            <Row className="justify-content-md-center ">
                 <Col className="pt-3 pt-sm-5 m-sm-5 rounded-big shadow col-xs-12 col-md-8">
                     <AsateraLogo />
                     <h1 className="mt-5">Reset Password</h1>

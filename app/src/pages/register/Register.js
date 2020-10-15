@@ -105,10 +105,6 @@ export const Register = () => {
                 </div>
               </Form.Group>
               <div className="custom-control custom-checkbox check-form">
-                <input type="checkbox" className="custom-control-input" name="business" id="business"/>
-                  <label className="custom-control-label" htmlFor="business">This is a Business Account</label>
-              </div>
-              <div className="custom-control custom-checkbox check-form">
                 <input type="checkbox" className="custom-control-input" name="terms" id="terms"/>
                   <label className="custom-control-label" htmlFor="terms">I agree with <Link to="/terms">terms and conditions</Link></label>
               </div>
