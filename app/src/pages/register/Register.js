@@ -23,6 +23,10 @@ export const Register = () => {
     setUserData({ ...userData, [event.target.name]: value });
   };
 
+  const redirectToCompleted = () => {
+    window.location.href = "/register-complete";
+  }
+
   //submit data to the backend
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -33,10 +37,9 @@ export const Register = () => {
           axios
             .post(`/api/auth`, userData)
             .then((res) => {
-                window.location.href = "/register-complete";
+              redirectToCompleted();
             })
             .catch((err) => {
-              console.log("err", err);
               if (err.request.status === 400) {
                 toast.error("Something went wrong");
               } else if (err.request.status === 405) {
@@ -44,7 +47,7 @@ export const Register = () => {
               }
             });
         } else {
-          toast.error("Password does not match");
+          toast.error("Passwords do not match");
         }
       } else {
         toast.error("You must agree to the terms and conditions");
@@ -69,6 +72,7 @@ export const Register = () => {
                 <Form.Control
                   type="text"
                   name="name"
+                  arial-label="inputName"
                   onChange={handleChange}
                 />
               </Form.Group>
