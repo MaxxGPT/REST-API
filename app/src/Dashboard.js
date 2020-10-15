@@ -51,7 +51,7 @@ export const Dashboard = () => {
 		        <h2> User Dashboard </h2>  
 		        <Row>
 		        	<Col><b>Full Name:</b></Col>
-		        	<Col>{ userData.firstName +' '+ userData.lastName }</Col>
+		        	<Col>{ userData.name }</Col>
 		        </Row>
 		        <Row>
 		        	<Col><b>Email:</b></Col>

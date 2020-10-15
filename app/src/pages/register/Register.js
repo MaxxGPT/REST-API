@@ -4,7 +4,7 @@ import { isAuth } from "../../helpers/auth";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Button, Form, Container, Row, Col } from "react-bootstrap";
+import { Button, Form, Container, Row, Col  } from "react-bootstrap";
 import "react-toastify/dist/ReactToastify.css";
 import "../../Styles/register.css";
 import AsateraLogo from "../../components/AsateraLogo";
@@ -58,61 +58,90 @@ export const Register = () => {
     <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
       {isAuth() ? <Redirect to="/" /> : null}
       <ToastContainer />
-      <Container className="mt-5">
-        <Row className="justify-content-md-center">
-          <Col className="pt-3 pt-sm-3 m-sm-3 rounded-big shadow col-xs-12 col-md-8 ">
+      <Container className="mt-5 mb-5 login">
+        <Row className="justify-content-md-center rounded-big shadow overflow-hidden form-div-row">
+          <Col className="col-sm-12 col-12 col-md-6 login-sm-bg">
+            <div className="">
+              <img src={process.env.PUBLIC_URL + 'assets/login-sm-bg.png'} className="login-img"/>
+              <img src={process.env.PUBLIC_URL + 'assets/logo-sm.png'} className="logo-sm"/>
+
+            </div>
+
+          </Col>
+          <Col className="col-sm-12 col-12 col-md-6 px-5 py-4 info-div">
             <AsateraLogo />
-            <h1 className="mt-3">Create an Account</h1>
-            <Form onSubmit={handleSubmit} className="mb-5">
-              <Form.Group controlId="formBasicName">
-                <Form.Label>Name</Form.Label>
+            <div className="border-sm-div"></div>
+            <h1 className="mt-3 login-h1">Create an Account</h1>
+            <h3>Sign up to continue</h3>
+            <Form onSubmit={handleSubmit} className="mb-0">
+              <Form.Group controlId="formBasicName" className="input-form-group">
+                <Form.Label className="i-label">Name</Form.Label>
                 <Form.Control
                   type="text"
                   name="name"
                   onChange={handleChange}
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label>Email Address</Form.Label>
+              <Form.Group className="input-form-group" controlId="formBasicEmail">
+                <Form.Label className="i-label">Email</Form.Label>
                 <Form.Control
                   type="email"
                   name="email"
                   onChange={handleChange}
                 />
+                <div className="input-icon">
+                  <img src={process.env.PUBLIC_URL + 'assets/Check-Circle.png'} />
+                </div>
               </Form.Group>
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
+              <Form.Group className="input-form-group" controlId="formBasicPassword">
+                <Form.Label className="i-label">Password</Form.Label>
                 <Form.Control
                   type="password"
                   name="password"
                   onChange={handleChange}
                 />
+                <div className="input-icon">
+                  <img src={process.env.PUBLIC_URL + 'assets/Eye.png'} />
+                </div>
               </Form.Group>
-              <Form.Group controlId="formBasicPassword2">
-                <Form.Label>Password Confirm</Form.Label>
-                <Form.Control
-                  type="password"
-                  name="password2"
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              <Form.Group controlId="formBasicTerms">
-                <label>
+              <div className="custom-control custom-checkbox check-form">
+                <input type="checkbox" className="custom-control-input" name="business" id="business"/>
+                  <label className="custom-control-label" htmlFor="business">This is a Business Account</label>
+              </div>
+              <div className="custom-control custom-checkbox check-form">
+                <input type="checkbox" className="custom-control-input" name="terms" id="terms"/>
+                  <label className="custom-control-label" htmlFor="terms">I agree with <Link to="/terms">terms and conditions</Link></label>
+              </div>
+              {/*<Form.Group className="input-form-group check-form" controlId="formBasicTerms">
+
+                <label className="i-label">
                   <input type="checkbox" className="mr-2" name="terms" onChange={handleChange} />
-                  I agree with <Link to="/terms">terms and conditions</Link>
+
                 </label>
               </Form.Group>
-              <Button variant="primary" type="submit" size="lg" block>
+              <Form.Group className="input-form-group check-form" controlId="formBasicTerms">
+                <label className="i-label">
+                  <input type="checkbox" className="mr-2" name="terms" onChange={handleChange} />
+
+                </label>
+              </Form.Group>*/}
+              <Button variant="primary" className="login-btn" type="submit" size="lg" block>
                 Create an account
               </Button>
+              <div className="social-div">
+                <a href="#"><i className="fa fa-twitter"></i> </a>
+                <a href="#"><i className="fa fa-google	"></i> </a>
+                <a href="#"><i className="fa fa-github	"></i> </a>
+                <a href="#" className="sign-in-with">Or Sign In With </a>
+              </div>
             </Form>
-            <Row>
-              <Col>
-                <p className="label text-center">
-                  Already have an account? <Link to="/Login">Login</Link>
-                </p>
-              </Col>
-            </Row>
+
+          </Col>
+          <Col className="col-sm-12 col-12 col-md-6 login-bg">
+            <div className="">
+              <img src={process.env.PUBLIC_URL + 'assets/register.svg'} className="login-img"/>
+            </div>
+
           </Col>
         </Row>
       </Container>

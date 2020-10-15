@@ -1,10 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Users = require("../models/users");
-const UsersConstroller = require("../controllers/users.controller");
 const uuidv4 = require("uuid/v4");
 var expressValidator = require("express-validator");
-const flash = require("req-flash");
 const authMiddleware = require("../middlewares/auth.middleware");
 const bcrypt = require("bcrypt");
 
@@ -53,25 +51,6 @@ router.post("/", (req, res) => {
 /*Get user information*/
 router.get("/me", authMiddleware.validate, (req, res) => {
   return res.status(200).json(req.user);
-});
-/* See default user */
-router.get("/seed", (req, res) => {
-  const randomKey = uuidv4();
-  let newUser = new Users({
-    firstName: "Admin",
-    lastName: "Default",
-    password: "Test.123",
-    email: "admin@default.com",
-    isAdmin: true,
-    apiKey: randomKey.replace(/-/g, ""),
-  });
-  newUser.save((err, _user) => {
-    if (err) {
-      return res.status(400).json(err);
-    } else {
-      return res.status(200).json({ msg: "Default user seeded" });
-    }
-  });
 });
 
 /*Delete Users*/
