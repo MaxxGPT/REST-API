@@ -1,9 +1,11 @@
 import React from 'react'
 import Sidebar from "./components/Privacy-Sidebar";
 import { Row, Col, Container } from "react-bootstrap";
+import Footer from "./components/Footer";
 
 export const Privacy = () => (
-    <Container>
+    <div>
+    <Container className="mt-5 pt-5 mb-5">
     <Row>
       <Col md={3}>
         <Sidebar />
@@ -32,7 +34,7 @@ export const Privacy = () => (
                 <p>This Privacy Policy is provided in a layered format. Click through to jump to a specific section.</p>
                 <br />
                 
-                <ul>
+                <ul className="a-ul">
                     <li><a href="#overview">OVERVIEW</a></li>
                     <li><a href="#what-information-do-we-collect">WHAT INFORMATION DO WE COLLECT?</a></li>
                     <li><a href="#how-do-we-use-your-information">HOW DO WE USE YOUR INFORMATION?</a></li>
@@ -248,4 +250,6 @@ export const Privacy = () => (
             </Col>
         </Row>
     </Container>
+<Footer />
+</div>
 );

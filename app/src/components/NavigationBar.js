@@ -7,7 +7,98 @@ const Styles = styled.div`
   .navbar {
     background-color: #222;
   }
+nav.astra-nav {
+    background: white !important;
+    padding: 10px 50px;
+}
+img.logo-img {
+    width: auto;
+    height: 50px;
+}
 
+nav.astra-nav .nav-item a {
+    font-family: Circular Std;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 23px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: black !important;
+    
+    padding: 8px 25px;
+    border-radius: 10px;
+}
+nav.astra-nav .nav-item a.sign-in.nav-link {
+    background: #03004D;
+    color: white !important;
+    margin-left: 20px;
+}
+.nav-over {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+        overflow: visible;
+}
+img.over-1,img.over-2  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform:none !important;
+}
+.sm-show{
+  display:none !important;
+}
+
+@media screen and (max-width:768px){
+.sm-show{
+  display:block !important;
+}
+img.logo-img {
+    display: none;
+}
+.nav-over {
+  
+    display: none;
+}
+nav.astra-nav {
+    background: #03004D!important;
+    padding: 10px 50px;
+}
+button.navbar-toggler {
+    border: none !important;
+    outline: none !important;
+}
+nav.astra-nav .navbar-toggler-icon {
+    background-image: url('/assets/menu.png');
+    width: 20px;
+    height: 17px;
+}
+nav.astra-nav .nav-item a.sign-in.nav-link {
+    background: none;
+    color: white !important;
+    margin-left: 0;
+}
+ nav.astra-nav .nav-item a {
+    
+    color: white !important;
+    
+}
+div#basic-navbar-nav {
+    margin-top: 20px;
+}
+}
+@media screen and (max-width:500px){
+img.logo-img.sm-show {
+    width: auto;
+    height: 35px;
+}
+ nav.astra-nav {
+    background: #03004D!important;
+    padding: 10px 20px;
+}
+}
   .navbar-brand,
   .navbar-nav .nav-link {
     color: #bbb;
@@ -42,8 +133,14 @@ export const NavigationBar = () => {
 
   return (
     <Styles>
-      <Navbar expand="lg">
-        <Navbar.Brand href="/"> AsaTera </Navbar.Brand>
+      <Navbar expand="md" className="astra-nav">
+        <div className="nav-over">
+          <img src="/assets/Oval.png" className="over-1"/>
+          <img src="/assets/Oval2.png" className="over-2"/>
+        </div>
+        <Navbar.Brand href="/"> <img src="/assets/logo.png" className="logo-img"/>
+          <img src="/assets/logo-2.png" className="logo-img sm-show"/>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
@@ -53,9 +150,13 @@ export const NavigationBar = () => {
             <Nav.Item>
               <Nav.Link href="/Pricing">Pricing</Nav.Link>
             </Nav.Item>
+            <Nav.Item>
+            <Nav.Link href="/register">Sign Up</Nav.Link>
+          </Nav.Item>
+
             {!isLogin && (
               <Nav.Item>
-                <Nav.Link href="/login">Login</Nav.Link>
+                <Nav.Link href="/login" className="sign-in">Sign In</Nav.Link>
               </Nav.Item>
             )}
             {isLogin && (

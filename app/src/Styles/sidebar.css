@@ -5,7 +5,9 @@ nav ul {
   overflow: hidden;
 }
 
-
+body#terms-reference {
+  background: none;
+}
 
 .sidebar-container{
   display: flex;
