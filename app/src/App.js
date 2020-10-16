@@ -17,6 +17,7 @@ import { NewSource } from "./sources/NewSource";
 import { UpdateSource } from "./sources/UpdateSource";
 import { SourceList } from "./sources/SourceList";
 import { RegisterComplete } from "./pages/RegisterComplete"
+import { Subscription } from "./pages/Subscription"
 import "./Styles/custom.scss";
 class App extends Component {
   render() {
@@ -36,6 +37,7 @@ class App extends Component {
               <Route path="/register" component={Register} />
               <Route path="/register-complete" component={RegisterComplete} />
               <Route path="/dashboard" component={Dashboard} />
+              <Route path="/profile/subscription" component={Subscription} />
               <Route path="/profile/password" component={ChangePassword} />
               <Route path="/profile/user" component={ProfileUser} />
               <Route exact path="/sources" component={SourceList} />

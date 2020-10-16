@@ -2,7 +2,6 @@ require("dotenv").config();
 
 const Users = require("../models/users");
 const jwt = require("jsonwebtoken");
-const { errorHandler } = require("../helpers/dbErrorHandling");
 const uuidv4 = require("uuid/v4");
 const emailService = require("../services/email.service");
 

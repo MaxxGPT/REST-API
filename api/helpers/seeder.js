@@ -42,15 +42,18 @@ const seed_subscriptions = () => {
     const subscriptions = [
         {
             name : "free",
-            requests_per_day : 250
+            requests_per_day : 250,
+            price: 5
         },
         {
             name : "developer",
-            requests_per_day : 500
+            requests_per_day : 500,
+            price: 10
         },
         {
             name : "enterprise",
-            requests_per_day : 1000
+            requests_per_day : 1000,
+            price: 15
         },
     ]
     return new Promise((resolve, reject)=>{

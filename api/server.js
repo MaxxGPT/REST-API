@@ -33,6 +33,8 @@ app.use(passport.session());
 app.use(flash());
 const articlesRouter = require("./routes/articles");
 app.use("/articles", articlesRouter);
+const subscriptionsRouter = require("./routes/subscriptions");
+app.use("/subscriptions", subscriptionsRouter);
 
 const sourcesRouter = require("./routes/sources");
 app.use("/sources", sourcesRouter);
