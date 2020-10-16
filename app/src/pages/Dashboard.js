@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import { request } from './services/Request';
-import { Row, Col, Container } from 'react-bootstrap';
+import { ToastContainer, toast } from "react-toastify";
+import { request } from '../services/Request';
+import { Row, Col, Container, Button } from 'react-bootstrap';
 
 export const Dashboard = () => {
 
@@ -10,24 +11,27 @@ export const Dashboard = () => {
 		request('/api/users/me',{})
 		.then(
 			(result) => {
-				console.log(result);
 				setUserData(result.data);
 			}
-		);	
+		);
 	}, []);
+
+	const redirectToLogin = () => {
+		window.location.href = '/login';
+	}
 
 	const deleteAccount = () => {
 		const response = window.confirm("Are you sure to delete your account?");
 		if (response === true) {
-			request('/api/users/remove', {
+			request('/api/users', {
 				method: 'DELETE'
 			}).then( (result) => {
 				if(result.error){
-					alert('There was an error removing the selected user. Please try again.');
+					toast.error('There was an error removing the selected user. Please try again.');
 				}else{
-					window.location.href = '/login';
+					redirectToLogin()
 				}
-			});	
+			});
 		}
 	};
 
@@ -37,18 +41,22 @@ export const Dashboard = () => {
 			request('/api/users/generateApi', {
 			}).then( (result) => {
 				if(result.error){
-					alert('There was an error regenerating the api key. Please try again.');
+					toast.error('There was an error removing the selected user. Please try again.');
 				}else{
-					window.location.reload();
+					setUserData((_userdata) => {
+						return {..._userdata,apiKey:result.data.apiKey}
+					});
+					toast.success('Your API Key has been updated.');
 				}
-			});	
+			});
 		}
 	};
 
 	return (
 		<Container>
+			<ToastContainer />
 		    <div>
-		        <h2> User Dashboard </h2>  
+		        <h2> User Dashboard </h2>
 		        <Row>
 		        	<Col><b>Full Name:</b></Col>
 		        	<Col>{ userData.name }</Col>
@@ -63,30 +71,37 @@ export const Dashboard = () => {
 		        </Row>
 		        <Row>
 		        	<Col><b>Subscription Level:</b></Col>
-		        	<Col>{ userData.permissionLevel }</Col>
+		        	<Col>{ userData.subscription }</Col>
 		        </Row>
-		        <br/>	
+		        <br/>
 		        <Row>
 		        	{ userData.isAdmin &&
 		        		<Col>
-		        			<a href="/sources" className="btn btn-info">Source List</a>	
+							<Button variant="info" href="/sources">Source List</Button>
 		        		</Col>
 		        	}
 		        	<Col>
-		        		<a href="/profile/user" className="btn btn-info">Update information</a>
+						<Button variant="info" href="/profile/user">Update information</Button>
 		        	</Col>
 		        	<Col>
-		        		<a href="/profile/password" className="btn btn-info">Change password</a>
+						<Button variant="info" href="/profile/password">Change password</Button>
 		        	</Col>
 		        	<Col>
-		        		<button className="btn btn-warning" onClick={regenerateAPI}>Regenerate API Key</button>
+						<Button variant="warning" onClick={regenerateAPI}>Regenerate API Key</Button>
 		        	</Col>
 		        	<Col>
-		        		<button className="btn btn-danger" onClick={deleteAccount}>Delete account</button>
+						<Button variant="danger" onClick={deleteAccount}>Delete account</Button>
 		        	</Col>
 		        </Row>
+				<Row>
+					<Col>
+						<Button variant="info" href="/profile/subscription">Manage Subscription</Button>
+					</Col>
+				</Row>
 		    </div>
 		</Container>
 	);
 
 }
+
+export default Dashboard;

@@ -30,6 +30,8 @@ module.exports = {
         apiKey: randomKey.replace(/-/g, ""),
       });
       newUser.save(function (err, user) {
+        res.status(400).json({"mes":"mes"});
+        /*
         if (err) {
           //throw(err);
           if (err.errmsg.includes("duplicate")) {
@@ -78,7 +80,7 @@ module.exports = {
             }
           });
         }
-        //console.log(user);
+        //console.log(user);*/
       });
     }
   },

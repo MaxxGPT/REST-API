@@ -54,7 +54,7 @@ router.get("/me", authMiddleware.validate, (req, res) => {
 });
 
 /*Delete Users*/
-router.delete("/remove", authMiddleware.validate, async (req, res) => {
+router.delete("/", authMiddleware.validate, async (req, res) => {
   Users.remove({ _id: req.user.id }, (err) => {
     if (err) {
       return res.status(500).json({ message: err.message });
@@ -91,11 +91,12 @@ router.patch("/", authMiddleware.validate, async (req, res) => {
 /*Updare User API Key*/
 router.get("/generateApi", authMiddleware.validate, async (req, res) => {
   const randomKey = uuidv4();
+  const apiKey = randomKey.replace(/-/g, "");
   Users.findByIdAndUpdate(
     req.user.id,
     {
       $set: {
-        apiKey: randomKey.replace(/-/g, ""),
+        apiKey
       },
     },
     (err) => {
@@ -104,7 +105,7 @@ router.get("/generateApi", authMiddleware.validate, async (req, res) => {
       } else {
         return res
           .status(200)
-          .json({ message: "API key generated correctly." });
+          .json({ apiKey });
       }
     }
   );

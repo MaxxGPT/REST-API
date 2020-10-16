@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { isAuth } from "../../helpers/auth";
+import { isAuth } from "../helpers/auth";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button, Form, Container, Row, Col  } from "react-bootstrap";
 import "react-toastify/dist/ReactToastify.css";
-import "../../Styles/register.css";
-import AsateraLogo from "../../components/AsateraLogo";
+import "../Styles/register.css";
+import AsateraLogo from "../components/AsateraLogo";
 
 export const Register = () => {
   const [userData, setUserData] = useState({
@@ -87,7 +87,7 @@ export const Register = () => {
                 />
               </Form.Group>
               <Form.Group className="input-form-group" controlId="formBasicEmail">
-                <Form.Label className="i-label">Email</Form.Label>
+                <Form.Label className="i-label">Email Address</Form.Label>
                 <Form.Control
                   type="email"
                   name="email"
@@ -108,8 +108,19 @@ export const Register = () => {
                   <img src={process.env.PUBLIC_URL + 'assets/Eye.png'} />
                 </div>
               </Form.Group>
+              <Form.Group className="input-form-group" controlId="formBasicPassword2">
+                <Form.Label className="i-label">Password Confirm</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password2"
+                  onChange={handleChange}
+                />
+                <div className="input-icon">
+                  <img src={process.env.PUBLIC_URL + 'assets/Eye.png'} />
+                </div>
+              </Form.Group>
               <div className="custom-control custom-checkbox check-form">
-                <input type="checkbox" className="custom-control-input" name="terms" id="terms"/>
+                <input type="checkbox" className="custom-control-input" name="terms" id="terms"  onChange={handleChange}/>
                   <label className="custom-control-label" htmlFor="terms">I agree with <Link to="/terms">terms and conditions</Link></label>
               </div>
               {/*<Form.Group className="input-form-group check-form" controlId="formBasicTerms">

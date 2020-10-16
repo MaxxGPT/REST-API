@@ -9,14 +9,14 @@ import { NoMatch } from "./NoMatch";
 import { Privacy } from "./Privacy";
 import { Terms } from "./Terms";
 import { NavigationBar } from "./components/NavigationBar";
-import { Register } from "./pages/register/Register";
-import { Dashboard } from "./Dashboard";
+import { Register } from "./pages/Register";
+import { Dashboard } from "./pages/Dashboard";
 import { ChangePassword } from "./ChangePassword";
 import { ProfileUser } from "./ProfileUser";
 import { NewSource } from "./sources/NewSource";
 import { UpdateSource } from "./sources/UpdateSource";
 import { SourceList } from "./sources/SourceList";
-import { RegisterComplete } from "./pages/register/RegisterComplete"
+import { RegisterComplete } from "./pages/RegisterComplete"
 import "./Styles/custom.scss";
 class App extends Component {
   render() {

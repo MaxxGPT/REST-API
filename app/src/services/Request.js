@@ -1,7 +1,7 @@
 export const request = (url, options) => {
   function handleErrors(response) {
       if(response.status === 403 && !options.noRedirect){
-        window.location.href = "/login";
+        window.location.assign("/login");
       }else if (!response.ok) {
           throw Error(response.statusText);
       }else{
@@ -19,7 +19,6 @@ export const request = (url, options) => {
   )
   .catch(
     (error) => {
-      console.log(error);
       return { error: error };
     }
   )

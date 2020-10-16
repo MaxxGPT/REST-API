@@ -5,6 +5,6 @@ import "./Styles/custom.scss"
 
 test('renders learn react link', () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/AsaTera/i);
+  const linkElement = getByText(/Home/i);
   expect(linkElement).toBeInTheDocument();
 });
