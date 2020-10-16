@@ -26,7 +26,9 @@ export const Subscription = () => {
         request('/api/subscriptions',{})
 		.then(
 			(result) => {
-				setPlans(result.data);
+                if(result.data){
+                    setPlans(result.data);
+                }
 			}
 		);
     }
@@ -35,18 +37,18 @@ export const Subscription = () => {
   <Container className="mt-5 mb-5 subscription">
       <PageTitle className="m-5">Plans to fit your needs</PageTitle>
         <Row>
-            {plans.map((plan)=> (
-                <Col className="col-md-4 col-12">
-                <Card className="shadow text-center" data-testid="plan">
+            { plans && plans.map((plan)=> (
+                <Col className="col-md-4 col-12" key={plan.name}>
+                <Card className="shadow text-center" role="card">
                     <Card.Body>
                         <Card.Title className="text-capitalize">
                             {plan.name} Plan
                         </Card.Title>
-                        <Card.Text><SubTitle>Starting At</SubTitle>
+                        <div><SubTitle>Starting At</SubTitle>
                         <Price>{plan.price}</Price>
                         <SmallLabel>* per month</SmallLabel>
                         <MontlyRequests>{plan.requests_per_day}</MontlyRequests>
-                        <SmallLabel>Requests per day</SmallLabel></Card.Text>
+                        <SmallLabel>Requests per day</SmallLabel></div>
                     </Card.Body>
                     <Card.Footer>
                         {(userData.subscription === plan.name) && (
