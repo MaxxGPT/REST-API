@@ -10,12 +10,14 @@
     background: linear-gradient(-50deg, #03004D, #3563EB);
     display: flex;
     align-items: center;
-
+  padding: 0;
     img.login-img {
       width: 100%;
+      height: 100%;
     }
 
   }
+
 
   .login-h1 {
     font-family: Roboto;
@@ -26,6 +28,10 @@
     letter-spacing: 0px;
     text-align: left;
     margin-top: 30px !important;
+  }
+  .r-complete.login-h1 {
+    font-size: 20px !important;
+    margin-top: 115px !important;
   }
 
   .i-label {
@@ -147,6 +153,7 @@
   }
   img.login-img {
     width: 100%;
+    height: 100%;
   }
   .asatera-logo {
     display: none;
@@ -166,6 +173,10 @@
 
 }
 @media screen and (max-width:568px){
+  .login .r-complete.login-h1{
+    font-size: 20px !important;
+    margin-top: 50px !important;
+  }
   .form-div-row {
     overflow: auto !important;
     border-radius: 0 !important;
@@ -183,10 +194,29 @@
   }
   .login {
     margin: 0 !important;
+    width: 100% !important;
+  }
+  .info-div {
+    min-height: 279px !important;
   }
   .info-div {
     border-radius: 30px 30px 0 0 !important;
   }
 }
-
+@media screen and (max-width: 500px){
+  .info-div,.login .login-sm-bg {
+    min-height: 50vh !important;
+  }
+  .login .social-div a.sign-in-with{
+    flex:0 0 100%;
+    text-align: center;
+  }
+  .login .social-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+}
 

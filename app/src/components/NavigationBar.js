@@ -50,6 +50,9 @@ img.over-1,img.over-2  {
 .sm-show{
   display:none !important;
 }
+a.z-index-9.navbar-brand {
+    z-index: 9999;
+}
 
 @media screen and (max-width:768px){
 .sm-show{
@@ -138,7 +141,7 @@ export const NavigationBar = () => {
           <img src="/assets/Oval.png" className="over-1"/>
           <img src="/assets/Oval2.png" className="over-2"/>
         </div>
-        <Navbar.Brand href="/"> <img src="/assets/logo.png" className="logo-img"/>
+        <Navbar.Brand href="/" className="z-index-9"> <img src="/assets/logo.png" className="logo-img"/>
           <img src="/assets/logo-2.png" className="logo-img sm-show"/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

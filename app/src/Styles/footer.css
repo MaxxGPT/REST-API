@@ -60,6 +60,9 @@ img.logo-img {
     mix-blend-mode: normal;
     opacity: 0.12;
 }
+.min-vh-50 {
+    min-height: 259px;
+}
 .f-social-div a {
     display: inline-block;
     padding: 6px;

@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { Alert, Button, Form, Container, Row, Col } from "react-bootstrap";
 import { request } from './services/Request';
 import AsateraLogo from "./components/AsateraLogo";
+import {ToastContainer} from "react-toastify";
 
 export const Forgot = () => {
 
@@ -29,35 +30,50 @@ export const Forgot = () => {
     }
 
     return (
-        <Container className="mt-5 forgot">
-            <Row className="justify-content-md-center ">
-                <Col className="pt-3 pt-sm-5 m-sm-5 rounded-big shadow col-xs-12 col-md-8">
+        <Container className="mt-5 mb-5 login">
+            <ToastContainer />
+            <Row className="justify-content-md-center rounded-big shadow overflow-hidden form-div-row">
+                <Col className="col-sm-12 col-12 col-md-6 login-sm-bg">
+                    <div className="h-100">
+                        <img src={process.env.PUBLIC_URL + 'assets/login-sm-bg.png'} className="login-img"/>
+                        <img src={process.env.PUBLIC_URL + 'assets/logo-sm.png'} className="logo-sm"/>
+
+                    </div>
+
+                </Col>
+
+                <Col className="col-sm-12 col-12 col-md-6 px-5 py-4 info-div">
+                    <div className="border-sm-div"></div>
                     <AsateraLogo />
-                    <h1 className="mt-5">Reset Password</h1>
-                    <h3>Enter email to reset your password</h3>
-                    { !emailSent && (
-                        <Form onSubmit={handleSubmit} className="mb-5">
-                            <Form.Group controlId="formBasicEmail">
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control
+                    <h1 className="mt-5 login-h1">Password Recovery</h1>
+                    <h3>Enter your email to recover your password</h3>
+                    <Form className="mt-5" autocomplete="false">
+                        <Form.Group controlId="formBasicEmail" className="input-form-group">
+                            <Form.Label className="i-label">Email</Form.Label>
+                            <Form.Control
                                 type="text"
                                 name="email"
-                                onChange={handleChange}
                                 required
-                                />
-                            </Form.Group>
-                            <Button variant="primary" type="submit" size="lg" block>
-                                Send email
-                            </Button>
-                        </Form>
-                        )
-                    }
-                    { emailSent && (
-                        <Alert variant="success">You will get an email with instructions to reset your password</Alert>
-                    )}
+                            />
+                            <div className="input-icon">
+                                <img src={process.env.PUBLIC_URL + 'assets/Check-Circle.png'} />
+                            </div>
+                        </Form.Group>
+
+                        <Button variant="primary" type="submit" size="lg" block className="login-btn">
+                            Send Email
+                        </Button>
+
+                    </Form>
+                </Col>
+                <Col className="col-sm-12 col-12 col-md-6 login-bg">
+                    <div className="">
+                        <img src={process.env.PUBLIC_URL + 'assets/forgot.png'} className="login-img"/>
+                    </div>
+
                 </Col>
             </Row>
-         </Container>
+        </Container>
         );
 
  };

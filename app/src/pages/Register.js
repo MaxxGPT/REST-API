@@ -64,9 +64,13 @@ export const Register = () => {
       <Container className="mt-5 mb-5 login">
         <Row className="justify-content-md-center rounded-big shadow overflow-hidden form-div-row">
           <Col className="col-sm-12 col-12 col-md-6 login-sm-bg">
-            <div className="">
+            <div className="h-100">
+
               <img src={process.env.PUBLIC_URL + 'assets/login-sm-bg.png'} className="login-img"/>
-              <img src={process.env.PUBLIC_URL + 'assets/logo-sm.png'} className="logo-sm"/>
+              <a href="/">
+                <img src={process.env.PUBLIC_URL + 'assets/logo-sm.png'} className="logo-sm"/>
+              </a>
+
 
             </div>
 
