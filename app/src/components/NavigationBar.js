@@ -28,7 +28,7 @@ nav.astra-nav .nav-item a {
     letter-spacing: 0px;
     text-align: left;
     color: black !important;
-    
+    font-family: "Roboto", "Helvetica", "Arial";
     padding: 8px 25px;
     border-radius: 10px;
 }
