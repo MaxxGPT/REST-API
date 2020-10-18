@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from '../Header/Header';
 import Footer from '../Footer';
 import { Grid, Box, Typography, Switch, ButtonBase } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
@@ -7,6 +8,10 @@ import './pricing.css';
 
 import PricePlanCard from './PricingCard/PricingCard';
 import PricingFeature from './PricingFeature/PricingFeature';
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 import FeatureImage1 from '../../assets/images/feature-image-1.png';
 import FeatureImage2 from '../../assets/images/feature-image-2.png';
@@ -35,6 +40,11 @@ const styles = theme => ({
         [theme.breakpoints.down("xs")]: {
             width: 60,
         }
+    },
+    mobileVewNav: {
+        position: "absolute",
+        top: "12%",
+        width: "100%"
     },
     pricingPlanHeaderOvalBottomLarge: {
         position: "absolute",
@@ -306,14 +316,37 @@ class Pricing extends Component {
                 { title: "Guaranteed 100% uptime" },
                 { title: "Unlimited users" },
             ],
+            isOpen: false
         };
     }
 
+    toggleHeaderNavHandler = () => {
+        this.setState({ isOpen: !this.state.isOpen })
+    }
     render() {
         const { classes } = this.props;
         return (
             <Box>
                 <Box className="PricingPlanHeaderContainer">
+                    <Header navHandler={this.toggleHeaderNavHandler} />
+                    {this.state.isOpen &&
+                        <Box boxShadow={3} bgcolor="white" pl={3} className={classes.mobileVewNav}>
+                            <List component="nav" aria-label="mobile view nav">
+                                <ListItem button component="a" href="/pricing">
+                                    <ListItemText primary="Pricing" />
+                                </ListItem>
+                                <ListItem button component="a" href="/developers">
+                                    <ListItemText primary="Developer" />
+                                </ListItem>
+                                <ListItem button component="a" href="/register">
+                                    <ListItemText primary="Sign Up" />
+                                </ListItem>
+                                <ListItem button component="a" href="/login">
+                                    <ListItemText primary="Sign In" />
+                                </ListItem>
+                            </List>
+                        </Box>
+                    }
                     <Grid direction="column">
                         <Box className={classes.pricingPlanHeroTextContainer}>
                             <Typography className={classes.pricingPlanHeroText}>
@@ -349,7 +382,7 @@ class Pricing extends Component {
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <PricePlanCard
-                            amount={0}
+                            amount={99}
                             amountColor="#01C48D"
                             time="month"
                             title="Developer"
@@ -362,7 +395,7 @@ class Pricing extends Component {
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <PricePlanCard
-                            amount={0}
+                            amount={339}
                             amountColor="#3D34D2"
                             time="month"
                             title="Enterprise"

@@ -2,9 +2,12 @@ import React from "react";
 //import React, { Component } from "react";
 import Sidebar from "./components/Sidebar";
 import { Row, Col, Container } from "react-bootstrap";
+import NavigationBar from "./components/NavigationBar"
 
 const Developers = () => (
+  
   <Container>
+    <NavigationBar />
     <Row>
       <Col md={3}>
         <Sidebar />

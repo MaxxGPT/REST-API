@@ -1,10 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Box, ButtonBase, Typography, IconButton } from '@material-ui/core';
-
+import { useHistory } from 'react-router-dom';
 import Logo from '../../assets/images/logo.png';
-import Oval from '../../assets/images/Oval.png';
-import Oval1 from '../../assets/images/Oval-1.png';
 import OvalSmall from '../../assets/images/Oval-small.png';
 
 import MenuIcon from '@material-ui/icons/Menu';
@@ -14,6 +12,15 @@ const useStyles = makeStyles(theme => ({
         color: "white",
         marginRight: 25,
         marginTop: 10,
+        '&:focus': {
+            outline: "none !important"
+        }
+    },
+    rightSideMenuIcon: {
+        '&:focus': {
+            outline: "none !important"
+        },
+        color: "white"
     },
     pricingPlanMenuItemTitle: {
         fontSize: 18
@@ -68,56 +75,55 @@ const useStyles = makeStyles(theme => ({
     }
 
 }));
-
-export default function ButtonAppBar() {
+const Header = props => {
     const classes = useStyles();
-
+    const history = useHistory();
     return (
         <Box>
             <Grid container alignItems="center">
-                <Grid container item xs={3}>
+                <Grid container item md={3} xs={3}>
                     <Box m={3}>
+                        <a href="/">
                         <img
                             src={Logo}
                             className={classes.headerLogo}
                             alt="Logo"
                         />
-                        <img
-                            className={classes.pricingPlanHeaderOval}
-                            src={Oval1}
-                            alt="Oval"
-                        />
-                        <img
-                            className={classes.pricingPlanHeaderOval}
-                            src={Oval}
-                            alt="Oval 1"
-                        />
+                        </a>
                     </Box>
                 </Grid>
-                <Grid className={classes.headerBalanceContainer} container item sm={false} xs={false}></Grid>
-                <Grid container item sm={9} xs={9} alignItems="center" justify="flex-end">
+                <Grid className={classes.headerBalanceContainer} container item md={4} sm={false} xs={false}></Grid>
+                <Grid container item md={5} sm={9} xs={9} alignItems="center" justify="flex-end">
                     <Box className={classes.rightSideMenuContainer} mr={4}>
-                        <IconButton>
+                        <IconButton className={classes.rightSideMenuIcon} onClick={() => props.navHandler()}>
                             <MenuIcon />
                         </IconButton>
                     </Box>
                     <Grid container alignItems="center" className={classes.rightSideNavContainer}>
                         <Grid item xs={6} className={classes.pricingPlanMenuContainer}>
                             <Grid container>
-                                <ButtonBase className={classes.pricingPlanMenuItem}>
+                                <ButtonBase
+                                    onClick={() => history.push("/Pricing")}
+                                    className={classes.pricingPlanMenuItem}>
                                     <Typography className={classes.pricingPlanMenuItemTitle}>Pricing</Typography>
                                 </ButtonBase>
-                                <ButtonBase className={classes.pricingPlanMenuItem}>
+                                <ButtonBase
+                                    onClick={() => history.push("/developers")}
+                                    className={classes.pricingPlanMenuItem}>
                                     <Typography className={classes.pricingPlanMenuItemTitle}>Developer</Typography>
                                 </ButtonBase>
                             </Grid>
                         </Grid>
                         <Grid item xs={6} className={classes.pricingPlanMenuContainer}>
                             <Grid container>
-                                <ButtonBase className={classes.pricingPlanMenuItem}>
+                                <ButtonBase
+                                    onClick={() => history.push("/register")}
+                                    className={classes.pricingPlanMenuItem}>
                                     <Typography className={classes.pricingPlanMenuItemTitle}>Sign Up</Typography>
                                 </ButtonBase>
-                                <ButtonBase className={`${classes.pricingPlanMenuItem} ${classes.pricingPlanSignUpButton}`}>
+                                <ButtonBase
+                                    onClick={() => history.push("/login")}
+                                    className={`${classes.pricingPlanMenuItem} ${classes.pricingPlanSignUpButton}`}>
                                     <Typography className={classes.pricingPlanSignUpButtonTitle}>Sign In</Typography>
                                 </ButtonBase>
                             </Grid>
@@ -134,3 +140,5 @@ export default function ButtonAppBar() {
         </Box>
     );
 }
+
+export default Header;

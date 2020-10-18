@@ -24,12 +24,14 @@ class App extends Component {
     return (
       <div className="page-container">
         <div className="content-wrap">
-          <NavigationBar />
+          {/* {window.location.pathname !== "/Pricing" &&
+            <NavigationBar />
+          } */}
           <Router>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/developers" component={Developers} />
-              <Route path="/pricing" component={Pricing} />
+              <Route path="/Pricing" component={Pricing} />
               <Route path="/login" component={Login} />
               <Route path="/forgot" component={Forgot} />
               <Route path="/privacy" component={Privacy} />

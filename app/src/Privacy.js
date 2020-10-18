@@ -2,9 +2,11 @@ import React from 'react'
 import Sidebar from "./components/Privacy-Sidebar";
 import { Row, Col, Container } from "react-bootstrap";
 import Footer from "./components/Footer";
+import NavigationBar from "./components/NavigationBar"
 
 export const Privacy = () => (
     <div>
+     <NavigationBar /> 
     <Container className="mt-5 pt-5 mb-5">
     <Row>
       <Col md={3}>
