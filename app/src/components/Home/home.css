@@ -350,7 +350,7 @@
 
 .section__create_account_getAQuote {
     background: #03004d;
-    min-width: 200px;
+    min-width: 180px;
     min-height: 60px;
     border-radius: 10px;
     margin-top: 40px;
@@ -360,7 +360,8 @@
     font-size: 18px;
     line-height: 40px;
     align-items: center;
-    margin-top: 140px;
+    margin-top: 100px;
+    margin-left: 100px;
 }
 
 /* ! MEDIA QUERIES */
@@ -373,6 +374,24 @@
     }
     .machineLearning__dotsBottomRight {
         left: 130px;
+    }
+
+    .home__headerHeroTextTitle {
+        font-size: 40px;
+        line-height: 45px;
+    }
+    .home__leftSideContainer {
+        margin: 13%;
+    }
+    .home__headerHeroTextDescription {
+        font-size: 20px;
+        line-height: 25px;
+        max-width: 100%;
+    }
+    .section__create_account_getAQuote {
+        min-width: 180px;
+        min-height: 60px;
+        margin-left: 30px;
     }
 }
 
@@ -388,6 +407,29 @@
         font-size: 20px;
         line-height: 25px;
         max-width: 100%;
+    }
+    .home__improving__dots_right_bottom {
+        position: absolute;
+        right: 0;
+        bottom: 180px;
+        z-index: -20;
+    }
+
+    .home__kind_api_dots_left_bottom {
+        position: absolute;
+        left: -170px;
+        bottom: 200px;
+        z-index: -20;
+    }
+
+    .section__kind_api p {
+        font-size: 22px;
+        line-height: 26px;
+    }
+
+    .home__kind_api_textContainer h1 {
+        font-size: 37px;
+        line-height: 50px;
     }
 }
 
@@ -643,10 +685,19 @@
 
 @media screen and (max-width: 400px) {
     .section__kind_api_viewPricing {
+        min-width: 130px;
+        min-height: 30px;
         margin-left: 10px;
+        font-size: 13px;
+        border-radius: 6px;
     }
 
     .section__kind_api_howItWorks {
+        min-width: 130px;
+        min-height: 30px;
         margin-left: 10px;
+        border: 2px solid #03004d;
+        border-radius: 6px;
+        font-size: 13px;
     }
 }
