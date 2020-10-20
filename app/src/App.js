@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Home } from "./Home";
+import Home from "./components/Home/Home";
 import Developers from "./Developers";
 import Pricing from "./components/Pricing/Pricing";
 import { Login } from "./Login";
@@ -8,7 +8,6 @@ import { Forgot } from "./Forgot";
 import { NoMatch } from "./NoMatch";
 import { Privacy } from "./Privacy";
 import { Terms } from "./Terms";
-import { NavigationBar } from "./components/NavigationBar";
 import { Register } from "./pages/Register";
 import { Dashboard } from "./pages/Dashboard";
 import { ChangePassword } from "./ChangePassword";

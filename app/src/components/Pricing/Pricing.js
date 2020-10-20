@@ -9,9 +9,6 @@ import './pricing.css';
 import PricePlanCard from './PricingCard/PricingCard';
 import PricingFeature from './PricingFeature/PricingFeature';
 
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 
 import FeatureImage1 from '../../assets/images/feature-image-1.png';
 import FeatureImage2 from '../../assets/images/feature-image-2.png';
@@ -32,41 +29,6 @@ import CombinedShapeBottom from '../../assets/images/Combined Shape-bottom.png';
 import CombinedShapeTop from '../../assets/images/shape-top.png';
 
 const styles = theme => ({
-    pricingPlanHeaderOvalBottomSmall: {
-        position: "absolute",
-        bottom: 0,
-        right: 0,
-        width: 240,
-        [theme.breakpoints.down("xs")]: {
-            width: 60,
-        }
-    },
-    mobileVewNav: {
-        position: "absolute",
-        top: "12%",
-        width: "100%"
-    },
-    pricingPlanHeaderOvalBottomLarge: {
-        position: "absolute",
-        bottom: 0,
-        right: 0,
-        width: 300,
-        [theme.breakpoints.down("xs")]: {
-            width: 100,
-        }
-    },
-    pricingPlanHeaderOvalMedium: {
-        position: "absolute",
-        top: 320,
-        left: 220,
-        [theme.breakpoints.down("xs")]: {
-            display: "none"
-        }
-    },
-    pricingPlanOvalAfterPricing: {
-        position: "absolute",
-
-    },
     pricingPlanHeroTextContainer: {
         paddingTop: 150,
         [theme.breakpoints.down("sm")]: {
@@ -316,37 +278,15 @@ class Pricing extends Component {
                 { title: "Guaranteed 100% uptime" },
                 { title: "Unlimited users" },
             ],
-            isOpen: false
         };
     }
 
-    toggleHeaderNavHandler = () => {
-        this.setState({ isOpen: !this.state.isOpen })
-    }
     render() {
         const { classes } = this.props;
         return (
             <Box>
                 <Box className="PricingPlanHeaderContainer">
-                    <Header navHandler={this.toggleHeaderNavHandler} />
-                    {this.state.isOpen &&
-                        <Box boxShadow={3} bgcolor="white" pl={3} className={classes.mobileVewNav}>
-                            <List component="nav" aria-label="mobile view nav">
-                                <ListItem button component="a" href="/pricing">
-                                    <ListItemText primary="Pricing" />
-                                </ListItem>
-                                <ListItem button component="a" href="/developers">
-                                    <ListItemText primary="Developer" />
-                                </ListItem>
-                                <ListItem button component="a" href="/register">
-                                    <ListItemText primary="Sign Up" />
-                                </ListItem>
-                                <ListItem button component="a" href="/login">
-                                    <ListItemText primary="Sign In" />
-                                </ListItem>
-                            </List>
-                        </Box>
-                    }
+                    <Header />
                     <Grid direction="column">
                         <Box className={classes.pricingPlanHeroTextContainer}>
                             <Typography className={classes.pricingPlanHeroText}>
@@ -354,7 +294,7 @@ class Pricing extends Component {
                         </Typography>
                             <Typography className={classes.pricingPlanHeroLongText}>
                                 All types of businesses need access to development resources, so we give you the option to decide how much you need to use.
-                        ,</Typography>
+                        </Typography>
                             <Box color="white" mt={3} maxWidth="96%" margin="auto">
                                 <Grid container justify="center" alignItems="center" spacing={3}>
                                     <Typography className={classes.pricingPlanSwitchLabel} >Monthly</Typography>
