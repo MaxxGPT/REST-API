@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Box, ButtonBase, Typography, IconButton, Hidden } from '@material-ui/core';
+import { Grid, Box, ButtonBase, Typography, IconButton } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import Logo from '../../assets/images/logo.png';
 import OvalSmall from '../../assets/images/Oval-small.png';
@@ -173,11 +173,25 @@ const Header = props => {
                                     className={classes.pricingPlanMenuItem}>
                                     <Typography className={classes.pricingPlanMenuItemTitle}>Sign Up</Typography>
                                 </ButtonBase>
-                                <ButtonBase
+                                {/* <ButtonBase
                                     onClick={() => history.push("/login")}
                                     className={`${classes.pricingPlanMenuItem} ${classes.pricingPlanSignUpButton}`}>
                                     <Typography className={classes.pricingPlanSignUpButtonTitle}>{isLogin ? "Sign Out" : "Sign In"}</Typography>
-                                </ButtonBase>
+                                </ButtonBase> */}
+                                {!isLogin && (
+                                    <ButtonBase
+                                        onClick={() => history.push("/login")}
+                                        className={`${classes.pricingPlanMenuItem} ${classes.pricingPlanSignUpButton}`}>
+                                        <Typography className={classes.pricingPlanSignUpButtonTitle}>{isLogin ? "Sign Out" : "Sign In"}</Typography>
+                                    </ButtonBase>
+                                )}
+                                {isLogin && (
+                                    <ButtonBase
+                                        onClick={() => logout}
+                                        className={`${classes.pricingPlanMenuItem} ${classes.pricingPlanSignUpButton}`}>
+                                        <Typography className={classes.pricingPlanSignUpButtonTitle}>{isLogin ? "Sign Out" : "Sign In"}</Typography>
+                                    </ButtonBase>
+                                )}
                             </Grid>
                             <img
                                 className={classes.pricingPlanHeaderOvalSmall}

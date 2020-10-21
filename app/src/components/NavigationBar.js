@@ -141,11 +141,11 @@ export const NavigationBar = () => {
     <Styles>
       <Navbar expand="md" className="astra-nav">
         <div className="nav-over">
-          <img src="/assets/Oval.png" className="over-1" />
-          <img src="/assets/Oval2.png" className="over-2" />
+          <img src="/assets/Oval.png" alt="Asatera" className="over-1" />
+          <img src="/assets/Oval2.png" alt="Asatera" className="over-2" />
         </div>
-        <Navbar.Brand href="/" className="z-index-9"> <img src="/assets/logo.png" className="logo-img" />
-          <img src="/assets/logo-2.png" className="logo-img sm-show" />
+        <Navbar.Brand href="/" className="z-index-9"> <img src="/assets/logo.png" alt="logo" className="logo-img" />
+          <img src="/assets/logo-2.png" alt="logo" className="logo-img sm-show" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

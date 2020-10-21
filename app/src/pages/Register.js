@@ -66,9 +66,9 @@ export const Register = () => {
           <Col className="col-sm-12 col-12 col-md-6 login-sm-bg">
             <div className="h-100">
 
-              <img src={process.env.PUBLIC_URL + 'assets/login-sm-bg.png'} className="login-img"/>
+              <img src={process.env.PUBLIC_URL + 'assets/login-sm-bg.png'} alt="logo" className="login-img"/>
               <a href="/">
-                <img src={process.env.PUBLIC_URL + 'assets/logo-sm.png'} className="logo-sm"/>
+                <img src={process.env.PUBLIC_URL + 'assets/logo-sm.png'} alt="logo" className="logo-sm"/>
               </a>
 
 
@@ -98,7 +98,7 @@ export const Register = () => {
                   onChange={handleChange}
                 />
                 <div className="input-icon">
-                  <img src={process.env.PUBLIC_URL + 'assets/Check-Circle.png'} />
+                  <img alt="circle" src={process.env.PUBLIC_URL + 'assets/Check-Circle.png'} />
                 </div>
               </Form.Group>
               <Form.Group className="input-form-group" controlId="formBasicPassword">
@@ -109,7 +109,7 @@ export const Register = () => {
                   onChange={handleChange}
                 />
                 <div className="input-icon">
-                  <img src={process.env.PUBLIC_URL + 'assets/Eye.png'} />
+                  <img src={process.env.PUBLIC_URL + 'assets/Eye.png'} alt="eye" />
                 </div>
               </Form.Group>
               <Form.Group className="input-form-group" controlId="formBasicPassword2">
@@ -120,7 +120,7 @@ export const Register = () => {
                   onChange={handleChange}
                 />
                 <div className="input-icon">
-                  <img src={process.env.PUBLIC_URL + 'assets/Eye.png'} />
+                  <img src={process.env.PUBLIC_URL + 'assets/Eye.png'} alt="eye" />
                 </div>
               </Form.Group>
               <div className="custom-control custom-checkbox check-form">
@@ -144,17 +144,17 @@ export const Register = () => {
                 Create an account
               </Button>
               <div className="social-div">
-                <a href="#"><i className="fa fa-twitter"></i> </a>
-                <a href="#"><i className="fa fa-google	"></i> </a>
-                <a href="#"><i className="fa fa-github	"></i> </a>
-                <a href="#" className="sign-in-with">Or Sign In With </a>
+                <a href="/"><i className="fa fa-twitter"></i> </a>
+                <a href="/"><i className="fa fa-google	"></i> </a>
+                <a href="/"><i className="fa fa-github	"></i> </a>
+                <a href="/" className="sign-in-with">Or Sign In With </a>
               </div>
             </Form>
 
           </Col>
           <Col className="col-sm-12 col-12 col-md-6 login-bg">
             <div className="">
-              <img src={process.env.PUBLIC_URL + 'assets/register.svg'} className="login-img"/>
+              <img src={process.env.PUBLIC_URL + 'assets/register.svg'} alt="eye" className="login-img"/>
             </div>
 
           </Col>

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Alert, Button, Form, Container, Row, Col } from "react-bootstrap";
+import {  Button, Form, Container, Row, Col } from "react-bootstrap";
 import { request } from './services/Request';
 import AsateraLogo from "./components/AsateraLogo";
 import {ToastContainer} from "react-toastify";
@@ -7,7 +7,7 @@ import {ToastContainer} from "react-toastify";
 export const Forgot = () => {
 
     const [resetData,setResetData] = useState({});
-    const [emailSent,setEmailSent] = useState(false);
+    const [setEmailSent] = useState(false);
 
     const handleChange = (event) => {
           // update the state;
@@ -35,8 +35,8 @@ export const Forgot = () => {
             <Row className="justify-content-md-center rounded-big shadow overflow-hidden form-div-row">
                 <Col className="col-sm-12 col-12 col-md-6 login-sm-bg">
                     <div className="h-100">
-                        <img src={process.env.PUBLIC_URL + 'assets/login-sm-bg.png'} className="login-img"/>
-                        <img src={process.env.PUBLIC_URL + 'assets/logo-sm.png'} className="logo-sm"/>
+                        <img src={process.env.PUBLIC_URL + 'assets/login-sm-bg.png'} className="login-img" alt="logo"/>
+                        <img src={process.env.PUBLIC_URL + 'assets/logo-sm.png'} alt="logo" className="logo-sm"/>
 
                     </div>
 
@@ -56,7 +56,7 @@ export const Forgot = () => {
                                 required
                             />
                             <div className="input-icon">
-                                <img src={process.env.PUBLIC_URL + 'assets/Check-Circle.png'} />
+                                <img alt="Asatera" src={process.env.PUBLIC_URL + 'assets/Check-Circle.png'} />
                             </div>
                         </Form.Group>
 
@@ -68,7 +68,7 @@ export const Forgot = () => {
                 </Col>
                 <Col className="col-sm-12 col-12 col-md-6 login-bg">
                     <div className="">
-                        <img src={process.env.PUBLIC_URL + 'assets/forgot.png'} className="login-img"/>
+                        <img src={process.env.PUBLIC_URL + 'assets/forgot.png'} alt="Asatera" className="login-img"/>
                     </div>
 
                 </Col>

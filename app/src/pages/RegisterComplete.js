@@ -1,6 +1,6 @@
 import React from "react";
 import { isAuth } from "../helpers/auth";
-import {Link, Redirect} from "react-router-dom";
+import { Redirect} from "react-router-dom";
 import {Container, Row, Col, Form, Button} from "react-bootstrap";
 import "../Styles/register.css";
 import AsateraLogo from "../components/AsateraLogo";
@@ -16,8 +16,8 @@ export const RegisterComplete = () => {
             <Row className="justify-content-md-center rounded-big shadow overflow-hidden form-div-row">
                 <Col className="col-sm-12 col-12 col-md-6 login-sm-bg">
                     <div className="h-100">
-                        <img src={process.env.PUBLIC_URL + 'assets/login-sm-bg.png'} className="login-img"/>
-                        <img src={process.env.PUBLIC_URL + 'assets/logo-sm.png'} className="logo-sm"/>
+                        <img src={process.env.PUBLIC_URL + 'assets/login-sm-bg.png'} className="login-img" alt="logo" />
+                        <img src={process.env.PUBLIC_URL + 'assets/logo-sm.png'} className="logo-sm" alt="logo"/>
 
                     </div>
 
@@ -40,7 +40,7 @@ export const RegisterComplete = () => {
                 </Col>
                 <Col className="col-sm-12 col-12 col-md-6 login-bg">
                     <div className="">
-                        <img src={process.env.PUBLIC_URL + 'assets/registration-completed.svg'} className="login-img"/>
+                        <img src={process.env.PUBLIC_URL + 'assets/registration-completed.svg'} className="login-img" alt="Asatera"/>
                     </div>
 
                 </Col>

@@ -295,7 +295,7 @@ const Home = () => (
                                 bsPrefix="section__kind_api_viewPricing">View Pricing</Button>
                         </Hidden>
                     </Col>
-                    <Col style={{ paddingLeft: 0 }} xs={{ span: 12, order: 1 }} md={{ span: 5, offset: 1, order: 2 }} style={{ paddingRight: 0 }}>
+                    <Col style={{ paddingLeft: 0, paddingRight: 0 }} xs={{ span: 12, order: 1 }} md={{ span: 5, offset: 1, order: 2 }}>
                         <Image
                             src={HomeKindAPI}
                             alt="CONSTANTLY IMRPOVING"

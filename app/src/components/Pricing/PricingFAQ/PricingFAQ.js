@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography, Box, ButtonBase } from '@material-ui/core';
+import { Typography, Box } from '@material-ui/core';
 
 
 import Accordion from '@material-ui/core/Accordion';

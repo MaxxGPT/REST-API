@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../Styles/sidebar.css";
-import Footer from "./Footer";
+
 //import { Nav } from "react-bootstrap";
 
 export default class Sidebar extends Component {
