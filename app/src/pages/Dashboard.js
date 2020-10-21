@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from "react-toastify";
 import { request } from '../services/Request';
 import { Row, Col, Container, Button } from 'react-bootstrap';
-import { Line, defaults } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 
 export const Dashboard = () => {
 
