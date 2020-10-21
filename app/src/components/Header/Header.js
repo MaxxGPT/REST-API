@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Box, ButtonBase, Typography, IconButton, Hidden } from '@material-ui/core';
+import { Grid, Box, ButtonBase, Typography, IconButton } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import Logo from '../../assets/images/logo.png';
 import OvalSmall from '../../assets/images/Oval-small.png';
@@ -155,8 +155,9 @@ const Header = props => {
                         </IconButton>
                     </Box>
                     <Grid container alignItems="center" className={classes.rightSideNavContainer}>
-                        <Grid item xs={6} className={classes.pricingPlanMenuContainer}>
-                            <Grid container>
+                        <Grid item xs={2}></Grid>
+                        <Grid item xs={10} className={classes.pricingPlanMenuContainer}>
+                            <Grid container alignItems="center">
                                 <ButtonBase
                                     onClick={() => history.push("/Pricing")}
                                     className={classes.pricingPlanMenuItem}>
@@ -167,20 +168,30 @@ const Header = props => {
                                     className={classes.pricingPlanMenuItem}>
                                     <Typography className={classes.pricingPlanMenuItemTitle}>Developer</Typography>
                                 </ButtonBase>
-                            </Grid>
-                        </Grid>
-                        <Grid item xs={6} className={classes.pricingPlanMenuContainer}>
-                            <Grid container>
                                 <ButtonBase
                                     onClick={() => history.push("/register")}
                                     className={classes.pricingPlanMenuItem}>
                                     <Typography className={classes.pricingPlanMenuItemTitle}>Sign Up</Typography>
                                 </ButtonBase>
-                                <ButtonBase
+                                {/* <ButtonBase
                                     onClick={() => history.push("/login")}
                                     className={`${classes.pricingPlanMenuItem} ${classes.pricingPlanSignUpButton}`}>
                                     <Typography className={classes.pricingPlanSignUpButtonTitle}>{isLogin ? "Sign Out" : "Sign In"}</Typography>
-                                </ButtonBase>
+                                </ButtonBase> */}
+                                {!isLogin && (
+                                    <ButtonBase
+                                        onClick={() => history.push("/login")}
+                                        className={`${classes.pricingPlanMenuItem} ${classes.pricingPlanSignUpButton}`}>
+                                        <Typography className={classes.pricingPlanSignUpButtonTitle}>{isLogin ? "Sign Out" : "Sign In"}</Typography>
+                                    </ButtonBase>
+                                )}
+                                {isLogin && (
+                                    <ButtonBase
+                                        onClick={() => logout}
+                                        className={`${classes.pricingPlanMenuItem} ${classes.pricingPlanSignUpButton}`}>
+                                        <Typography className={classes.pricingPlanSignUpButtonTitle}>{isLogin ? "Sign Out" : "Sign In"}</Typography>
+                                    </ButtonBase>
+                                )}
                             </Grid>
                             <img
                                 className={classes.pricingPlanHeaderOvalSmall}

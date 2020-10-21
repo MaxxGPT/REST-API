@@ -41,9 +41,9 @@ export const Login = () => {
             <Row className="justify-content-md-center rounded-big shadow overflow-hidden form-div-row">
                 <Col className="col-sm-12 col-12 col-md-6 login-sm-bg">
                     <div className="h-100">
-                        <img src={process.env.PUBLIC_URL + 'assets/login-sm-bg.png'} className="login-img"/>
+                        <img src={process.env.PUBLIC_URL + 'assets/login-sm-bg.png'} alt="logo" className="login-img"/>
                         <a href="/">
-                            <img src={process.env.PUBLIC_URL + 'assets/logo-sm.png'} className="logo-sm"/>
+                            <img src={process.env.PUBLIC_URL + 'assets/logo-sm.png'} alt="logo" className="logo-sm"/>
 
                         </a>
 
@@ -66,7 +66,7 @@ export const Login = () => {
                             required
                             />
                             <div className="input-icon">
-                                <img src={process.env.PUBLIC_URL + 'assets/Check-Circle.png'} />
+                                <img src={process.env.PUBLIC_URL + 'assets/Check-Circle.png'} alt="Asatera" />
                             </div>
                         </Form.Group>
                         <Form.Group controlId="formBasicPassword" className="input-form-group">
@@ -78,7 +78,7 @@ export const Login = () => {
                             required
                             />
                             <div className="input-icon">
-                                <img src={process.env.PUBLIC_URL + 'assets/Eye.png'} />
+                                <img src={process.env.PUBLIC_URL + 'assets/Eye.png'} alt="eye" />
                             </div>
                         </Form.Group>
                         <div className="forgot text-right my-3">
@@ -89,16 +89,16 @@ export const Login = () => {
                         </Button>
                         <Button href="/register" variant="outline-secondary" size="lg" block className="mt-3 register-btn">Create an account</Button>
                         <div className="social-div">
-                            <a href="#"><i className="fa fa-twitter"></i> </a>
-                            <a href="#"><i className="fa fa-google	"></i> </a>
-                            <a href="#"><i className="fa fa-github	"></i> </a>
-                            <a href="#" className="sign-in-with">Or Sign In With </a>
+                            <a href="/"><i className="fa fa-twitter"></i> </a>
+                            <a href="/"><i className="fa fa-google	"></i> </a>
+                            <a href="/"><i className="fa fa-github	"></i> </a>
+                            <a href="/" className="sign-in-with">Or Sign In With </a>
                         </div>
                     </Form>
                 </Col>
                 <Col className="col-sm-12 col-12 col-md-6 login-bg">
                     <div className="">
-                        <img src={process.env.PUBLIC_URL + 'assets/login_logo.svg'} className="login-img"/>
+                        <img src={process.env.PUBLIC_URL + 'assets/login_logo.svg'} className="login-img" alt="logo"/>
                     </div>
 
                 </Col>

@@ -134,7 +134,7 @@ const Home = () => (
             <div className="section__developer_first_heroBoxContainer">
                 <Row>
                     <Col>
-                        <Hidden smUp>
+                        <Hidden mdUp>
                             <Image
                                 src={HomeDevelopeFirstLeft}
                                 alt="Developer First Pulling Code"
@@ -148,7 +148,7 @@ const Home = () => (
             </div>
             <Container fluid>
                 <Row>
-                    <Hidden smDown>
+                    <Hidden mdDown>
                         <Col md={{ span: 5, offset: 1 }}>
                             <Image
                                 src={HomeDevelopeFirstLeft}
@@ -244,7 +244,6 @@ const Home = () => (
                             src={HomeImprovingDots}
                             alt="CONSTANTLY IMRPOVING DOTS"
                             className="home__improving__dots_right_bottom"
-
                         />
                     </Col>
                     <Col md={5}>
@@ -271,7 +270,7 @@ const Home = () => (
         <section className="section__kind_api">
             <Container fluid>
                 <Row>
-                    <Col xs={{ span: 12, order: 2 }} md={{ span: 5, offset: 1 }} >
+                    <Col xs={{ span: 12, order: 2 }} md={{ span: 5, offset: 1, order: 1 }} >
                         <div className="home__kind_api_textContainer">
                             <h1>One of a Kind
                             API offering</h1>
@@ -296,7 +295,7 @@ const Home = () => (
                                 bsPrefix="section__kind_api_viewPricing">View Pricing</Button>
                         </Hidden>
                     </Col>
-                    <Col style={{ paddingLeft: 0 }} xs={{ span: 12, order: 1 }} md={{ span: 5, offset: 1 }} style={{ paddingRight: 0 }}>
+                    <Col style={{ paddingLeft: 0, paddingRight: 0 }} xs={{ span: 12, order: 1 }} md={{ span: 5, offset: 1, order: 2 }}>
                         <Image
                             src={HomeKindAPI}
                             alt="CONSTANTLY IMRPOVING"
@@ -326,7 +325,7 @@ const Home = () => (
                         <Col md={8}>
                             <h1>Ready to get Started? Create an account and get your API key today.</h1>
                         </Col>
-                        <Col md={{ span: 2, offset: 2 }}>
+                        <Col md={{ span: 2, offset: 0 }}>
                             <Button
                                 bsPrefix="section__create_account_getAQuote">
                                 Get a free quote

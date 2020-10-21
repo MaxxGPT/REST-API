@@ -426,7 +426,7 @@ class Pricing extends Component {
                                 <img
                                     src={QuestionImage}
                                     className={classes.questionImage}
-                                    alt="Question Image"
+                                    alt="QuestionImage"
 
                                 />
                             </Box>
