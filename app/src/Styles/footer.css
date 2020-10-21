@@ -1,10 +1,9 @@
-.main-footer{
+.main-footer {
     color: white;
-    background: #03004D !important;
+    background: #03004d !important;
     padding-top: 3em;
     position: relative;
     width: 100%;
-
 }
 .nav-over {
     position: absolute;
@@ -15,7 +14,8 @@
     width: 500px;
     height: 100%;
 }
-img.over-1,img.over-2  {
+img.over-1,
+img.over-2 {
     position: absolute;
     top: 0;
     left: 0;
@@ -26,7 +26,6 @@ img.logo-img {
     height: 50px;
 }
 .main-footer h4 {
-    font-family: Circular Std;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
@@ -36,7 +35,6 @@ img.logo-img {
     text-transform: uppercase;
 }
 .main-footer ul li a {
-    font-family: Circular Std;
     font-size: 15px;
     font-style: normal;
     font-weight: 300 !important;
@@ -45,6 +43,7 @@ img.logo-img {
     color: white;
     text-align: left;
     text-decoration: none;
+    font-family: "Roboto", "Helvetica", "Arial";
 }
 .nav-over-2 {
     position: absolute;
@@ -55,10 +54,13 @@ img.logo-img {
     width: 500px;
     height: 100%;
 }
-.f-hr{
-    background: #FFFFFF;
+.f-hr {
+    background: #ffffff;
     mix-blend-mode: normal;
     opacity: 0.12;
+}
+.min-vh-50 {
+    min-height: 259px;
 }
 .f-social-div a {
     display: inline-block;
@@ -72,18 +74,18 @@ img.logo-img {
     margin-right: 10px;
     font-size: 15px;
 }
-.f-copy{
+.f-copy {
     text-align: right;
-    font-family: Circular Std;
     font-size: 16px;
     font-style: normal;
     font-weight: 300;
     line-height: 32px;
     letter-spacing: 0px;
     text-align: right;
-
+    font-family: "Roboto", "Helvetica", "Arial";
 }
-.nav-over-2 img.over-1,.nav-over-2 img.over-2  {
+.nav-over-2 img.over-1,
+.nav-over-2 img.over-2 {
     position: absolute;
     bottom: -70px;
     right: -35px;

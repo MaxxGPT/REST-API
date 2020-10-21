@@ -8,8 +8,11 @@ const Styles = styled.div`
     background-color: #222;
   }
 nav.astra-nav {
-    background: white !important;
+    background: transparent !important;
     padding: 10px 50px;
+}
+.dRXXgI .navbar {
+  background: transparent !important;
 }
 img.logo-img {
     width: auto;
@@ -25,12 +28,12 @@ nav.astra-nav .nav-item a {
     letter-spacing: 0px;
     text-align: left;
     color: black !important;
-    
+    font-family: "Roboto", "Helvetica", "Arial";
     padding: 8px 25px;
     border-radius: 10px;
 }
 nav.astra-nav .nav-item a.sign-in.nav-link {
-    background: #03004D;
+    background: #FDBC2A;
     color: white !important;
     margin-left: 20px;
 }
@@ -49,6 +52,9 @@ img.over-1,img.over-2  {
 }
 .sm-show{
   display:none !important;
+}
+a.z-index-9.navbar-brand {
+    z-index: 9999;
 }
 
 @media screen and (max-width:768px){
@@ -135,11 +141,11 @@ export const NavigationBar = () => {
     <Styles>
       <Navbar expand="md" className="astra-nav">
         <div className="nav-over">
-          <img src="/assets/Oval.png" className="over-1"/>
-          <img src="/assets/Oval2.png" className="over-2"/>
+          <img src="/assets/Oval.png" className="over-1" />
+          <img src="/assets/Oval2.png" className="over-2" />
         </div>
-        <Navbar.Brand href="/"> <img src="/assets/logo.png" className="logo-img"/>
-          <img src="/assets/logo-2.png" className="logo-img sm-show"/>
+        <Navbar.Brand href="/" className="z-index-9"> <img src="/assets/logo.png" className="logo-img" />
+          <img src="/assets/logo-2.png" className="logo-img sm-show" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -151,8 +157,8 @@ export const NavigationBar = () => {
               <Nav.Link href="/Pricing">Pricing</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-            <Nav.Link href="/register">Sign Up</Nav.Link>
-          </Nav.Item>
+              <Nav.Link href="/register">Sign Up</Nav.Link>
+            </Nav.Item>
 
             {!isLogin && (
               <Nav.Item>
@@ -170,3 +176,4 @@ export const NavigationBar = () => {
     </Styles>
   );
 };
+export default NavigationBar;
