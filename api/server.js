@@ -17,7 +17,7 @@ const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
 db.once("open", () => {
   console.log("Connected to Database")
-  if (process.env.AUTO_SEED){
+  if (process.env.AUTO_SEED) {
     console.log("=== Seed ===");
     seeder.seed();
   }
