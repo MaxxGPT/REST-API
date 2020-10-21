@@ -54,7 +54,7 @@ export const Subscription = () => {
                                 {(userData.subscription === plan.name) && (
                                     <div>Current</div>
                                 )}
-                                {(userData.subscription != plan.name) && (
+                                {(userData.subscription !== plan.name) && (
                                     <Button variant="primary" size="lg" block>Upgrade Now</Button>
                                 )}
                             </Card.Footer>

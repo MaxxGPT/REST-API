@@ -5,6 +5,7 @@ const uuidv4 = require("uuid/v4");
 var expressValidator = require("express-validator");
 const authMiddleware = require("../middlewares/auth.middleware");
 const bcrypt = require("bcrypt");
+const UsersConstroller = require("../controllers/users.controller");
 
 router.use(expressValidator());
 
@@ -110,5 +111,7 @@ router.get("/generateApi", authMiddleware.validate, async (req, res) => {
     }
   );
 });
+
+router.get("/usage", authMiddleware.validate, UsersConstroller.getApiUsage);
 
 module.exports = router;

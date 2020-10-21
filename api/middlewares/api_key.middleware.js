@@ -12,6 +12,7 @@ module.exports = {
         } else if (!_user) {
           return res.status(403).json({ msg: "API KEY is invalid." });
         } else {
+          req.user = _user;
           next();
         }
       }

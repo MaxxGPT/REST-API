@@ -1,9 +1,11 @@
 require("dotenv").config();
 
 const Users = require("../models/users");
+const Usage = require("../models/usage");
 const jwt = require("jsonwebtoken");
 const uuidv4 = require("uuid/v4");
 const emailService = require("../services/email.service");
+const subWeeks = require("date-fns/subWeeks")
 
 module.exports = {
   register: (req, res) => {
@@ -29,7 +31,7 @@ module.exports = {
         apiKey: randomKey.replace(/-/g, ""),
       });
       newUser.save(function (err, user) {
-        res.status(400).json({"mes":"mes"});
+        res.status(400).json({ "mes": "mes" });
         /*
         if (err) {
           //throw(err);
@@ -84,7 +86,7 @@ module.exports = {
     }
   },
   getUserByActiveEmail: function (email, callback) {
-    var query = { email, status:true };
+    var query = { email, status: true };
     Users.findOne(query, callback);
   },
   getUserById: function (id, callback) {
@@ -119,4 +121,20 @@ module.exports = {
       }
     });
   },
+  getApiUsage: async (req, res) => {
+    const _usage = await Usage.aggregate([{
+      $match: {
+        user: req.user._id,
+        date: { $gte: subWeeks(new Date(), 1) }
+      }
+    }, {
+      $group: {
+        _id: { $dateToString: { format: "%Y-%m-%d", date: "$date" } },
+        req: { $sum: 1 }
+      }
+    }, {
+      "$sort": { "_id": 1 },
+    }, { "$limit": 7 }]);
+    return res.status(200).json(_usage)
+  }
 };
