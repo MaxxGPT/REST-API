@@ -16,7 +16,11 @@
     font-weight: bold;
     font-size: 18px;
     line-height: 23px;
-    color: #000000;
+    border: 0;
+}
+
+.home__getStarted-primary:focus {
+    outline: none;
 }
 
 /* *HEADER  LEFT SIDE  */
@@ -267,11 +271,16 @@
     border-radius: 10px;
     margin-top: 40px;
     color: #ffffff;
+    border: 0;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 40px;
     align-items: center;
+}
+
+.section__improving_readMore-primary:focus {
+    outline: none;
 }
 
 /* * SECTION KIND API */
@@ -308,12 +317,17 @@
     min-height: 60px;
     border-radius: 10px;
     margin-top: 40px;
+    border: 0;
     color: #ffffff;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 40px;
     align-items: center;
+}
+
+.section__kind_api_viewPricing:focus {
+    outline: none;
 }
 
 .section__kind_api p {
@@ -360,8 +374,12 @@
     font-size: 18px;
     line-height: 40px;
     align-items: center;
+    border: 0;
     margin-top: 100px;
-    margin-left: 100px;
+    margin-left: 50px;
+}
+.section__create_account_getAQuote:focus {
+    outline: none;
 }
 
 /* ! MEDIA QUERIES */

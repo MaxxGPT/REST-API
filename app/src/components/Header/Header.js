@@ -155,8 +155,9 @@ const Header = props => {
                         </IconButton>
                     </Box>
                     <Grid container alignItems="center" className={classes.rightSideNavContainer}>
-                        <Grid item xs={6} className={classes.pricingPlanMenuContainer}>
-                            <Grid container>
+                        <Grid item xs={2}></Grid>
+                        <Grid item xs={10} className={classes.pricingPlanMenuContainer}>
+                            <Grid container alignItems="center">
                                 <ButtonBase
                                     onClick={() => history.push("/Pricing")}
                                     className={classes.pricingPlanMenuItem}>
@@ -167,10 +168,6 @@ const Header = props => {
                                     className={classes.pricingPlanMenuItem}>
                                     <Typography className={classes.pricingPlanMenuItemTitle}>Developer</Typography>
                                 </ButtonBase>
-                            </Grid>
-                        </Grid>
-                        <Grid item xs={6} className={classes.pricingPlanMenuContainer}>
-                            <Grid container>
                                 <ButtonBase
                                     onClick={() => history.push("/register")}
                                     className={classes.pricingPlanMenuItem}>
