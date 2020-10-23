@@ -343,11 +343,11 @@
 
 .section__create_account {
     margin-top: 40px;
-    padding-bottom: 80px;
 }
 
 .home__create_account_container {
     background: rgba(61, 52, 210, 0.04);
+    padding-bottom: 80px;
 }
 
 .home__create_account_container h1 {

@@ -92,20 +92,6 @@ const Header = props => {
     const history = useHistory();
     const [isLogin, setLogin] = useState(false);
     const [open, setOpen] = React.useState(false);
-    useEffect(() => {
-        request("/api/users/me", { noRedirect: true }).then((result) => {
-            if (result.data) {
-                setLogin(true);
-                console.log(isLogin);
-            }
-        });
-    });
-
-    const logout = () => {
-        request("/api/register/logout", {}).then((result) => {
-            window.location.href = "/login";
-        });
-    };
 
     useEffect(() => {
         request("/api/users/me", { noRedirect: true }).then((result) => {
@@ -169,29 +155,17 @@ const Header = props => {
                                     <Typography className={classes.pricingPlanMenuItemTitle}>Developer</Typography>
                                 </ButtonBase>
                                 <ButtonBase
-                                    onClick={() => history.push("/register")}
+                                    onClick={() => isLogin ? history.push("/dashboard") : history.push("/login")}
                                     className={classes.pricingPlanMenuItem}>
-                                    <Typography className={classes.pricingPlanMenuItemTitle}>Sign Up</Typography>
+                                    <Typography className={classes.pricingPlanMenuItemTitle}>{isLogin ? "test@asatera.com" : "Login"}</Typography>
                                 </ButtonBase>
-                                {/* <ButtonBase
-                                    onClick={() => history.push("/login")}
-                                    className={`${classes.pricingPlanMenuItem} ${classes.pricingPlanSignUpButton}`}>
-                                    <Typography className={classes.pricingPlanSignUpButtonTitle}>{isLogin ? "Sign Out" : "Sign In"}</Typography>
-                                </ButtonBase> */}
-                                {!isLogin && (
+                                {!isLogin &&
                                     <ButtonBase
-                                        onClick={() => history.push("/login")}
+                                        onClick={() => history.push("/register")}
                                         className={`${classes.pricingPlanMenuItem} ${classes.pricingPlanSignUpButton}`}>
-                                        <Typography className={classes.pricingPlanSignUpButtonTitle}>{isLogin ? "Sign Out" : "Sign In"}</Typography>
+                                        <Typography className={classes.pricingPlanSignUpButtonTitle}>Get API Key</Typography>
                                     </ButtonBase>
-                                )}
-                                {isLogin && (
-                                    <ButtonBase
-                                        onClick={() => logout}
-                                        className={`${classes.pricingPlanMenuItem} ${classes.pricingPlanSignUpButton}`}>
-                                        <Typography className={classes.pricingPlanSignUpButtonTitle}>{isLogin ? "Sign Out" : "Sign In"}</Typography>
-                                    </ButtonBase>
-                                )}
+                                }
                             </Grid>
                             <img
                                 className={classes.pricingPlanHeaderOvalSmall}

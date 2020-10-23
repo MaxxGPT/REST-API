@@ -77,7 +77,14 @@ export const Dashboard = () => {
 		<Container>
 			<ToastContainer />
 			<div>
-				<h2> User Dashboard </h2>
+				<Row>
+					<Col xs={10} className="mt-3 mb-3">
+						<h2> User Dashboard </h2>
+					</Col>
+					<Col xs={2} className="mt-3 mb-3">
+						<Button variant="danger" onClick={redirectToLogin}>Logout</Button>
+					</Col>
+				</Row>
 				<Row>
 					<Col><b>Full Name:</b></Col>
 					<Col>{userData.name}</Col>

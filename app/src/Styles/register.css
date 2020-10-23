@@ -9,12 +9,32 @@
     }
 }
 
+.auth__backToHome {
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.auth__backToHome > button {
+    border: 0;
+    background: transparent;
+}
+
+.auth__backToHome > button:focus-visible,
+.auth__backToHome > button:focus {
+    border: none;
+    outline: none;
+}
+
+.auth__backToHome button span {
+    font-size: 14px;
+}
+
 .login .forgot > a {
-    color: #7F85A2;
+    color: #7f85a2;
 }
 
 .login .login-bg {
-    background: linear-gradient(-50deg, #03004D, #3563EB);
+    background: linear-gradient(-50deg, #03004d, #3563eb);
     display: flex;
     align-items: center;
 }
@@ -34,7 +54,7 @@
     line-height: 30px;
     letter-spacing: 0px;
     text-align: left;
-    margin-top: 30px !IMPORTANT;
+    margin-top: 30px !important;
 }
 .check-form {
     margin-bottom: 8px;
@@ -69,19 +89,18 @@
     text-align: left;
     text-decoration: none;
     color: #151515;
-
 }
 
 .login-btn {
     margin-top: 20px;
 }
 
-.custom-control-input:checked~.custom-control-label::before {
+.custom-control-input:checked ~ .custom-control-label::before {
     color: #fff;
-    border-color: #F0F0F3 !important;
-    background-color: #F0F0F3 !important;
+    border-color: #f0f0f3 !important;
+    background-color: #f0f0f3 !important;
 }
-.custom-checkbox .custom-control-input:checked~.custom-control-label::after {
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
     background-image: none !important;
     content: "" !important;
     position: absolute !important;
@@ -91,7 +110,7 @@
     height: 6px;
     background: none;
     border: 2px solid;
-    border-color: #ff000000 #0000ff00 #62CA76 #62CA76;
+    border-color: #ff000000 #0000ff00 #62ca76 #62ca76;
     transform: rotate(-40deg);
 }
 .login .i-label {
@@ -120,12 +139,12 @@
 }
 
 .login .input-form-group.form-group input {
-    color: #7F85A2;
+    color: #7f85a2;
     border: 2px solid rgba(143, 146, 161, 0.2);
 }
 
 .login .input-form-group.form-group input::placeholder {
-    color: #7F85A2;
+    color: #7f85a2;
 }
 
 .login .forgot a {
@@ -163,21 +182,21 @@
 }
 
 .login .social-div a:not(.sign-in-with) {
-    background: #FFFFFF;
-    border: 1px solid #ECECF2;
+    background: #ffffff;
+    border: 1px solid #ececf2;
     box-sizing: border-box;
     border-radius: 8px;
     padding: 7px 12px;
     margin: 5px;
-    color: #8181A5;
+    color: #8181a5;
     text-decoration: none;
 }
 
 .login .social-div a.sign-in-with {
-    background: #FFFFFF;
+    background: #ffffff;
     padding: 7px 12px;
     margin: 5px;
-    color: #8181A5;
+    color: #8181a5;
     text-decoration: none;
 }
 
@@ -211,7 +230,6 @@
         display: none !important;
     }
 
-
     .login .login-sm-bg {
         display: block !important;
         padding: 0 !important;
@@ -241,7 +259,6 @@
 }
 
 @media screen and (max-width: 568px) {
-
     .form-div-row {
         overflow: auto !important;
         border-radius: 0 !important;

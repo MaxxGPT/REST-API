@@ -6,8 +6,11 @@ import "../Styles/login.scss"
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import AsateraLogo from "../components/AsateraLogo";
 import { ToastContainer, toast } from "react-toastify";
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { useHistory } from 'react-router-dom';
 
 export const Login = () => {
+    const history = useHistory();
 
     const [loginData, setLoginData] = useState({});
 
@@ -42,6 +45,12 @@ export const Login = () => {
     return (
         <Container className="mt-5 mb-5 login">
             <ToastContainer />
+            <div className="auth__backToHome">
+                <button onClick={() => history.push("/")}>
+                    <ArrowBackIosIcon size="small" />
+                    <span>Back To Home</span>
+                </button>
+            </div>
             <Row className="justify-content-md-center rounded-big shadow overflow-hidden form-div-row">
                 <Col className="col-sm-12 col-12 col-md-6 login-sm-bg">
                     <div className="h-100">
@@ -51,9 +60,7 @@ export const Login = () => {
 
                         </a>
                     </div>
-
                 </Col>
-
                 <Col className="col-sm-12 col-12 col-md-6 px-5 py-4 info-div">
                     <div className="border-sm-div"></div>
                     <AsateraLogo />

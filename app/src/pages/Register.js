@@ -4,12 +4,17 @@ import { isAuth } from "../helpers/auth";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Button, Form, Container, Row, Col  } from "react-bootstrap";
+import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import "react-toastify/dist/ReactToastify.css";
 import "../Styles/register.css";
 import AsateraLogo from "../components/AsateraLogo";
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+
+import { useHistory } from 'react-router-dom';
+
 
 export const Register = () => {
+  const history = useHistory();
   const [userData, setUserData] = useState({
     name: "",
     email: "",
@@ -32,7 +37,7 @@ export const Register = () => {
     event.preventDefault();
 
     if (userData.name && userData.email && userData.password) {
-      if(userData.terms){
+      if (userData.terms) {
         if (userData.password === userData.password2) {
           axios
             .post(`/api/auth`, userData)
@@ -62,13 +67,19 @@ export const Register = () => {
       {isAuth() ? <Redirect to="/" /> : null}
       <ToastContainer />
       <Container className="mt-5 mb-5 login">
+        <div className="auth__backToHome">
+          <button onClick={() => history.push("/")}>
+            <ArrowBackIosIcon size="small" />
+            <span>Back To Home</span>
+          </button>
+        </div>
         <Row className="justify-content-md-center rounded-big shadow overflow-hidden form-div-row">
           <Col className="col-sm-12 col-12 col-md-6 login-sm-bg">
             <div className="h-100">
 
-              <img src={process.env.PUBLIC_URL + 'assets/login-sm-bg.png'} alt="logo" className="login-img"/>
+              <img src={process.env.PUBLIC_URL + 'assets/login-sm-bg.png'} alt="logo" className="login-img" />
               <a href="/">
-                <img src={process.env.PUBLIC_URL + 'assets/logo-sm.png'} alt="logo" className="logo-sm"/>
+                <img src={process.env.PUBLIC_URL + 'assets/logo-sm.png'} alt="logo" className="logo-sm" />
               </a>
 
 
@@ -124,8 +135,8 @@ export const Register = () => {
                 </div>
               </Form.Group>
               <div className="custom-control custom-checkbox check-form">
-                <input type="checkbox" className="custom-control-input" name="terms" id="terms"  onChange={handleChange}/>
-                  <label className="custom-control-label" htmlFor="terms">I agree with <Link to="/terms">terms and conditions</Link></label>
+                <input type="checkbox" className="custom-control-input" name="terms" id="terms" onChange={handleChange} />
+                <label className="custom-control-label" htmlFor="terms">I agree with <Link to="/terms">terms and conditions</Link></label>
               </div>
               {/*<Form.Group className="input-form-group check-form" controlId="formBasicTerms">
 
@@ -147,14 +158,14 @@ export const Register = () => {
                 <a href="/"><i className="fa fa-twitter"></i> </a>
                 <a href="/"><i className="fa fa-google	"></i> </a>
                 <a href="/"><i className="fa fa-github	"></i> </a>
-                <a href="/" className="sign-in-with">Or Sign In With </a>
+                <a href="/login" className="sign-in-with">Or Sign In With </a>
               </div>
             </Form>
 
           </Col>
           <Col className="col-sm-12 col-12 col-md-6 login-bg">
             <div className="">
-              <img src={process.env.PUBLIC_URL + 'assets/register.svg'} alt="eye" className="login-img"/>
+              <img src={process.env.PUBLIC_URL + 'assets/register.svg'} alt="eye" className="login-img" />
             </div>
 
           </Col>
