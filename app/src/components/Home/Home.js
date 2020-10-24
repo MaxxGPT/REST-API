@@ -265,7 +265,7 @@ const Home = () => {
                         </p>
                             <Button
                                 bsPrefix="section__improving_readMore">
-                                Reads Docs
+                                Read Docs
                         </Button>
                         </Col>
                         <Col md={1}></Col>
