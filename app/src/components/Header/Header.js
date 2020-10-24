@@ -156,8 +156,11 @@ const Header = props => {
                                 </ButtonBase>
                                 <ButtonBase
                                     onClick={() => isLogin ? history.push("/dashboard") : history.push("/login")}
-                                    className={classes.pricingPlanMenuItem}>
-                                    <Typography className={classes.pricingPlanMenuItemTitle}>{isLogin ? "test@asatera.com" : "Login"}</Typography>
+                                    style={isLogin ? {padding:"0px 15px"}: {padding:"0px 0px"}}
+                                    className={`${classes.pricingPlanMenuItem} ${isLogin && classes.pricingPlanSignUpButton}`} 
+                                    >
+                                        
+                                    <Typography className={isLogin ? classes.pricingPlanSignUpButtonTitle : classes.pricePlanMenuItemTitle}>{isLogin ? "test@asatera.com" : "Login"}</Typography>
                                 </ButtonBase>
                                 {!isLogin &&
                                     <ButtonBase

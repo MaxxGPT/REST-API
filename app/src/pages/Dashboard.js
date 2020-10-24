@@ -125,6 +125,9 @@ export const Dashboard = () => {
 					<Col>
 						<Button variant="info" href="/profile/subscription">Manage Subscription</Button>
 					</Col>
+					<Col>
+						<Button variant="info" href="/">Back To Home</Button>
+					</Col>
 				</Row>
 				<Row className="mt-5">
 					<Col>
