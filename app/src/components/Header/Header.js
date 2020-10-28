@@ -165,7 +165,8 @@ const Header = props => {
                                 {!isLogin &&
                                     <ButtonBase
                                         onClick={() => history.push("/register")}
-                                        className={`${classes.pricingPlanMenuItem} ${classes.pricingPlanSignUpButton}`}>
+                                        className={`${classes.pricingPlanMenuItem} ${classes.pricingPlanSignUpButton}`}
+                                        style= {{ padding : "0px 15px"}}>
                                         <Typography className={classes.pricingPlanSignUpButtonTitle}>Get API Key</Typography>
                                     </ButtonBase>
                                 }
