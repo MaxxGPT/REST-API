@@ -34,7 +34,7 @@ nav.astra-nav .nav-item a {
 }
 nav.astra-nav .nav-item a.sign-in.nav-link {
     background: #FDBC2A;
-    color: white !important;
+    color: black !important;
     margin-left: 20px;
 }
 .nav-over {
@@ -150,26 +150,30 @@ export const NavigationBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Item>
-              <Nav.Link href="/Developers">Developers</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
+          <Nav.Item>
               <Nav.Link href="/Pricing">Pricing</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="/register">Sign Up</Nav.Link>
+              <Nav.Link href="/developers">Developer</Nav.Link>
             </Nav.Item>
+            {!isLogin && (
+              <Nav.Item>
+                <Nav.Link href="/login">Login</Nav.Link>
+              </Nav.Item>
+            )}
+
+            {isLogin && (
+              <Nav.Item>
+                <Nav.Link href="/dashboard"  className="sign-in">test@asatera.com</Nav.Link>
+              </Nav.Item>
+            )}
 
             {!isLogin && (
               <Nav.Item>
-                <Nav.Link href="/login" className="sign-in">Sign In</Nav.Link>
+                <Nav.Link href="/register" className="sign-in">Get API Key</Nav.Link>
               </Nav.Item>
             )}
-            {isLogin && (
-              <Nav.Item>
-                <Nav.Link onClick={logout}>Logout</Nav.Link>
-              </Nav.Item>
-            )}
+
           </Nav>
         </Navbar.Collapse>
       </Navbar>
