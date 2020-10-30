@@ -56,7 +56,7 @@ router.post(
 
 router.get("/logout", function (req, res) {
   req.logout();
-  res.status(200).json({ msg: "Logout" });
+  res.redirect('/');
 });
 
 module.exports = router;

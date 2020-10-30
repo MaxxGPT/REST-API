@@ -38,7 +38,8 @@ export const Dashboard = () => {
 	}
 
 	const redirectToLogin = () => {
-		window.location.href = '/login';
+
+		window.location.href = '/api/auth/logout';
 	}
 
 	const deleteAccount = () => {
