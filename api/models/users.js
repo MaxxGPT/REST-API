@@ -2,7 +2,14 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 //const { stringify } = require('uuid');
 
-var userSchema = new mongoose.Schema(
+const historySchema = new mongoose.Schema({
+  field: String, value: String, updated_by: {
+    type: "Date",
+    default: Date.now,
+  }
+});
+
+const userSchema = new mongoose.Schema(
   {
     email: {
       type: String,
@@ -43,6 +50,7 @@ var userSchema = new mongoose.Schema(
     },
     apiKey: String,
     status: { type: "Boolean", default: false },
+    history: [historySchema]
   },
   { collection: "Users" }
 );

@@ -66,28 +66,7 @@ router.delete("/", authMiddleware.validate, async (req, res) => {
 });
 
 /*PATCH Users*/
-router.patch("/", authMiddleware.validate, async (req, res) => {
-  console.log("PATCH", req.body);
-  if (
-    req.body.password &&
-    (req.body.password == "" || req.body.password.length == 0)
-  ) {
-    delete req.body.password;
-  }
-  if (req.body.password) {
-    req.body.password = bcrypt.hashSync(
-      req.body.password,
-      bcrypt.genSaltSync(10)
-    );
-  }
-  Users.findByIdAndUpdate(req.user.id, { $set: req.body }, (err) => {
-    if (err) {
-      return res.status(500).json({ message: err.message });
-    } else {
-      return res.status(200).json({ message: "User updated correctly." });
-    }
-  });
-});
+router.patch("/", authMiddleware.validate, UsersConstroller.update);
 
 /*Updare User API Key*/
 router.get("/generateApi", authMiddleware.validate, async (req, res) => {

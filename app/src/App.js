@@ -11,7 +11,7 @@ import { Terms } from "./Terms";
 import { Register } from "./pages/Register";
 import { Dashboard } from "./pages/Dashboard";
 import { ChangePassword } from "./ChangePassword";
-import { ProfileUser } from "./ProfileUser";
+import { ProfileUser } from "./pages/ProfileUser";
 import { NewSource } from "./sources/NewSource";
 import { UpdateSource } from "./sources/UpdateSource";
 import { SourceList } from "./sources/SourceList";

@@ -3,7 +3,6 @@ import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import { request } from '../services/Request';
 import "../Styles/login.scss"
-import HCaptcha from '@hcaptcha/react-hcaptcha';
 import AsateraLogo from "../components/AsateraLogo";
 import { ToastContainer, toast } from "react-toastify";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
@@ -19,10 +18,6 @@ export const Login = () => {
         let currentLoginData = loginData;
         currentLoginData[event.target.name] = event.target.value;
         setLoginData(currentLoginData);
-    }
-
-    const onVerifyCaptcha = (token) => {
-        console.log('token', token)
     }
 
     const handleSubmit = (event) => {

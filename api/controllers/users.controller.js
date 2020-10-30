@@ -133,5 +133,30 @@ module.exports = {
       "$sort": { "_id": 1 },
     }, { "$limit": 7 }]);
     return res.status(200).json(_usage)
+  },
+  update: async (req, res) => {
+    if (
+      req.body.password &&
+      (req.body.password == "" || req.body.password.length == 0)
+    ) {
+      delete req.body.password;
+    }
+    const _userFromModel = await Users.findById(req.user.id);
+    if (_userFromModel.name !== req.body.name) {
+      _userFromModel.history.push({ field: 'name', value: _userFromModel.name })
+      _userFromModel.name = req.body.name;
+    }
+    if (_userFromModel.email !== req.body.email) {
+      _userFromModel.history.push({ field: 'email', value: _userFromModel.email })
+      _userFromModel.email = req.body.email;
+    }
+    if (req.body.password && _userFromModel.password !== req.body.password) {
+      _userFromModel.history.push({ field: 'password', value: _userFromModel.password })
+      _userFromModel.password = req.body.password;
+    }
+
+    (await _userFromModel).save()
+
+    res.status(200).json({ message: "User updated correctly." });
   }
 };
