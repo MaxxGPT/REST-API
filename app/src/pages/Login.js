@@ -23,7 +23,7 @@ export const Login = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = JSON.stringify(loginData);
-        const result = request("/api/auth/login", {
+        const result = request("http://localhost:4000/dev/users/login", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: data
@@ -32,6 +32,7 @@ export const Login = () => {
             if (result.error) {
                 toast.error("Email or password incorrect");
             } else {
+                localStorage.token = result.data.token;
                 window.location.href = "/dashboard";
             }
         });

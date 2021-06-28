@@ -40,7 +40,7 @@ export const Register = () => {
       if (userData.terms) {
         if (userData.password === userData.password2) {
           axios
-            .post(`/api/auth`, userData)
+            .post(`http://localhost:4000/dev/users/signin`, userData)
             .then((res) => {
               redirectToCompleted();
             })

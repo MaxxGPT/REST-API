@@ -9,18 +9,12 @@ export const Dashboard = () => {
 	const [userData, setUserData] = useState({});
 	const [usage, setUsage] = useState([]);
 
-	useEffect(() => {
-		request('/api/users/me', {})
-			.then(
-				(result) => {
-					setUserData(result.data);
-				}
-			);
-		getUSage();
-	}, []);
-
-	const getUSage = () => {
-		request('/api/users/usage', {})
+	const getUsage = () => {
+		request('http://localhost:4000/dev/users/usage', {
+			headers:{
+				'Authorization': 'Bearer '+localStorage.token
+			}
+		})
 			.then(
 				(result) => {
 					const _data = {
@@ -36,6 +30,21 @@ export const Dashboard = () => {
 				}
 			);
 	}
+
+	useEffect(() => {
+		request('http://localhost:4000/dev/users/me', {
+			headers:{
+				'Authorization': 'Bearer '+localStorage.token
+			}
+		})
+		.then(
+			(result) => {
+				setUserData(result.data);
+				getUsage();
+			}
+		);
+	}, []);
+
 
 	const redirectToLogin = () => {
 
