@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Developers from "./Developers";
 import Pricing from "./components/Pricing/Pricing";
@@ -8,6 +8,7 @@ import { Forgot } from "./Forgot";
 import { NoMatch } from "./NoMatch";
 import { Privacy } from "./Privacy";
 import { Terms } from "./Terms";
+import { NavigationBar } from "./components/NavigationBar";
 import { Register } from "./pages/Register";
 import { Dashboard } from "./pages/Dashboard";
 import { ChangePassword } from "./ChangePassword";
@@ -27,25 +28,25 @@ class App extends Component {
             <NavigationBar />
           } */}
           <Router>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/developers" component={Developers} />
-              <Route path="/Pricing" component={Pricing} />
-              <Route path="/login" component={Login} />
-              <Route path="/forgot" component={Forgot} />
-              <Route path="/privacy" component={Privacy} />
-              <Route path="/terms" component={Terms} />
-              <Route path="/register" component={Register} />
-              <Route path="/register-complete" component={RegisterComplete} />
-              <Route path="/dashboard" component={Dashboard} />
-              <Route path="/profile/subscription" component={Subscription} />
-              <Route path="/profile/password" component={ChangePassword} />
-              <Route path="/profile/user" component={ProfileUser} />
-              <Route exact path="/sources" component={SourceList} />
-              <Route path="/sources/new" component={NewSource} />
-              <Route path="/sources/update/:id" component={UpdateSource} />
-              <Route component={NoMatch} />
-            </Switch>
+            <Routes>
+              <Route exact path="/" element={ <Home/> } />
+              <Route path="/developers" element={ <Developers/> } />
+              <Route path="/Pricing" element={ <Pricing/> } />
+              <Route path="/login" element={ <Login/> } />
+              <Route path="/forgot" element={ <Forgot/> } />
+              <Route path="/privacy" element={ <Privacy/> } />
+              <Route path="/terms" element={<Terms/> } />
+              <Route path="/register" element={ <Register/> } />
+              <Route path="/register-complete" element={ <RegisterComplete/> } />
+              <Route path="/dashboard" element={ <Dashboard/> } />
+              <Route path="/profile/subscription" element={ <Subscription/> } />
+              <Route path="/profile/password" element={ <ChangePassword/> } />
+              <Route path="/profile/user" element={ <ProfileUser/> } />
+              <Route exact path="/sources" element={ <SourceList/> } />
+              <Route path="/sources/new" element={ <NewSource />} />
+              <Route path="/sources/update/:id" element={ <UpdateSource/> } />
+              <Route element={ <NoMatch/> } />
+            </Routes>
           </Router>
         </div>
       </div>
