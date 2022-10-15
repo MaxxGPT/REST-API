@@ -1,6 +1,6 @@
 import React from "react";
 import { isAuth } from "../helpers/auth";
-import { Redirect} from "react-router-dom";
+import { Navigate} from "react-router-dom";
 import {Container, Row, Col, Form, Button} from "react-bootstrap";
 import "../Styles/register.css";
 import AsateraLogo from "../components/AsateraLogo";
@@ -10,7 +10,7 @@ export const RegisterComplete = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
-      {isAuth() ? <Redirect to="/" /> : null}
+      {isAuth() ? <Navigate to="/" /> : null}
         <Container className="mt-5 mb-5 login">
             <ToastContainer />
             <Row className="justify-content-md-center rounded-big shadow overflow-hidden form-div-row">
